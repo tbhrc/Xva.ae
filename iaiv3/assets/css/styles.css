@@ -4,6 +4,67 @@
 }
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ==================== ANIMATED MINIMALIST BACKGROUND ==================== */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(20, 184, 166, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(14, 165, 233, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(45, 212, 191, 0.05) 0%, transparent 50%);
+  animation: backgroundMove 20s ease-in-out infinite alternate;
+}
+
+@keyframes backgroundMove {
+  0% {
+    background-position: 0% 0%, 100% 100%, 50% 50%;
+    opacity: 1;
+  }
+  50% {
+    background-position: 100% 50%, 0% 50%, 80% 20%;
+    opacity: 0.8;
+  }
+  100% {
+    background-position: 50% 100%, 50% 0%, 20% 80%;
+    opacity: 1;
+  }
+}
+
+/* Subtle grid pattern overlay */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  background-image: 
+    linear-gradient(rgba(148, 163, 184, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: gridMove 40s linear infinite;
+  opacity: 0.4;
+}
+
+@keyframes gridMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
 }
 
 /* ==================== MODERN ANIMATIONS ==================== */
@@ -1031,5 +1092,355 @@ body {
   #scroll-progress,
   #mobile-menu-toggle {
     display: none !important;
+  }
+}
+
+/* ==================== ENHANCED SMOOTH TRANSITIONS ==================== */
+
+/* Apply smooth transitions to everything */
+* {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Specific transition overrides for better performance */
+div, section, article, main, header, footer, nav {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==================== ENHANCED HOVER EFFECTS ==================== */
+
+/* Smooth hover for all interactive elements */
+button, a, input, select, textarea {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+/* Enhanced link hover with glow */
+a:not(.btn-primary):not(.btn-ghost):hover {
+  color: #14b8a6;
+  text-shadow: 0 0 8px rgba(20, 184, 166, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Smooth nav link transitions */
+nav a {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+nav a:hover {
+  transform: translateY(-2px) scale(1.05);
+  color: #14b8a6;
+}
+
+/* Enhanced button hover with multiple effects */
+.btn-primary,
+.btn-ghost {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(20, 184, 166, 0.3),
+              0 0 20px rgba(20, 184, 166, 0.2);
+}
+
+.btn-ghost:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 16px rgba(51, 65, 85, 0.4);
+}
+
+/* Enhanced chip hover effects */
+.chip {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.chip:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 12px rgba(20, 184, 166, 0.2);
+  background: rgba(20, 184, 166, 0.1);
+  border-color: rgba(20, 184, 166, 0.5);
+}
+
+/* Glass panel enhanced hover */
+.glass-panel {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.95), 
+              0 0 30px rgba(20, 184, 166, 0.15);
+}
+
+/* Service card enhanced hover */
+.service-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 16px 32px rgba(20, 184, 166, 0.2), 
+              0 0 50px rgba(0, 0, 0, 0.4);
+}
+
+/* Resource card enhanced hover */
+.resource-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.resource-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 16px 32px rgba(20, 184, 166, 0.2), 
+              0 0 50px rgba(0, 0, 0, 0.4);
+}
+
+/* Metric card hover effects */
+.metric-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.metric-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(20, 184, 166, 0.15);
+  border-color: rgba(20, 184, 166, 0.3);
+}
+
+/* Input field enhanced focus */
+.field-input {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.field-input:focus {
+  transform: scale(1.01);
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.2),
+              0 4px 12px rgba(20, 184, 166, 0.1);
+}
+
+/* Timeline step hover */
+.timeline-step {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timeline-step:hover {
+  transform: translateY(-5px) scale(1.03);
+}
+
+.timeline-step:hover .timeline-dot {
+  transform: scale(1.3) rotate(360deg);
+  box-shadow: 0 0 20px rgba(20, 184, 166, 0.5);
+}
+
+/* Icon circle enhanced hover */
+.icon-circle {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card:hover .icon-circle {
+  transform: scale(1.2) rotate(360deg);
+  box-shadow: 0 0 20px rgba(20, 184, 166, 0.4);
+}
+
+/* Readiness question hover */
+.readiness-question {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.readiness-question:hover {
+  transform: translateX(8px) scale(1.01);
+  box-shadow: 0 4px 12px rgba(20, 184, 166, 0.15);
+}
+
+/* Pill hover effect */
+.pill {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pill:hover {
+  transform: scale(1.05);
+  background: rgba(20, 184, 166, 0.1);
+  border-color: rgba(20, 184, 166, 0.3);
+}
+
+/* Gauge wrapper hover */
+.gauge-wrapper:hover .gauge {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 15px rgba(20, 184, 166, 0.3));
+}
+
+/* Eyebrow hover effect */
+.eyebrow {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.eyebrow:hover {
+  color: #14b8a6;
+  letter-spacing: 0.24em;
+}
+
+/* Page title hover effect */
+.page-title {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-title:hover {
+  color: #14b8a6;
+  text-shadow: 0 0 20px rgba(20, 184, 166, 0.3);
+}
+
+/* Metric value hover */
+.metric-value {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.metric-value:hover {
+  color: #14b8a6;
+  transform: scale(1.1);
+  text-shadow: 0 0 10px rgba(20, 184, 166, 0.5);
+}
+
+/* Resource link hover */
+.resource-link {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.resource-link:hover {
+  color: #fbbf24;
+  transform: translateX(5px);
+  text-shadow: 0 0 10px rgba(251, 191, 36, 0.4);
+}
+
+/* Header smooth transition */
+header {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Mobile menu smooth transitions */
+#mobile-menu {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Scroll progress smooth animation */
+#scroll-progress {
+  transition: width 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.3s ease;
+}
+
+/* ==================== FLOATING ELEMENTS ==================== */
+
+/* Add subtle floating animation to specific elements */
+.hero-graph {
+  animation: float 6s ease-in-out infinite;
+}
+
+.hero-dot {
+  animation: float 3s ease-in-out infinite, pulse-glow 2s ease-in-out infinite;
+}
+
+/* Floating icons */
+.icon-circle svg,
+.icon-circle i {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card:hover .icon-circle svg,
+.service-card:hover .icon-circle i {
+  animation: float 2s ease-in-out infinite;
+}
+
+/* ==================== SMOOTH SCROLL BEHAVIOR ==================== */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+/* Smooth section transitions */
+section {
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==================== ENHANCED FOCUS STATES ==================== */
+
+*:focus-visible {
+  outline: 2px solid #14b8a6;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px rgba(20, 184, 166, 0.2);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==================== SMOOTH IMAGE TRANSITIONS ==================== */
+
+img {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+img:hover {
+  transform: scale(1.02);
+  filter: brightness(1.1);
+}
+
+/* ==================== TEXT SMOOTH TRANSITIONS ==================== */
+
+h1, h2, h3, h4, h5, h6, p, span {
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==================== ADDITIONAL BACKGROUND EFFECTS ==================== */
+
+/* Floating particles effect */
+@keyframes particleFloat {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.05;
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px);
+    opacity: 0.1;
+  }
+  50% {
+    transform: translateY(-40px) translateX(-10px);
+    opacity: 0.05;
+  }
+  75% {
+    transform: translateY(-20px) translateX(-20px);
+    opacity: 0.1;
+  }
+}
+
+/* Add subtle glow effect to specific elements */
+.glass-panel,
+.service-card,
+.resource-card {
+  position: relative;
+}
+
+.glass-panel::after,
+.service-card::after,
+.resource-card::after {
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Smooth opacity transitions */
+.fade-section {
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==================== REDUCED MOTION SUPPORT ==================== */
+
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after {
+    animation: none !important;
+  }
+  
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
