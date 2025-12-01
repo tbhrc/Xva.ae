@@ -370,3 +370,26 @@ body {
 .gauge-band {
   margin-top: 0.1rem;
 }
+
+/* Skip link for keyboard navigation (hidden by default; visible on focus) */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  left: auto;
+  margin: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: #111827;
+  color: #fbbf24;
+  border-radius: 0.25rem;
+  outline: 3px solid rgba(255, 160, 50, 0.3);
+  z-index: 9999;
+}

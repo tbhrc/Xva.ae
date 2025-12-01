@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Project customizations such as small utility classes or structural styles. */
+
+/* Preserve existing site styles from assets/css/styles.css. If you include rules below, ensure they are added after compiled Tailwind to allow overrides. */

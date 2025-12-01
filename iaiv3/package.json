@@ -1,0 +1,14 @@
+{
+  "name": "iaiv3",
+  "version": "1.0.0",
+  "description": "ImplementAI static website — build with Tailwind locally",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/styles.css -o ./assets/css/main.css --minify",
+    "watch:css": "tailwindcss -i ./src/styles.css -o ./assets/css/main.css --watch"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.4.0"
+  }
+}

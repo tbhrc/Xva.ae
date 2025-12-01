@@ -18,8 +18,33 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("resize", updateProgress);
 
   if (mobileToggle && mobileMenu) {
+    // Initialize aria attributes
+    mobileToggle.setAttribute('aria-expanded', 'false');
+    mobileToggle.setAttribute('aria-controls', 'mobile-menu');
+    mobileToggle.setAttribute('aria-label', 'Open main menu');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+
     mobileToggle.addEventListener("click", function () {
+      const expanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+      mobileToggle.setAttribute('aria-expanded', String(!expanded));
       mobileMenu.classList.toggle("hidden");
+      mobileMenu.setAttribute('aria-hidden', String(expanded));
+      if (!expanded) {
+        const firstLink = mobileMenu.querySelector('a');
+        if (firstLink) firstLink.focus();
+      } else {
+        mobileToggle.focus();
+      }
+    });
+
+    // Close the menu on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+        mobileToggle.focus();
+      }
     });
   }
 
@@ -31,6 +56,14 @@ document.addEventListener("DOMContentLoaded", function () {
           const bars = entry.target.querySelectorAll(".metric-bar-fill");
           bars.forEach(bar => {
             const target = bar.getAttribute("data-bar-target");
+            // Add accessible progressbar attributes
+            bar.setAttribute('role', 'progressbar');
+            bar.setAttribute('aria-valuemin', '0');
+            bar.setAttribute('aria-valuemax', '100');
+            if (target) {
+              bar.setAttribute('aria-valuenow', String(target));
+              bar.setAttribute('aria-label', `${target}%`);
+            }
             if (target && !bar.dataset.filled) {
               bar.dataset.filled = "true";
               requestAnimationFrame(() => {
@@ -62,6 +95,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const pct = total > 0 ? Math.round((answered / total) * 100) : 0;
     readinessProgressLabel.textContent = pct;
     readinessProgressBar.style.width = pct + "%";
+    readinessProgressBar.setAttribute('role', 'progressbar');
+    readinessProgressBar.setAttribute('aria-valuemin', '0');
+    readinessProgressBar.setAttribute('aria-valuemax', '100');
+    readinessProgressBar.setAttribute('aria-valuenow', String(pct));
   }
 
   if (readinessForm) {
@@ -123,6 +160,26 @@ document.addEventListener("DOMContentLoaded", function () {
       } catch (err) {}
 
       window.location.href = "ai-readiness-result.html";
+    });
+  }
+
+  // Contact form - basic client side validation and success message (no server)
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = contactForm.querySelector('#name');
+      const email = contactForm.querySelector('#email');
+      const successEl = document.getElementById('contact-success');
+      let ok = true;
+      if (name && !name.value.trim()) { name.setAttribute('aria-invalid','true'); ok = false; } else if (name) { name.removeAttribute('aria-invalid'); }
+      if (email && (!email.value.trim() || !/\S+@\S+\.\S+/.test(email.value))) { email.setAttribute('aria-invalid','true'); ok = false; } else if (email) { email.removeAttribute('aria-invalid'); }
+      if (!ok) return;
+      if (successEl) {
+        successEl.classList.remove('hidden');
+        setTimeout(() => successEl.classList.add('hidden'), 8000);
+      }
+      contactForm.reset();
     });
   }
 
@@ -189,6 +246,11 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!elBar || !elScore) return;
       elScore.textContent = value + " / 100";
       elBar.setAttribute("data-bar-target", value);
+      elBar.setAttribute('role', 'progressbar');
+      elBar.setAttribute('aria-valuemin', '0');
+      elBar.setAttribute('aria-valuemax', '100');
+      elBar.setAttribute('aria-valuenow', String(value));
+      elBar.setAttribute('aria-label', `${value}%`);
       requestAnimationFrame(() => {
         elBar.style.width = value + "%";
       });
@@ -198,5 +260,15 @@ document.addEventListener("DOMContentLoaded", function () {
     applyPillar(barPeople, scorePeopleEl, profile.pillars.people || 0);
     applyPillar(barTechnology, scoreTechnologyEl, profile.pillars.technology || 0);
     applyPillar(barGovernance, scoreGovernanceEl, profile.pillars.governance || 0);
+  }
+
+  // Clear readiness data button on result page
+  const clearReadinessBtn = document.getElementById('clear-readiness');
+  if (clearReadinessBtn) {
+    clearReadinessBtn.addEventListener('click', function () {
+      try { localStorage.removeItem('implementai_readiness_profile'); } catch (err) {}
+      // Redirect back to the questionnaire so users can retake
+      window.location.href = 'ai-readiness.html';
+    });
   }
 });
