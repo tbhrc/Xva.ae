@@ -7,16 +7,16 @@ module.exports = {
     extend: {
       colors: {
         brand: {
-          50: '#fff7e6',
-          100: '#ffe7b8',
-          300: '#ffd272',
-          400: '#ffc043',
-          500: '#ffb01a',
-          600: '#e09400'
+          50: '#f0f9ff',
+          100: '#e0f2fe',
+          300: '#7dd3fc',
+          400: '#38bdf8',
+          500: '#0ea5e9',
+          600: '#0284c7'
         }
       },
       boxShadow: {
-        'brand-glow': '0 18px 45px rgba(255,192,67,0.25)'
+        'brand-glow': '0 18px 45px rgba(15, 118, 110, 0.2)'
       }
     }
   },

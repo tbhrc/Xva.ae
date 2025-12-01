@@ -4,7 +4,9 @@
   "description": "ImplementAI static website — build with Tailwind locally",
   "scripts": {
     "build:css": "tailwindcss -i ./src/styles.css -o ./assets/css/main.css --minify",
-    "watch:css": "tailwindcss -i ./src/styles.css -o ./assets/css/main.css --watch"
+    "watch:css": "tailwindcss -i ./src/styles.css -o ./assets/css/main.css --watch",
+    "build": "npm run build:css",
+    "build:prod": "npm run build:css && echo 'Production build ready for deployment'"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",
