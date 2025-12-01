@@ -4,6 +4,48 @@ document.addEventListener("DOMContentLoaded", function () {
   const mobileToggle = document.getElementById("mobile-menu-toggle");
   const mobileMenu = document.getElementById("mobile-menu");
 
+  // ==================== SCROLL REVEAL ANIMATION ====================
+  // Observe elements with fade-section class and reveal them on scroll
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observe all fade-section elements
+  document.querySelectorAll('.fade-section').forEach(el => {
+    observer.observe(el);
+  });
+
+  // ==================== METRIC BAR ANIMATION ====================
+  // Animate metric bars when they come into view
+  const metricBarObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const bar = entry.target.querySelector('.metric-bar-fill');
+        if (bar && bar.hasAttribute('data-bar-target')) {
+          const targetWidth = bar.getAttribute('data-bar-target');
+          setTimeout(() => {
+            bar.style.width = targetWidth + '%';
+          }, 100);
+        }
+        metricBarObserver.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.metric-bar').forEach(el => {
+    metricBarObserver.observe(el);
+  });
+
   function updateProgress() {
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
     const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
