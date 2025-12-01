@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  const observer = new IntersectionObserver(
+  const metricObserver = new IntersectionObserver(
     entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
     { threshold: 0.12 }
   );
 
-  document.querySelectorAll(".fade-section").forEach(el => observer.observe(el));
+  document.querySelectorAll(".fade-section").forEach(el => metricObserver.observe(el));
 
   const readinessForm = document.getElementById("readiness-form");
   const readinessProgressBar = document.getElementById("readiness-progress-bar");
