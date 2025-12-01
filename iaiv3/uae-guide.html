@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ImplementAI.ae | Uae Guide</title>
+  <meta name="description" content="ImplementAI.ae is a UAE based AI consulting firm providing strategy, workshops, automation builds and fractional CAIO leadership for mid market organisations." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#fff7e6',
+              100: '#ffe7b8',
+              300: '#ffd272',
+              400: '#ffc043',
+              500: '#ffb01a',
+              600: '#e09400'
+            }
+          },
+          boxShadow: {
+            'brand-glow': '0 18px 45px rgba(255,192,67,0.25)',
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased scroll-smooth">
+  <div id="scroll-progress" class="fixed top-0 left-0 h-0.5 bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 z-50 w-0"></div>
+
+  <header class="fixed inset-x-0 top-0 z-40 bg-slate-950/90 border-b border-slate-800/70 backdrop-blur-xl">
+    <div class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-2xl bg-gradient-to-br from-amber-300 to-amber-500 flex items-center justify-center shadow-brand-glow">
+          <span class="text-slate-900 font-semibold text-lg">IA</span>
+        </div>
+        <div class="flex flex-col leading-tight">
+          <span class="text-[11px] tracking-[0.22em] uppercase text-slate-300">ImplementAI.ae</span>
+          <span class="text-[11px] text-slate-400">AI Consulting and Fractional CAIO in the UAE</span>
+        </div>
+      </a>
+      <nav class="hidden md:flex items-center gap-2 text-xs">
+        <a href="index.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300">Home</a>
+            <a href="services.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300">Services</a>
+            <a href="workshops.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300">Workshops</a>
+            <a href="strategy.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300">Strategy</a>
+            <a href="fractional-caio.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300">Fractional CAIO</a>
+            <a href="resources.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors bg-amber-300 text-slate-900 font-semibold">Resources</a>
+            <a href="ai-readiness.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300">AI Readiness Check</a>
+            <a href="about.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300">About</a>
+            <a href="contact.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300">Contact</a>
+      </nav>
+      <button id="mobile-menu-toggle" class="md:hidden rounded-full border border-slate-700 px-2.5 py-1 text-[11px] text-slate-100 flex items-center gap-1">
+        <span>Menu</span>
+        <span class="text-sm">☰</span>
+      </button>
+    </div>
+    <div id="mobile-menu" class="md:hidden max-w-6xl mx-auto px-4 pb-3 hidden">
+      <nav class="flex flex-col">
+        <a href="index.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300 block text-center mb-2">Home</a>
+          <a href="services.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300 block text-center mb-2">Services</a>
+          <a href="workshops.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300 block text-center mb-2">Workshops</a>
+          <a href="strategy.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300 block text-center mb-2">Strategy</a>
+          <a href="fractional-caio.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300 block text-center mb-2">Fractional CAIO</a>
+          <a href="resources.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors bg-amber-300 text-slate-900 font-semibold block text-center mb-2">Resources</a>
+          <a href="ai-readiness.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300 block text-center mb-2">AI Readiness Check</a>
+          <a href="about.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300 block text-center mb-2">About</a>
+          <a href="contact.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300 block text-center mb-2">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="pt-20 md:pt-24">
+    
+<section class="max-w-4xl mx-auto px-4 py-10">
+  <div class="fade-section" data-animate>
+    <p class="eyebrow">Guide</p>
+    <h1 class="page-title">A practical guide for UAE mid market organisations that want to use AI in the next twelve months.</h1>
+    <p class="page-intro">
+      This guide is written for leaders of organisations that are large enough to feel the weight of complexity but not large enough to maintain a full internal AI department. It offers a sequence of considerations that can help you think clearly about AI without losing time in speculation.
+    </p>
+  </div>
+  <article class="guide-article fade-section" data-animate>
+    <h2>1. Begin with problems you already recognise.</h2>
+    <p>
+      Many AI conversations begin with tool demonstrations. A more useful starting point is a list of problems that frustrate you today. These may be slow response times, manual reconciliation work, inconsistent customer follow up or the need to read through large volumes of documents. AI is most effective when applied to real, current problems.
+    </p>
+    <p>
+      Create a simple inventory. For each problem, capture who is affected, how often it occurs and an approximation of the time or money involved. Perfection is not required. This inventory becomes input for later opportunity mapping with your AI partners.
+    </p>
+    <h2>2. Separate foundations, differentiators and experiments.</h2>
+    <p>
+      Not every AI initiative serves the same purpose. Some will underpin basic productivity. Others may provide a competitive edge. A small number will remain experiments. Treating them as a single category leads to confusion. Classifying initiatives into foundations, differentiators and experiments makes trade offs easier.
+    </p>
+    <h2>3. Understand the constraints that matter in the UAE.</h2>
+    <p>
+      The UAE offers strong support for technology adoption, but local regulations, sector specific rules and your own internal policies shape what is possible. Addressing questions of data residency, access controls and system boundaries early reduces friction later.
+    </p>
+    <p>
+      Engage legal, compliance and information security teams with focused questions about where AI use is clearly acceptable, where it is clearly not and where further analysis is required. The result is a map of safe zones for early initiatives.
+    </p>
+    <h2>4. Look at workflows rather than isolated tasks.</h2>
+    <p>
+      Improving one step of a process without understanding the sequence often produces disappointing results. For example, automating document extraction may not help if approvals or follow up actions remain manual and slow. Viewing the entire workflow from trigger to outcome helps you choose segments with meaningful impact.
+    </p>
+    <h2>5. Use value models that are simple and transparent.</h2>
+    <p>
+      Elaborate financial models can obscure assumptions. Instead, focus on simple calculations that stakeholders can understand and challenge. Estimate hours saved, errors reduced or additional volume handled, then convert these into conservative value ranges.
+    </p>
+    <p>
+      Document assumptions in plain language. This makes it easier to compare actual outcomes with expectations and refine your approach over time.
+    </p>
+    <h2>6. Give people space and support to adapt.</h2>
+    <p>
+      Technology changes faster than habits. Teams need time, guidance and reassurance. In the UAE, where many organisations rely on multicultural workforces, clarity about the intent of AI initiatives is particularly important. Emphasise that the objective is to remove low value work and enable higher value contribution, not to undermine people.
+    </p>
+    <h2>7. Decide how you will govern AI before issues appear.</h2>
+    <p>
+      At some stage, a model will behave unpredictably or an employee will use a tool in a way that conflicts with policy. If governance has not been defined, the reaction is often to halt all activity. Light but clear governance structures avoid this. Identify who owns decisions, how incidents will be handled and what levels of risk are acceptable.
+    </p>
+    <h2>8. Choose partners fluent in both business and technology.</h2>
+    <p>
+      AI projects in the mid market succeed when partners can translate between commercial objectives and technical realities. Look for evidence that potential advisors understand business models, operating rhythms and organisational dynamics as well as tools and models.
+    </p>
+    <h2>9. Treat the coming year as a learning period with outcomes.</h2>
+    <p>
+      It is unrealistic to expect a complete AI transformation in twelve months. It is reasonable to expect tangible progress in workflows and capabilities. Frame the next year as a period of learning with clearly defined outcomes. Measure success both in improved processes and improved ability to make informed decisions about AI.
+    </p>
+  </article>
+</section>
+
+<section class="max-w-4xl mx-auto px-4 pb-10 fade-section" data-animate>
+  <div class="border border-emerald-500/40 bg-emerald-900/15 rounded-3xl p-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+    <div>
+      <p class="eyebrow text-emerald-300">Apply the guide</p>
+      <h2 class="page-title text-[1.1rem] mb-2">Turn the ideas in this guide into a readiness score.</h2>
+      <p class="page-intro text-xs text-emerald-100 max-w-xl">
+        The readiness check translates themes from this guide into concrete statements that you can score from one to five. The result is a profile you can share with your leadership team.
+      </p>
+    </div>
+    <a href="ai-readiness.html" class="btn-primary">
+      Take the readiness check
+    </a>
+  </div>
+</section>
+
+  </main>
+
+  <footer class="border-t border-slate-800 bg-slate-950 py-5 mt-10">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-3 text-[11px] text-slate-500">
+      <p>© 2025 ImplementAI.ae. AI consulting and fractional CAIO services for UAE organisations.</p>
+      <p>Designed for mid market firms that want practical AI, not experiments.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

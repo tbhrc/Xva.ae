@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ImplementAI.ae | Resources</title>
+  <meta name="description" content="ImplementAI.ae is a UAE based AI consulting firm providing strategy, workshops, automation builds and fractional CAIO leadership for mid market organisations." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#fff7e6',
+              100: '#ffe7b8',
+              300: '#ffd272',
+              400: '#ffc043',
+              500: '#ffb01a',
+              600: '#e09400'
+            }
+          },
+          boxShadow: {
+            'brand-glow': '0 18px 45px rgba(255,192,67,0.25)',
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased scroll-smooth">
+  <div id="scroll-progress" class="fixed top-0 left-0 h-0.5 bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 z-50 w-0"></div>
+
+  <header class="fixed inset-x-0 top-0 z-40 bg-slate-950/90 border-b border-slate-800/70 backdrop-blur-xl">
+    <div class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-2xl bg-gradient-to-br from-amber-300 to-amber-500 flex items-center justify-center shadow-brand-glow">
+          <span class="text-slate-900 font-semibold text-lg">IA</span>
+        </div>
+        <div class="flex flex-col leading-tight">
+          <span class="text-[11px] tracking-[0.22em] uppercase text-slate-300">ImplementAI.ae</span>
+          <span class="text-[11px] text-slate-400">AI Consulting and Fractional CAIO in the UAE</span>
+        </div>
+      </a>
+      <nav class="hidden md:flex items-center gap-2 text-xs">
+        <a href="index.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300">Home</a>
+            <a href="services.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300">Services</a>
+            <a href="workshops.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300">Workshops</a>
+            <a href="strategy.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300">Strategy</a>
+            <a href="fractional-caio.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300">Fractional CAIO</a>
+            <a href="resources.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors bg-amber-300 text-slate-900 font-semibold">Resources</a>
+            <a href="ai-readiness.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300">AI Readiness Check</a>
+            <a href="about.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300">About</a>
+            <a href="contact.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300">Contact</a>
+      </nav>
+      <button id="mobile-menu-toggle" class="md:hidden rounded-full border border-slate-700 px-2.5 py-1 text-[11px] text-slate-100 flex items-center gap-1">
+        <span>Menu</span>
+        <span class="text-sm">☰</span>
+      </button>
+    </div>
+    <div id="mobile-menu" class="md:hidden max-w-6xl mx-auto px-4 pb-3 hidden">
+      <nav class="flex flex-col">
+        <a href="index.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300 block text-center mb-2">Home</a>
+          <a href="services.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300 block text-center mb-2">Services</a>
+          <a href="workshops.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300 block text-center mb-2">Workshops</a>
+          <a href="strategy.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300 block text-center mb-2">Strategy</a>
+          <a href="fractional-caio.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300 block text-center mb-2">Fractional CAIO</a>
+          <a href="resources.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors bg-amber-300 text-slate-900 font-semibold block text-center mb-2">Resources</a>
+          <a href="ai-readiness.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300 block text-center mb-2">AI Readiness Check</a>
+          <a href="about.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300 block text-center mb-2">About</a>
+          <a href="contact.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300 block text-center mb-2">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="pt-20 md:pt-24">
+    
+<section class="max-w-6xl mx-auto px-4 py-10">
+  <div class="fade-section" data-animate>
+    <p class="eyebrow">Resources</p>
+    <h1 class="page-title">Resources and guides for UAE leaders exploring AI.</h1>
+    <p class="page-intro">
+      The articles and guides on this page are designed for busy executives and managers. They focus on practical questions such as where to begin, how to evaluate proposals and how to talk about AI with boards and staff.
+    </p>
+  </div>
+  <div class="grid md:grid-cols-2 gap-4 mt-6 fade-section" data-animate>
+    <a href="uae-guide.html" class="resource-card">
+      <h2 class="resource-title">A practical guide for UAE mid market organisations planning AI in the next twelve months.</h2>
+      <p class="resource-text">A long form guide covering problem selection, constraints, workflow thinking, value models, governance and partner selection.</p>
+      <span class="resource-link">Read the guide ↗</span>
+    </a>
+    <div class="resource-card">
+      <h2 class="resource-title">Questions your board will ask about AI.</h2>
+      <p class="resource-text">
+        A set of questions directors and owners commonly raise when AI appears on the agenda, with suggestions on how to prepare factual, calm answers that acknowledge risk without freezing progress.
+      </p>
+    </div>
+    <div class="resource-card">
+      <h2 class="resource-title">An AI readiness checklist for UAE organisations.</h2>
+      <p class="resource-text">
+        A checklist style overview of foundational items such as data access, security, change capacity and leadership alignment that influence the success of AI initiatives.
+      </p>
+    </div>
+    <div class="resource-card">
+      <h2 class="resource-title">How to brief an AI consulting partner.</h2>
+      <p class="resource-text">
+        Guidance on the information and context that makes early consulting engagements efficient, including problem statements, constraints, stakeholders and decision timelines.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="max-w-6xl mx-auto px-4 pb-10 fade-section" data-animate>
+  <div class="border border-emerald-500/40 bg-emerald-900/15 rounded-3xl p-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+    <div>
+      <p class="eyebrow text-emerald-300">Interactive tool</p>
+      <h2 class="page-title text-[1.1rem] mb-2">Use the readiness check alongside these resources.</h2>
+      <p class="page-intro text-xs text-emerald-100 max-w-xl">
+        As you read, you can complete the readiness check to see where your organisation stands today and which resources to prioritise.
+      </p>
+    </div>
+    <a href="ai-readiness.html" class="btn-primary">
+      Open readiness check
+    </a>
+  </div>
+</section>
+
+  </main>
+
+  <footer class="border-t border-slate-800 bg-slate-950 py-5 mt-10">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-3 text-[11px] text-slate-500">
+      <p>© 2025 ImplementAI.ae. AI consulting and fractional CAIO services for UAE organisations.</p>
+      <p>Designed for mid market firms that want practical AI, not experiments.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ImplementAI.ae | About</title>
+  <meta name="description" content="ImplementAI.ae is a UAE based AI consulting firm providing strategy, workshops, automation builds and fractional CAIO leadership for mid market organisations." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#fff7e6',
+              100: '#ffe7b8',
+              300: '#ffd272',
+              400: '#ffc043',
+              500: '#ffb01a',
+              600: '#e09400'
+            }
+          },
+          boxShadow: {
+            'brand-glow': '0 18px 45px rgba(255,192,67,0.25)',
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased scroll-smooth">
+  <div id="scroll-progress" class="fixed top-0 left-0 h-0.5 bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 z-50 w-0"></div>
+
+  <header class="fixed inset-x-0 top-0 z-40 bg-slate-950/90 border-b border-slate-800/70 backdrop-blur-xl">
+    <div class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-2xl bg-gradient-to-br from-amber-300 to-amber-500 flex items-center justify-center shadow-brand-glow">
+          <span class="text-slate-900 font-semibold text-lg">IA</span>
+        </div>
+        <div class="flex flex-col leading-tight">
+          <span class="text-[11px] tracking-[0.22em] uppercase text-slate-300">ImplementAI.ae</span>
+          <span class="text-[11px] text-slate-400">AI Consulting and Fractional CAIO in the UAE</span>
+        </div>
+      </a>
+      <nav class="hidden md:flex items-center gap-2 text-xs">
+        <a href="index.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300">Home</a>
+            <a href="services.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300">Services</a>
+            <a href="workshops.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300">Workshops</a>
+            <a href="strategy.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300">Strategy</a>
+            <a href="fractional-caio.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300">Fractional CAIO</a>
+            <a href="resources.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300">Resources</a>
+            <a href="ai-readiness.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300">AI Readiness Check</a>
+            <a href="about.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors bg-amber-300 text-slate-900 font-semibold">About</a>
+            <a href="contact.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300">Contact</a>
+      </nav>
+      <button id="mobile-menu-toggle" class="md:hidden rounded-full border border-slate-700 px-2.5 py-1 text-[11px] text-slate-100 flex items-center gap-1">
+        <span>Menu</span>
+        <span class="text-sm">☰</span>
+      </button>
+    </div>
+    <div id="mobile-menu" class="md:hidden max-w-6xl mx-auto px-4 pb-3 hidden">
+      <nav class="flex flex-col">
+        <a href="index.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300 block text-center mb-2">Home</a>
+          <a href="services.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300 block text-center mb-2">Services</a>
+          <a href="workshops.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300 block text-center mb-2">Workshops</a>
+          <a href="strategy.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300 block text-center mb-2">Strategy</a>
+          <a href="fractional-caio.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300 block text-center mb-2">Fractional CAIO</a>
+          <a href="resources.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300 block text-center mb-2">Resources</a>
+          <a href="ai-readiness.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300 block text-center mb-2">AI Readiness Check</a>
+          <a href="about.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors bg-amber-300 text-slate-900 font-semibold block text-center mb-2">About</a>
+          <a href="contact.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300 block text-center mb-2">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="pt-20 md:pt-24">
+    
+<section class="max-w-6xl mx-auto px-4 py-10">
+  <div class="fade-section" data-animate>
+    <p class="eyebrow">About</p>
+    <h1 class="page-title">ImplementAI.ae and the people behind it.</h1>
+    <p class="page-intro">
+      ImplementAI.ae sits at the intersection of business, people and technology. The firm is built out of decades of experience in recruitment, organisational development and digital transformation work in the UAE, combined with a focused commitment to AI as a practical operating tool.
+    </p>
+  </div>
+  <div class="grid md:grid-cols-[1.1fr,1fr] gap-8 mt-6 fade-section" data-animate>
+    <div class="space-y-4 text-[13px] text-slate-200">
+      <div class="border border-slate-800 rounded-3xl bg-slate-900/70 p-4">
+        <h2 class="section-heading">Why ImplementAI.ae exists</h2>
+        <p class="mb-2">
+          Many AI conversations in the market are either too abstract or too narrowly focused on individual tools. ImplementAI.ae was created to provide mid market organisations in the UAE with a partner that understands their operating reality and can connect AI initiatives to measurable business outcomes.
+        </p>
+        <p>
+          The focus is on disciplined adoption. That means starting with your existing strategy and operating model, choosing initiatives that align with your priorities and designing interventions that respect your people and culture.
+        </p>
+      </div>
+      <div class="border border-slate-800 rounded-3xl bg-slate-900/70 p-4">
+        <h2 class="section-heading">Experience in the region</h2>
+        <p class="mb-2">
+          The team behind ImplementAI.ae has worked in the UAE for many years through complementary ventures in recruitment, organisational development and training. This background provides a grounded view of how change actually happens in organisations, beyond presentations and frameworks.
+        </p>
+        <p>
+          That experience is now applied to AI initiatives, with the same emphasis on measurable outcomes, stakeholder engagement and long term relationships.
+        </p>
+      </div>
+    </div>
+    <div class="space-y-4 text-[13px] text-slate-200">
+      <div class="border border-slate-800 rounded-3xl bg-slate-900/70 p-4">
+        <h2 class="section-heading">How we work with clients</h2>
+        <ul class="list-disc list-inside space-y-1 text-slate-300 mb-2">
+          <li>Clear qualification at the start to ensure fit.</li>
+          <li>Short, defined engagements that can expand based on results.</li>
+          <li>Transparent assumptions and value models.</li>
+          <li>Respectful communication with teams at all levels.</li>
+        </ul>
+        <p>
+          The intention is to become a trusted advisor on AI related decisions, not simply a supplier of individual projects.
+        </p>
+      </div>
+      <div class="border border-slate-800 rounded-3xl bg-slate-900/70 p-4">
+        <h2 class="section-heading">What this is not</h2>
+        <p class="mb-2">
+          ImplementAI.ae is not a mass market training provider or a build only automation shop. The work sits at the point where strategy, operating model design and practical delivery meet.
+        </p>
+        <p>
+          If your needs are better served by a different kind of partner, for example a highly specialised industry platform or a pure software vendor, we will say so and can help you clarify your brief for them.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <footer class="border-t border-slate-800 bg-slate-950 py-5 mt-10">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-3 text-[11px] text-slate-500">
+      <p>© 2025 ImplementAI.ae. AI consulting and fractional CAIO services for UAE organisations.</p>
+      <p>Designed for mid market firms that want practical AI, not experiments.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

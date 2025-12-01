@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ImplementAI.ae | Ai Readiness</title>
+  <meta name="description" content="ImplementAI.ae is a UAE based AI consulting firm providing strategy, workshops, automation builds and fractional CAIO leadership for mid market organisations." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#fff7e6',
+              100: '#ffe7b8',
+              300: '#ffd272',
+              400: '#ffc043',
+              500: '#ffb01a',
+              600: '#e09400'
+            }
+          },
+          boxShadow: {
+            'brand-glow': '0 18px 45px rgba(255,192,67,0.25)',
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased scroll-smooth">
+  <div id="scroll-progress" class="fixed top-0 left-0 h-0.5 bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 z-50 w-0"></div>
+
+  <header class="fixed inset-x-0 top-0 z-40 bg-slate-950/90 border-b border-slate-800/70 backdrop-blur-xl">
+    <div class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-2xl bg-gradient-to-br from-amber-300 to-amber-500 flex items-center justify-center shadow-brand-glow">
+          <span class="text-slate-900 font-semibold text-lg">IA</span>
+        </div>
+        <div class="flex flex-col leading-tight">
+          <span class="text-[11px] tracking-[0.22em] uppercase text-slate-300">ImplementAI.ae</span>
+          <span class="text-[11px] text-slate-400">AI Consulting and Fractional CAIO in the UAE</span>
+        </div>
+      </a>
+      <nav class="hidden md:flex items-center gap-2 text-xs">
+        <a href="index.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300">Home</a>
+            <a href="services.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300">Services</a>
+            <a href="workshops.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300">Workshops</a>
+            <a href="strategy.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300">Strategy</a>
+            <a href="fractional-caio.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300">Fractional CAIO</a>
+            <a href="resources.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300">Resources</a>
+            <a href="ai-readiness.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors bg-amber-300 text-slate-900 font-semibold">AI Readiness Check</a>
+            <a href="about.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300">About</a>
+            <a href="contact.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300">Contact</a>
+      </nav>
+      <button id="mobile-menu-toggle" class="md:hidden rounded-full border border-slate-700 px-2.5 py-1 text-[11px] text-slate-100 flex items-center gap-1">
+        <span>Menu</span>
+        <span class="text-sm">☰</span>
+      </button>
+    </div>
+    <div id="mobile-menu" class="md:hidden max-w-6xl mx-auto px-4 pb-3 hidden">
+      <nav class="flex flex-col">
+        <a href="index.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300 block text-center mb-2">Home</a>
+          <a href="services.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300 block text-center mb-2">Services</a>
+          <a href="workshops.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300 block text-center mb-2">Workshops</a>
+          <a href="strategy.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300 block text-center mb-2">Strategy</a>
+          <a href="fractional-caio.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300 block text-center mb-2">Fractional CAIO</a>
+          <a href="resources.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300 block text-center mb-2">Resources</a>
+          <a href="ai-readiness.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors bg-amber-300 text-slate-900 font-semibold block text-center mb-2">AI Readiness Check</a>
+          <a href="about.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300 block text-center mb-2">About</a>
+          <a href="contact.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-amber-300 block text-center mb-2">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="pt-20 md:pt-24">
+    
+<section class="max-w-4xl mx-auto px-4 py-10">
+  <div class="fade-section" data-animate>
+    <p class="eyebrow">AI readiness check</p>
+    <h1 class="page-title">Ten to fifteen minutes. A first view of your AI readiness.</h1>
+    <p class="page-intro">
+      This check assesses your organisation across four dimensions: strategy, people, technology and governance. For each statement, choose the option that best reflects your current reality. Answers are not stored on a server; they are processed in your browser to generate your readiness profile.
+    </p>
+  </div>
+  <div class="fade-section mt-4" data-animate>
+    <div class="border border-slate-800 rounded-3xl bg-slate-900/80 p-4 text-[13px]">
+      <div class="flex items-center justify-between mb-3 gap-3">
+        <p class="text-slate-300 text-xs">Progress</p>
+        <p class="text-slate-400 text-[11px]"><span id="readiness-progress-label">0</span>% complete</p>
+      </div>
+      <div class="metric-bar h-2 rounded-full overflow-hidden bg-slate-900 border border-slate-800">
+        <div id="readiness-progress-bar" class="metric-bar-fill" data-bar-target="0"></div>
+      </div>
+      <p class="text-[11px] text-slate-500 mt-2">
+        There are twelve questions. You can move freely, and your score updates when you submit.
+      </p>
+    </div>
+  </div>
+  <form id="readiness-form" class="fade-section mt-6 space-y-5" data-animate>
+    <div class="readiness-group">
+      <h2 class="section-heading">Strategy</h2>
+      <p class="text-[11px] text-slate-400 mb-2">Clarity on why you are exploring AI and what outcomes matter.</p>
+      <div class="space-y-3">
+        <div class="readiness-question" data-pillar="strategy">
+          <p class="question-text">We have a documented business strategy, and AI is discussed in that context rather than as a separate topic.</p>
+          <div class="scale-options">
+            <label><input type="radio" name="q1" value="1">1</label>
+            <label><input type="radio" name="q1" value="2">2</label>
+            <label><input type="radio" name="q1" value="3">3</label>
+            <label><input type="radio" name="q1" value="4">4</label>
+            <label><input type="radio" name="q1" value="5">5</label>
+          </div>
+        </div>
+        <div class="readiness-question" data-pillar="strategy">
+          <p class="question-text">We can name specific business outcomes we expect from AI, such as faster cycle times or improved customer experience.</p>
+          <div class="scale-options">
+            <label><input type="radio" name="q2" value="1">1</label>
+            <label><input type="radio" name="q2" value="2">2</label>
+            <label><input type="radio" name="q2" value="3">3</label>
+            <label><input type="radio" name="q2" value="4">4</label>
+            <label><input type="radio" name="q2" value="5">5</label>
+          </div>
+        </div>
+        <div class="readiness-question" data-pillar="strategy">
+          <p class="question-text">There is agreement at leadership level on where AI should be explored first in our organisation.</p>
+          <div class="scale-options">
+            <label><input type="radio" name="q3" value="1">1</label>
+            <label><input type="radio" name="q3" value="2">2</label>
+            <label><input type="radio" name="q3" value="3">3</label>
+            <label><input type="radio" name="q3" value="4">4</label>
+            <label><input type="radio" name="q3" value="5">5</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="readiness-group">
+      <h2 class="section-heading">People</h2>
+      <p class="text-[11px] text-slate-400 mb-2">Capability, culture and change capacity.</p>
+      <div class="space-y-3">
+        <div class="readiness-question" data-pillar="people">
+          <p class="question-text">Key leaders are open to AI and willing to adjust ways of working when there is clear value.</p>
+          <div class="scale-options">
+            <label><input type="radio" name="q4" value="1">1</label>
+            <label><input type="radio" name="q4" value="2">2</label>
+            <label><input type="radio" name="q4" value="3">3</label>
+            <label><input type="radio" name="q4" value="4">4</label>
+            <label><input type="radio" name="q4" value="5">5</label>
+          </div>
+        </div>
+        <div class="readiness-question" data-pillar="people">
+          <p class="question-text">We have staff who understand our processes in detail and can work with consultants on mapping and redesign.</p>
+          <div class="scale-options">
+            <label><input type="radio" name="q5" value="1">1</label>
+            <label><input type="radio" name="q5" value="2">2</label>
+            <label><input type="radio" name="q5" value="3">3</label>
+            <label><input type="radio" name="q5" value="4">4</label>
+            <label><input type="radio" name="q5" value="5">5</label>
+          </div>
+        </div>
+        <div class="readiness-question" data-pillar="people">
+          <p class="question-text">There is a plan or willingness to invest in training so people can use AI tools safely and effectively.</p>
+          <div class="scale-options">
+            <label><input type="radio" name="q6" value="1">1</label>
+            <label><input type="radio" name="q6" value="2">2</label>
+            <label><input type="radio" name="q6" value="3">3</label>
+            <label><input type="radio" name="q6" value="4">4</label>
+            <label><input type="radio" name="q6" value="5">5</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="readiness-group">
+      <h2 class="section-heading">Technology</h2>
+      <p class="text-[11px] text-slate-400 mb-2">Systems, data and integration readiness.</p>
+      <div class="space-y-3">
+        <div class="readiness-question" data-pillar="technology">
+          <p class="question-text">We have core systems (for example ERP, CRM, HR) that are reasonably stable and documented.</p>
+          <div class="scale-options">
+            <label><input type="radio" name="q7" value="1">1</label>
+            <label><input type="radio" name="q7" value="2">2</label>
+            <label><input type="radio" name="q7" value="3">3</label>
+            <label><input type="radio" name="q7" value="4">4</label>
+            <label><input type="radio" name="q7" value="5">5</label>
+          </div>
+        </div>
+        <div class="readiness-question" data-pillar="technology">
+          <p class="question-text">Operational data required for priority processes is captured in digital systems rather than only in paper or ad hoc spreadsheets.</p>
+          <div class="scale-options">
+            <label><input type="radio" name="q8" value="1">1</label>
+            <label><input type="radio" name="q8" value="2">2</label>
+            <label><input type="radio" name="q8" value="3">3</label>
+            <label><input type="radio" name="q8" value="4">4</label>
+            <label><input type="radio" name="q8" value="5">5</label>
+          </div>
+        </div>
+        <div class="readiness-question" data-pillar="technology">
+          <p class="question-text">Our IT team or partners are open to integrating new tools where justified by a clear business case.</p>
+          <div class="scale-options">
+            <label><input type="radio" name="q9" value="1">1</label>
+            <label><input type="radio" name="q9" value="2">2</label>
+            <label><input type="radio" name="q9" value="3">3</label>
+            <label><input type="radio" name="q9" value="4">4</label>
+            <label><input type="radio" name="q9" value="5">5</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="readiness-group">
+      <h2 class="section-heading">Governance</h2>
+      <p class="text-[11px] text-slate-400 mb-2">Risk, policy and decision making.</p>
+      <div class="space-y-3">
+        <div class="readiness-question" data-pillar="governance">
+          <p class="question-text">We have clear policies or guidelines on data protection, privacy and acceptable use of AI tools.</p>
+          <div class="scale-options">
+            <label><input type="radio" name="q10" value="1">1</label>
+            <label><input type="radio" name="q10" value="2">2</label>
+            <label><input type="radio" name="q10" value="3">3</label>
+            <label><input type="radio" name="q10" value="4">4</label>
+            <label><input type="radio" name="q10" value="5">5</label>
+          </div>
+        </div>
+        <div class="readiness-question" data-pillar="governance">
+          <p class="question-text">There is a defined process for approving or rejecting new AI or automation initiatives.</p>
+          <div class="scale-options">
+            <label><input type="radio" name="q11" value="1">1</label>
+            <label><input type="radio" name="q11" value="2">2</label>
+            <label><input type="radio" name="q11" value="3">3</label>
+            <label><input type="radio" name="q11" value="4">4</label>
+            <label><input type="radio" name="q11" value="5">5</label>
+          </div>
+        </div>
+        <div class="readiness-question" data-pillar="governance">
+          <p class="question-text">Senior leaders are willing to experiment with AI in a controlled way rather than waiting for complete certainty.</p>
+          <div class="scale-options">
+            <label><input type="radio" name="q12" value="1">1</label>
+            <label><input type="radio" name="q12" value="2">2</label>
+            <label><input type="radio" name="q12" value="3">3</label>
+            <label><input type="radio" name="q12" value="4">4</label>
+            <label><input type="radio" name="q12" value="5">5</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-slate-800 pt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+      <div>
+        <p class="text-[11px] text-slate-400">
+          1 = not true at all, 3 = somewhat true, 5 = very true. You do not need to aim for a perfect score; this is a snapshot to support discussion.
+        </p>
+      </div>
+      <button type="submit" class="btn-primary">
+        View readiness result
+      </button>
+    </div>
+  </form>
+</section>
+
+  </main>
+
+  <footer class="border-t border-slate-800 bg-slate-950 py-5 mt-10">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-3 text-[11px] text-slate-500">
+      <p>© 2025 ImplementAI.ae. AI consulting and fractional CAIO services for UAE organisations.</p>
+      <p>Designed for mid market firms that want practical AI, not experiments.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
