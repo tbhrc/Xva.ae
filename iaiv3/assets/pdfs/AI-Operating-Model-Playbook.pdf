@@ -1,0 +1,307 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Count 7 /Kids [4 0 R 6 0 R 8 0 R 10 0 R 12 0 R 14 0 R 16 0 R] >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 3 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+5 0 obj
+<< /Length 1336 >>
+stream
+BT /F1 12 Tf 16 TL 72 760 Td
+(1. OPERATING CADENCE \(90 DAYS\)) Tj
+T*
+() Tj
+T*
+(Phase 0: Readiness \(Week 0-1\)) Tj
+T*
+(- Data residency + access model confirmed \(in-region\).) Tj
+T*
+(- Security baseline: RBAC, audit logging, PII masking, vendor review.) Tj
+T*
+(- Intake: top 5 workflows by value/risk; owners assigned.) Tj
+T*
+() Tj
+T*
+(Phase 1: Strategy Sprint \(Weeks 1-3\)) Tj
+T*
+(- Decision rights: Steering \(CIO/COO/CFO\), Design Authority \(CAIO + Risk\), Delivery \(pods\).) Tj
+T*
+(- Guardrails: model allowlist, prompt QA, red-team on high-risk flows.) Tj
+T*
+(- Outputs: ROI model, control checklist, comms plan, success metrics.) Tj
+T*
+() Tj
+T*
+(Phase 2: Build Sprints \(Weeks 3-10\)) Tj
+T*
+(- Pattern library: classification, extraction, routing, summarization, generation with human gate.) Tj
+T*
+(- Environments: dev/sandbox, staging with test data, prod with approvals.) Tj
+T*
+(- QA: dual review on finance/healthcare flows; sampling on low-risk ops.) Tj
+T*
+(- Metrics: cycle time, error rate, human touch rate, payback clock.) Tj
+T*
+() Tj
+T*
+(Phase 3: Operate \(Weeks 10-12\)) Tj
+T*
+(- Runbook: incident types, rollback steps, ownership per workflow.) Tj
+T*
+(- Governance: weekly steering, monthly risk review, quarterly model refresh.) Tj
+T*
+(- Change management: training, adoption score, opt-out/appeal path.) Tj
+T*
+ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 5 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+7 0 obj
+<< /Length 919 >>
+stream
+BT /F1 12 Tf 16 TL 72 760 Td
+(2. HUMAN-IN-LOOP PATTERNS) Tj
+T*
+() Tj
+T*
+(Validation tiers:) Tj
+T*
+(- Tier 1 \(auto\): low-risk \(routing, tagging\); sampled review.) Tj
+T*
+(- Tier 2 \(approve\): medium-risk \(ops comms, tickets\); human approve/reject.) Tj
+T*
+(- Tier 3 \(co-create\): high-risk \(finance, clinical\); human edits + sign-off.) Tj
+T*
+() Tj
+T*
+(Controls:) Tj
+T*
+(- Prompts versioned; changes require dual review.) Tj
+T*
+(- Outputs watermarked with source + model + time; stored in audit log.) Tj
+T*
+(- Data: PII masked before model; retention policy aligned to org standards.) Tj
+T*
+(- Vendors: allowed models list; fallback model for outages.) Tj
+T*
+() Tj
+T*
+(Org model:) Tj
+T*
+(- CAIO office: design authority, playbooks, model evaluations.) Tj
+T*
+(- Domain leads: workflow owners; accountable for outcomes and risk.) Tj
+T*
+(- Enablement: prompts, eval sets, red-team scripts shared centrally.) Tj
+T*
+ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 7 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+9 0 obj
+<< /Length 918 >>
+stream
+BT /F1 12 Tf 16 TL 72 760 Td
+(3. ROI & VALUE TRACKING) Tj
+T*
+() Tj
+T*
+(Core metrics:) Tj
+T*
+(- Efficiency: hours removed, cycle time delta, queue clearance.) Tj
+T*
+(- Quality: error rate vs baseline, dispute/appeal rate, rework.) Tj
+T*
+(- Financial: payback days, margin impact, working capital unlocked.) Tj
+T*
+(- Adoption: active users, human-touch rate, opt-outs.) Tj
+T*
+() Tj
+T*
+(Measurement cadence:) Tj
+T*
+(- Weekly: uplift vs baseline, incidents, human-touch %, sampling results.) Tj
+T*
+(- Monthly: payback tracker, cost-to-serve, compliance exceptions.) Tj
+T*
+(- Quarterly: model refresh, vendor check, security review.) Tj
+T*
+() Tj
+T*
+(Value portfolio \(flower framework\):) Tj
+T*
+(- Run the business: finance reconciliation, procurement, support.) Tj
+T*
+(- Grow the business: sales assist, personalization, lead qual.) Tj
+T*
+(- Protect the business: compliance checks, PII guardrails, auditability.) Tj
+T*
+ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 9 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+11 0 obj
+<< /Length 733 >>
+stream
+BT /F1 12 Tf 16 TL 72 760 Td
+(4. STACK & SECURITY \(ENTERPRISE-READY\)) Tj
+T*
+() Tj
+T*
+(Stack principles:) Tj
+T*
+(- Vendor-agnostic LLM layer; swap by use case and data residency.) Tj
+T*
+(- Retrieval layer with governance: approved sources, freshness, citations.) Tj
+T*
+(- Observability: traces, latency, cost per call, quality evals.) Tj
+T*
+(- Secrets: KMS-managed; no hardcoded keys; environment isolation.) Tj
+T*
+() Tj
+T*
+(Security + compliance:) Tj
+T*
+(- Data hosted in-region; no cross-border unless approved.) Tj
+T*
+(- SOC2/ISO roadmap; least-privilege RBAC; SSO/MFA enforced.) Tj
+T*
+(- Red-team: jailbreak testing on launch and on prompt updates.) Tj
+T*
+(- Incident playbook: detection, containment, rollback, comms.) Tj
+T*
+ET
+endstream
+endobj
+12 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 11 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+13 0 obj
+<< /Length 982 >>
+stream
+BT /F1 12 Tf 16 TL 72 760 Td
+(5. 90-DAY LAUNCH PLAN \(CHECKLIST\)) Tj
+T*
+() Tj
+T*
+(Week 0-1: Intake + controls) Tj
+T*
+(- Name the workflows, owners, metrics, and risk tiers.) Tj
+T*
+(- Approve models/providers; set audit logging; mask PII.) Tj
+T*
+(Week 2-3: Design authority) Tj
+T*
+(- Sign off prompts, eval sets, rollback criteria.) Tj
+T*
+(- Align steering KPIs \(hours, quality, payback\).) Tj
+T*
+(Week 3-8: Build) Tj
+T*
+(- Ship 3-5 workflows; run QA; track human-touch %.) Tj
+T*
+(- Publish runbooks; train users; instrument dashboards.) Tj
+T*
+(Week 8-10: Harden) Tj
+T*
+(- Red-team; failover model; finalize SLAs; train support.) Tj
+T*
+(Week 10-12: Operate) Tj
+T*
+(- Weekly steering; monthly risk review; quarterly model refresh.) Tj
+T*
+() Tj
+T*
+(Deliverables you should demand:) Tj
+T*
+(- Control checklist; RACI; model/service bill of materials.) Tj
+T*
+(- Eval sets and quality thresholds; rollback triggers.) Tj
+T*
+(- ROI tracker; adoption dashboard; incident playbook.) Tj
+T*
+ET
+endstream
+endobj
+14 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 13 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+15 0 obj
+<< /Length 815 >>
+stream
+BT /F1 12 Tf 16 TL 72 760 Td
+(6. HOW WE ENGAGE \(FRACTIONAL CAIO OPTION\)) Tj
+T*
+() Tj
+T*
+(Engagement model:) Tj
+T*
+(- Leadership workshop: align priorities, risk appetite, governance.) Tj
+T*
+(- Strategy sprint: roadmap + ROI + guardrails \(capability framework\).) Tj
+T*
+(- Delivery sprints: 3-5 workflows shipped with human-in-loop controls.) Tj
+T*
+(- Fractional CAIO: ongoing steering, audits, vendor management.) Tj
+T*
+() Tj
+T*
+(Why it works:) Tj
+T*
+(- Human-in-loop baked in; no shadow AI.) Tj
+T*
+(- In-region data + security-first; compliant by default.) Tj
+T*
+(- Co-owned with domain leaders; measurable payback in 90 days.) Tj
+T*
+() Tj
+T*
+(Call to action:) Tj
+T*
+(- Book a consultation at implementai.ae/contact.html) Tj
+T*
+(- Or start with the AI readiness check: implementai.ae/ai-readiness.html) Tj
+T*
+ET
+endstream
+endobj
+16 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 15 0 R /Resources << /Font << /F1 1 0 R >> >> >>
+endobj
+xref
+0 17
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000155 00000 n 
+0000000225 00000 n 
+0000000351 00000 n 
+0000001739 00000 n 
+0000001865 00000 n 
+0000002835 00000 n 
+0000002961 00000 n 
+0000003930 00000 n 
+0000004057 00000 n 
+0000004842 00000 n 
+0000004970 00000 n 
+0000006004 00000 n 
+0000006132 00000 n 
+0000006999 00000 n 
+trailer
+<< /Size 17 /Root 1 0 R >>
+startxref
+7127
+%%EOF

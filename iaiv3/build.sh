@@ -1,5 +1,5 @@
 #!/bin/bash
-# Build script for ImplementAI website
+# Build script for iMPLEMENTAi.ae website
 
 echo "Building production assets..."
 

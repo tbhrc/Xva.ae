@@ -30,9 +30,9 @@
         <li><a href="index.html" style="color: var(--prem-text);">Home</a></li>
         <li><a href="strategy.html">Strategy</a></li>
         <li><a href="departments.html">Solutions</a></li>
+        <li><a href="resources.html">Insights</a></li>
         <li><a href="team.html">Team</a></li>
-        <li><a href="ai-readiness.html" style="color: var(--prem-accent-blue); font-weight: 600;">Check AI Readiness</a>
-        </li>
+        <li><a href="ai-readiness.html">Check AI Readiness</a></li>
         <li><a href="about.html">About</a></li>
       </ul>
       <a href="contact.html" class="prem-btn">Book Consultation</a>
@@ -49,10 +49,11 @@
     <a href="index.html">Home</a>
     <a href="strategy.html">Strategy</a>
     <a href="departments.html">Solutions</a>
+    <a href="resources.html">Insights</a>
     <a href="team.html">Team</a>
-    <a href="ai-readiness.html" style="color: var(--prem-accent-blue); font-weight: 600;">Check AI Readiness</a>
+    <a href="ai-readiness.html">Check AI Readiness</a>
     <a href="about.html">About</a>
-    <a href="contact.html" class="prem-btn">Book Consultation</a>
+    <a href="contact.html" class="prem-btn" style="background: var(--prem-accent-blue); border-color: var(--prem-accent-blue);">Book Consultation</a>
   </div>
 
   <script>
@@ -84,15 +85,60 @@
       <p>We help UAE enterprises move beyond isolated experiments to build sustainable, high-impact AI operating models.
       </p>
       <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-        <a href="ai-readiness.html" class="prem-btn"
-          style="background: var(--prem-accent-blue); border-color: var(--prem-accent-blue);">Check Your AI
-          Readiness</a>
         <a href="contact.html" class="prem-btn"
-          style="background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.4);">Book
-          Consultation</a>
+          style="background: var(--prem-accent-blue); border-color: var(--prem-accent-blue);">Book Consultation</a>
+        <a href="ai-readiness.html" class="prem-btn prem-btn-outline"
+          style="background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.4); color: #fff;">Check Your
+          AI Readiness</a>
       </div>
     </div>
   </header>
+
+  <!-- Trust Bar -->
+  <section class="prem-section" style="padding: 60px 0 40px;">
+    <div class="prem-container">
+      <div class="trust-bar scroll-reveal">
+        <div class="trust-left">
+          <span class="eyebrow">Trusted By Leaders</span>
+          <p>Partnering with regulated and high-growth enterprises across the UAE.</p>
+        </div>
+        <div class="trust-logos">
+          <div class="trust-chip">GCC Healthcare</div>
+          <div class="trust-chip">National Aviation</div>
+          <div class="trust-chip">Retail Conglomerate</div>
+          <div class="trust-chip">Gov’t Services</div>
+          <div class="trust-chip">Digital Bank</div>
+          <div class="trust-chip">Logistics Leader</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="prem-section prem-section-alt" style="padding: 80px 0;">
+    <div class="prem-container">
+      <div class="section-header scroll-reveal" style="text-align: center;">
+        <span class="eyebrow">Proof, Not Promises</span>
+        <h2 class="section-title" style="font-size: 2.4rem; text-align: left; margin-left: auto; margin-right: auto; max-width: 900px;">Leaders On Working With iMPLEMENTAi.ae</h2>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card scroll-reveal">
+          <p class="quote">“They built an AI operating cadence our board trusts. We went from pilots to production in a single quarter with full governance.”</p>
+          <div class="meta">
+            <div class="name">Chief Digital Officer</div>
+            <div class="role">GCC Healthcare Group (anonymized)</div>
+          </div>
+        </div>
+        <div class="testimonial-card scroll-reveal delay-100">
+          <p class="quote">“Ops, finance, and HR now share the same AI playbook. We measure uplift weekly and ship safely—no more shadow AI.”</p>
+          <div class="meta">
+            <div class="name">COO</div>
+            <div class="role">UAE Multi-site Retailer</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Engagement Journey Section -->
   <section class="prem-section">
@@ -151,64 +197,86 @@
     </div>
   </section>
 
-  <!-- Client Scenario Section -->
+  <!-- Client Micro-Cases -->
   <section class="prem-section prem-section-alt">
     <div class="prem-container">
       <div class="section-header scroll-reveal" style="text-align: center;">
         <span class="eyebrow">Proven Results</span>
-        <h2 class="section-title">Real Impact, Real Numbers</h2>
-        <p
-          style="font-size: 1.2rem; color: var(--prem-text-secondary); margin-top: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;">
-          See how we help mid-market UAE firms achieve measurable ROI through disciplined AI implementation.
+        <h2 class="section-title" style="font-size: 2.8rem;">Two 90-Day Wins</h2>
+        <p style="font-size: 1.2rem; color: var(--prem-text-secondary); margin-top: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+          Disciplined AI delivery with measurable ROI. Sector names anonymized; metrics verified.
         </p>
       </div>
 
-      <!-- Interactive Client Scenario Component -->
-      <div class="client-scenario">
-        <div class="scenario-header">
-          <div class="scenario-badge">90 day sprint</div>
-          <h3>ILLUSTRATIVE CLIENT SCENARIO</h3>
-          <p class="scenario-subtitle">Mid market UAE firm, 600 staff, multi site.</p>
+      <div class="case-studies-grid">
+        <div class="case-card scroll-reveal">
+          <div class="case-badge">Healthcare · GCC</div>
+          <h3>AI Command Center for Clinical Ops</h3>
+          <p class="case-summary">Connected EHR, contact center, and supply chain to a single AI operating cadence with human-in-loop validation.</p>
+          <ul class="case-metrics">
+            <li><span>Manual hours removed</span><strong>1,420 / month</strong></li>
+            <li><span>Discharge-to-billing latency</span><strong>-27%</strong></li>
+            <li><span>Time to first value</span><strong>82 days</strong></li>
+            <li><span>Governance</span><strong>Weekly steering + audit trail</strong></li>
+          </ul>
+          <p class="case-note">Stack: secure in-region hosting, role-based access, human QA on all clinical prompts.</p>
         </div>
-        <div class="scenario-grid">
-          <div class="scenario-metric">
-            <div class="metric-label">Manual hours removed per month</div>
-            <div class="metric-value" data-target="1420">0</div>
-          </div>
-          <div class="scenario-metric">
-            <div class="metric-label">Operations and finance</div>
-            <div class="metric-text">Three core workflows</div>
-          </div>
-          <div class="scenario-metric">
-            <div class="metric-label">Productivity uplift</div>
-            <div class="metric-value" data-target="31" data-suffix="%">0%</div>
-          </div>
-          <div class="scenario-metric">
-            <div class="metric-label">From first deployment</div>
-            <div class="metric-text">82 days</div>
-          </div>
-          <div class="scenario-metric">
-            <div class="metric-label">Time to payback</div>
-            <div class="metric-value" data-target="82">0</div>
-            <div class="metric-unit">days</div>
+
+        <div class="case-card scroll-reveal delay-100">
+          <div class="case-badge">Retail · UAE</div>
+          <h3>Omni-Channel Ops & Finance Automation</h3>
+          <p class="case-summary">Deployed agents across reconciliation, POs, and store support, tied to shared KPIs for Ops and Finance.</p>
+          <ul class="case-metrics">
+            <li><span>Productivity uplift</span><strong>+31%</strong></li>
+            <li><span>Payback</span><strong>82 days</strong></li>
+            <li><span>Workflows automated</span><strong>3 core (recon, tickets, PO)</strong></li>
+            <li><span>Shadow AI incidents</span><strong>0 (centralized guardrails)</strong></li>
+          </ul>
+          <p class="case-note">Stack: vendor-agnostic LLM layer, audit logging, SOC2-aligned controls, human sign-off for financial actions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Insight -->
+  <section class="prem-section">
+    <div class="prem-container">
+      <div class="featured-insight scroll-reveal">
+        <div class="insight-copy">
+          <span class="eyebrow">Insights</span>
+          <h3 style="margin: 0 0 0.75rem;">The AI Operating Model Playbook</h3>
+          <p style="margin: 0 0 1rem; color: var(--prem-text-secondary); font-size: 1.05rem;">How UAE enterprises move from pilots to production with governance, measurement, and human-in-loop controls.</p>
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+            <a href="resources.html" class="prem-btn" style="background: var(--prem-accent-blue); border-color: var(--prem-accent-blue);">Read the Paper</a>
+            <a href="contact.html" class="prem-btn prem-btn-outline">Discuss With Us</a>
           </div>
         </div>
-        <div class="scenario-chart">
-          <svg viewBox="0 0 500 100" class="growth-chart">
-            <path class="chart-line" d="M 0 80 Q 125 70, 250 50 T 500 20" fill="none" stroke="url(#lineGradient)"
-              stroke-width="3" />
-            <defs>
-              <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" style="stop-color:#00c8b4;stop-opacity:0.5" />
-                <stop offset="100%" style="stop-color:#00c8b4;stop-opacity:1" />
-              </linearGradient>
-            </defs>
-          </svg>
+        <div class="insight-meta">
+          <div class="meta-item">
+            <span>Focus</span>
+            <strong>Governance & ROI</strong>
+          </div>
+          <div class="meta-item">
+            <span>For</span>
+            <strong>CIO · COO · CFO</strong>
+          </div>
+          <div class="meta-item">
+            <span>Format</span>
+            <strong>PDF · 8 min read</strong>
+          </div>
         </div>
-        <div class="scenario-footer">
-          <p>The example above is based on blending AI agents with existing systems, improving workflows across
-            operations, finance and support rather than chasing isolated experiments.</p>
-        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compliance Strip -->
+  <section class="compliance-strip">
+    <div class="prem-container">
+      <div class="compliance-items">
+        <div class="compliance-pill">Data hosted in-region</div>
+        <div class="compliance-pill">Human-in-loop validation</div>
+        <div class="compliance-pill">Secure by design</div>
+        <div class="compliance-pill">Responsible AI principles</div>
       </div>
     </div>
   </section>
@@ -222,9 +290,9 @@
           Start with our free AI Readiness Assessment or book a consultation to discuss your specific needs.
         </p>
         <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <a href="ai-readiness.html" class="prem-btn"
-            style="background: var(--prem-accent-blue); border-color: var(--prem-accent-blue);">Take the Assessment</a>
-          <a href="contact.html" class="prem-btn prem-btn-outline">Book Consultation</a>
+          <a href="contact.html" class="prem-btn"
+            style="background: var(--prem-accent-blue); border-color: var(--prem-accent-blue);">Book Consultation</a>
+          <a href="ai-readiness.html" class="prem-btn prem-btn-outline">Take the Assessment</a>
         </div>
       </div>
     </div>
@@ -543,6 +611,267 @@
       line-height: 1.6;
     }
 
+    .case-studies-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .case-card {
+      background: #fff;
+      border: 1px solid var(--prem-border);
+      border-radius: 18px;
+      padding: 1.75rem;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .case-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #00c8b4, #0066cc);
+    }
+
+    .case-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(0, 200, 180, 0.12);
+      color: #006f63;
+      font-weight: 600;
+      font-size: 0.85rem;
+      border: 1px solid rgba(0, 200, 180, 0.25);
+      width: fit-content;
+    }
+
+    .case-summary {
+      margin: 0;
+      color: var(--prem-text-secondary);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .case-metrics {
+      list-style: none;
+      margin: 0.25rem 0 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem 1rem;
+    }
+
+    .case-metrics li {
+      background: var(--prem-bg-alt);
+      border: 1px solid var(--prem-border);
+      border-radius: 12px;
+      padding: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .case-metrics span {
+      color: var(--prem-text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .case-metrics strong {
+      color: var(--prem-text);
+      font-size: 1.05rem;
+    }
+
+    .case-note {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--prem-text-secondary);
+      line-height: 1.6;
+    }
+
+    .featured-insight {
+      background: linear-gradient(135deg, #0f192b 0%, #152643 70%, #0f192b 100%);
+      color: #f6fbff;
+      border-radius: 18px;
+      padding: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .featured-insight h3 {
+      color: #ffffff;
+    }
+
+    .featured-insight p {
+      color: rgba(255, 255, 255, 0.88) !important;
+    }
+
+    .featured-insight .prem-btn-outline {
+      color: #f6fbff;
+      border-color: rgba(255, 255, 255, 0.35);
+    }
+
+    .featured-insight .prem-btn-outline:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .insight-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .insight-meta .meta-item {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .insight-meta span {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.85rem;
+    }
+
+    .insight-meta strong {
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .trust-bar {
+      background: linear-gradient(135deg, #f7f8fa 0%, #ffffff 100%);
+      border: 1px solid var(--prem-border);
+      border-radius: 16px;
+      padding: 1.5rem 2rem;
+      display: grid;
+      grid-template-columns: 1.1fr 2fr;
+      gap: 1.5rem;
+      align-items: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .trust-left p {
+      margin: 0.3rem 0 0;
+      color: var(--prem-text-secondary);
+      font-size: 1rem;
+    }
+
+    .trust-logos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: flex-start;
+    }
+
+    .trust-chip {
+      padding: 0.6rem 1rem;
+      border-radius: 999px;
+      border: 1px solid var(--prem-border);
+      background: #fff;
+      font-size: 0.9rem;
+      color: var(--prem-text);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .trust-chip:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .testimonial-card {
+      background: #fff;
+      border: 1px solid var(--prem-border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #00c8b4, #0066cc);
+    }
+
+    .testimonial-card .quote {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--prem-text);
+      margin: 0;
+    }
+
+    .testimonial-card .meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      color: var(--prem-text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .testimonial-card .name {
+      font-weight: 600;
+      color: var(--prem-text);
+    }
+
+    .compliance-strip {
+      background: #0f192b;
+      color: #e9f6ff;
+      padding: 26px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .compliance-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+
+    .compliance-pill {
+      padding: 0.65rem 1.1rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #e9f6ff;
+      font-size: 0.95rem;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
     @keyframes fadeInUp {
       to {
         opacity: 1;
@@ -605,6 +934,30 @@
 
       .scenario-metric:nth-child(5) {
         grid-column: 1;
+      }
+
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-bar {
+        grid-template-columns: 1fr;
+      }
+
+      .case-studies-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .case-metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-insight {
+        grid-template-columns: 1fr;
+      }
+
+      .insight-meta {
+        grid-template-columns: 1fr;
       }
     }
   </style>
