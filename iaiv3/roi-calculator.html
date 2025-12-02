@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ImplementAI.ae | ROI Calculator</title>
+    <meta name="description"
+        content="Estimate the potential return on investment for AI implementation in your organisation." />
+    <!-- Production: Use compiled Tailwind CSS instead of CDN -->
+    <link rel="stylesheet" href="assets/css/main.css?v=2.0" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=2.0" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://implementai.ae/roi-calculator.html" />
+    <meta property="og:title" content="ImplementAI.ae | ROI Calculator" />
+    <meta property="og:description"
+        content="Estimate the potential return on investment for AI implementation in your organisation." />
+    <meta property="og:url" content="https://implementai.ae/roi-calculator.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://implementai.ae/assets/images/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@implementai" />
+    <script
+        type="application/ld+json">   {     "@context": "https://schema.org",     "@type": "Organization",     "name": "ImplementAI.ae",     "url": "https://implementai.ae/",     "logo": "https://implementai.ae/assets/images/logo.png",     "sameAs": ["https://www.linkedin.com/company/implementai-ae"]   }   </script>
+</head>
+
+<body class="bg-slate-950 text-slate-100 antialiased scroll-smooth">
+    <!-- Skip to main content for keyboard users -->
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div id="scroll-progress"
+        class="fixed top-0 left-0 h-0.5 bg-gradient-to-r from-teal-400 via-teal-500 to-cyan-600 z-50 w-0">
+    </div>
+    <header class="fixed inset-x-0 top-0 z-40 bg-slate-950/90 border-b border-slate-800/70 backdrop-blur-xl">
+        <div class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
+            <a href="index.html" class="flex items-center gap-3">
+                <div
+                    class="w-9 h-9 rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center shadow-brand-glow">
+                    <span class="text-white font-semibold text-lg">IA</span>
+                </div>
+                <div class="flex flex-col leading-tight">
+                    <span class="text-[11px] tracking-[0.22em] uppercase text-slate-300">ImplementAI.ae</span>
+                    <span class="text-[11px] text-slate-400">AI Consulting and Fractional CAIO in the UAE</span>
+                </div>
+            </a>
+            <nav class="hidden md:flex items-center gap-2 text-xs">
+                <a href="index.html"
+                    class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-teal-300">Home</a>
+                <a href="services.html"
+                    class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-teal-300">Services</a>
+                <a href="workshops.html"
+                    class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-teal-300">Workshops</a>
+                <a href="strategy.html"
+                    class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-teal-300">Strategy</a>
+                <a href="fractional-caio.html"
+                    class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-teal-300">Fractional
+                    CAIO</a>
+                <a href="resources.html"
+                    class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-teal-300">Resources</a>
+                <a href="ai-readiness.html"
+                    class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-teal-300">AI
+                    Readiness Check</a>
+                <a href="roi-calculator.html"
+                    class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors bg-teal-600 text-white font-semibold"
+                    aria-current="page">ROI Calculator</a>
+                <a href="team.html" class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-teal-300">Team</a><a href="about.html"
+                    class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-teal-300">About</a>
+                <a href="contact.html"
+                    class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-teal-300">Contact</a>
+            </nav><button class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-400 hover:text-teal-300 border border-slate-700 ml-2" title="Coming Soon">عربي</button>
+            <button id="mobile-menu-toggle" aria-expanded="false" aria-controls="mobile-menu"
+                aria-label="Open main menu"
+                class="md:hidden rounded-full border border-slate-700 px-2.5 py-1 text-[11px] text-slate-100 flex items-center gap-1">
+                <span>Menu</span>
+            </button>
+        </div>
+        <div id="mobile-menu" aria-hidden="true" class="md:hidden max-w-6xl mx-auto px-4 pb-3 hidden">
+            <nav class="flex flex-col">
+                <a href="index.html"
+                    class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-teal-300 block text-center mb-2">Home</a>
+                <a href="roi-calculator.html"
+                    class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors bg-teal-600 text-white font-semibold block text-center mb-2">ROI
+                    Calculator</a>
+                <a href="contact.html"
+                    class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-200 hover:bg-slate-800 hover:text-teal-300 block text-center mb-2">Contact</a>
+            </nav><button class="w-full px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-400 hover:text-teal-300 border border-slate-700 mt-2" title="Coming Soon">عربي</button><button class="px-3 py-1.5 text-xs tracking-wide rounded-full transition-colors text-slate-400 hover:text-teal-300 border border-slate-700 ml-2" title="Coming Soon">عربي</button>
+        </div>
+    </header>
+    <main id="main" class="pt-20 md:pt-24">
+        <section class="max-w-4xl mx-auto px-4 py-10">
+            <div class="fade-section" data-animate>
+                <p class="eyebrow">Interactive Demo</p>
+                <h1 class="page-title">AI ROI Calculator</h1>
+                <p class="page-intro"> Estimate the potential financial impact of implementing AI automations in your
+                    core workflows. This simple model assumes a conservative efficiency gain. </p>
+            </div>
+            <div class="grid md:grid-cols-[1fr,1fr] gap-8 mt-8 fade-section" data-animate>
+                <div class="border border-slate-800 rounded-3xl bg-slate-900/80 p-6">
+                    <h2 class="section-heading mb-4">Inputs</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="field-label" for="roi-employees">Number of employees in target
+                                function</label>
+                            <input id="roi-employees" type="number" class="field-input" placeholder="e.g. 50"
+                                value="50" />
+                        </div>
+                        <div>
+                            <label class="field-label" for="roi-salary">Average monthly fully loaded cost (AED)</label>
+                            <input id="roi-salary" type="number" class="field-input" placeholder="e.g. 15000"
+                                value="15000" />
+                        </div>
+                        <div>
+                            <label class="field-label" for="roi-efficiency">Estimated efficiency gain (%)</label>
+                            <div class="flex items-center gap-3">
+                                <input id="roi-efficiency" type="range" min="5" max="50" value="20"
+                                    class="w-full accent-teal-500" />
+                                <span id="roi-efficiency-val" class="text-teal-400 font-mono">20%</span>
+                            </div>
+                            <p class="text-[10px] text-slate-500 mt-1">Conservative estimates for agentic workflows
+                                range from 15% to 40%.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="border border-slate-800 rounded-3xl bg-slate-900/80 p-6 flex flex-col justify-center">
+                    <h2 class="section-heading mb-4">Projected Annual Savings</h2>
+                    <div class="text-center">
+                        <p class="text-[11px] text-slate-400 uppercase tracking-widest mb-1">Total Value Unlocked</p>
+                        <p id="roi-result"
+                            class="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400">
+                            AED 1,800,000</p>
+                        <p class="text-[11px] text-slate-500 mt-4"> This represents the value of time repurposed for
+                            higher value activities, or direct cost avoidance. </p>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-slate-800">
+                        <a href="contact.html" class="btn-primary w-full text-center block">Validate this model with
+                            us</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="border-t border-slate-800 bg-slate-950 py-8 mt-12">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-6 mb-6 text-[12px] text-slate-400">
+                <div>
+                    <p class="font-semibold text-slate-200 mb-2">ImplementAI.ae</p>
+                    <p class="text-[11px] text-slate-500">AI strategy and fractional leadership for UAE mid-market
+                        organisations.</p>
+                </div>
+                <div>
+                    <p class="font-semibold text-slate-200 mb-2">Contact</p>
+                    <p>
+                        <a href="mailto:hello@implementai.ae"
+                            class="hover:text-teal-400 transition">hello@implementai.ae</a>
+                    </p>
+                    <p class="text-[11px] text-slate-600">UAE</p>
+                </div>
+                <div>
+                    <p class="font-semibold text-slate-200 mb-2">Legal</p>
+                    <p>
+                        <a href="/privacy.html" class="hover:text-teal-400 transition">Privacy Policy</a>
+                    </p>
+                    <p>
+                        <a href="/terms.html" class="hover:text-teal-400 transition">Terms of Service</a>
+                    </p>
+                </div>
+            </div>
+            <div
+                class="border-t border-slate-800 pt-4 flex flex-col md:flex-row items-center justify-between gap-3 text-[11px] text-slate-500">
+                <p> 2025 ImplementAI.ae. All rights reserved.</p>
+                <div class="flex gap-4">
+                    <a href="https://www.linkedin.com/company/implementai-ae"
+                        class="hover:text-teal-400 transition">LinkedIn</a>
+                    <a href="https://twitter.com/implementai" class="hover:text-teal-400 transition">Twitter</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/main.js?v=2.0">
+    </script>
+</body>
+
+</html>
+
+
+

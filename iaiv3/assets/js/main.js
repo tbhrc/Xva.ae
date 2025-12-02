@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     rootMargin: '0px 0px -50px 0px'
   };
 
-  const observer = new IntersectionObserver(function(entries) {
+  const observer = new IntersectionObserver(function (entries) {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ==================== METRIC BAR ANIMATION ====================
   // Animate metric bars when they come into view
-  const metricBarObserver = new IntersectionObserver(function(entries) {
+  const metricBarObserver = new IntersectionObserver(function (entries) {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const bar = entry.target.querySelector('.metric-bar-fill');
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Close the menu on Escape key
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
         mobileMenu.classList.add('hidden');
         mobileMenu.setAttribute('aria-hidden', 'true');
@@ -152,6 +152,8 @@ document.addEventListener("DOMContentLoaded", function () {
     readinessForm.addEventListener("submit", function (e) {
       e.preventDefault();
       const formData = new FormData(readinessForm);
+      const name = formData.get("name");
+      const email = formData.get("email");
       const pillars = { strategy: [], people: [], technology: [], governance: [] };
       const questions = readinessForm.querySelectorAll(".readiness-question");
       questions.forEach((q, index) => {
@@ -197,11 +199,12 @@ document.addEventListener("DOMContentLoaded", function () {
           people: Math.round((people / 5) * 100),
           technology: Math.round((technology / 5) * 100),
           governance: Math.round((governance / 5) * 100)
-        }
+        },
+        user: { name, email }
       };
       try {
         localStorage.setItem("implementai_readiness_profile", JSON.stringify(profile));
-      } catch (err) {}
+      } catch (err) { }
 
       window.location.href = "ai-readiness-result.html";
     });
@@ -210,14 +213,14 @@ document.addEventListener("DOMContentLoaded", function () {
   // Contact form - basic client side validation and success message (no server)
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
       const name = contactForm.querySelector('#name');
       const email = contactForm.querySelector('#email');
       const successEl = document.getElementById('contact-success');
       let ok = true;
-      if (name && !name.value.trim()) { name.setAttribute('aria-invalid','true'); ok = false; } else if (name) { name.removeAttribute('aria-invalid'); }
-      if (email && (!email.value.trim() || !/\S+@\S+\.\S+/.test(email.value))) { email.setAttribute('aria-invalid','true'); ok = false; } else if (email) { email.removeAttribute('aria-invalid'); }
+      if (name && !name.value.trim()) { name.setAttribute('aria-invalid', 'true'); ok = false; } else if (name) { name.removeAttribute('aria-invalid'); }
+      if (email && (!email.value.trim() || !/\S+@\S+\.\S+/.test(email.value))) { email.setAttribute('aria-invalid', 'true'); ok = false; } else if (email) { email.removeAttribute('aria-invalid'); }
       if (!ok) return;
       if (successEl) {
         successEl.classList.remove('hidden');
@@ -233,7 +236,7 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       const raw = localStorage.getItem("implementai_readiness_profile");
       if (raw) profile = JSON.parse(raw);
-    } catch (err) {}
+    } catch (err) { }
 
     const overallScoreEl = document.getElementById("overall-score");
     const overallBandEl = document.getElementById("overall-band");
@@ -310,16 +313,68 @@ document.addEventListener("DOMContentLoaded", function () {
   const clearReadinessBtn = document.getElementById('clear-readiness');
   if (clearReadinessBtn) {
     clearReadinessBtn.addEventListener('click', function () {
-      try { localStorage.removeItem('implementai_readiness_profile'); } catch (err) {}
+      try { localStorage.removeItem('implementai_readiness_profile'); } catch (err) { }
       // Redirect back to the questionnaire so users can retake
       window.location.href = 'ai-readiness.html';
     });
   }
 
+  const downloadReportBtn = document.getElementById('download-report');
+  if (downloadReportBtn) {
+    downloadReportBtn.addEventListener('click', function () {
+      const originalText = this.textContent;
+      this.textContent = "Generating PDF...";
+      this.disabled = true;
+      setTimeout(() => {
+        alert("In a production environment, this would generate and download a PDF report based on your score.");
+        this.textContent = "Report Sent";
+        // window.print(); // Option to print page
+      }, 1500);
+    });
+  }
+
+  // ==================== ROI CALCULATOR LOGIC ====================
+  const roiEmployees = document.getElementById('roi-employees');
+  const roiSalary = document.getElementById('roi-salary');
+  const roiEfficiency = document.getElementById('roi-efficiency');
+  const roiEfficiencyVal = document.getElementById('roi-efficiency-val');
+  const roiResult = document.getElementById('roi-result');
+
+  function calculateROI() {
+    if (!roiEmployees || !roiSalary || !roiEfficiency || !roiResult) return;
+
+    const employees = parseFloat(roiEmployees.value) || 0;
+    const salary = parseFloat(roiSalary.value) || 0;
+    const efficiency = parseFloat(roiEfficiency.value) || 0;
+
+    // Annual savings = Employees * Monthly Cost * 12 * Efficiency %
+    const annualSavings = employees * salary * 12 * (efficiency / 100);
+
+    // Format currency
+    const formatter = new Intl.NumberFormat('en-AE', {
+      style: 'currency',
+      currency: 'AED',
+      maximumFractionDigits: 0
+    });
+
+    roiResult.textContent = formatter.format(annualSavings);
+  }
+
+  if (roiEmployees && roiSalary && roiEfficiency) {
+    roiEmployees.addEventListener('input', calculateROI);
+    roiSalary.addEventListener('input', calculateROI);
+    roiEfficiency.addEventListener('input', function () {
+      if (roiEfficiencyVal) roiEfficiencyVal.textContent = this.value + '%';
+      calculateROI();
+    });
+    // Initial calc
+    calculateROI();
+  }
+
   // ==================== ENHANCEMENT 1: 3D TILT ON CARD HOVER ====================
   const cards = document.querySelectorAll('.service-card, .resource-card');
   cards.forEach(card => {
-    card.addEventListener('mousemove', function(e) {
+    card.addEventListener('mousemove', function (e) {
       const rect = this.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
@@ -329,7 +384,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const rotateY = (centerX - x) / 10;
       this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`;
     });
-    card.addEventListener('mouseleave', function() {
+    card.addEventListener('mouseleave', function () {
       this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
     });
   });
@@ -386,7 +441,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ==================== ENHANCEMENT 7: BUTTON RIPPLE EFFECT ====================
   document.querySelectorAll('.btn-primary, .btn-ghost').forEach(button => {
-    button.addEventListener('click', function(e) {
+    button.addEventListener('click', function (e) {
       const rect = this.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
@@ -434,7 +489,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ==================== COMPREHENSIVE TESTING SUITE ====================
   window.testAnimations = {
-    test1_3DTilt: function() {
+    test1_3DTilt: function () {
       const cards = document.querySelectorAll('.service-card, .resource-card');
       console.log('✓ Test 1 - 3D Tilt:', cards.length > 0 ? 'PASS - ' + cards.length + ' cards found' : 'FAIL - No cards found');
       if (cards.length > 0) {
@@ -443,14 +498,14 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log('  Transform style:', style.transformStyle);
       }
     },
-    test2_ParallaxHero: function() {
+    test2_ParallaxHero: function () {
       const parallaxElements = document.querySelectorAll('[data-parallax]');
       console.log('✓ Test 2 - Parallax:', parallaxElements.length > 0 ? 'PASS - ' + parallaxElements.length + ' elements found' : 'FAIL - No parallax elements');
       parallaxElements.forEach((el, i) => {
-        console.log('  Element ' + (i+1) + ' parallax value:', el.dataset.parallax);
+        console.log('  Element ' + (i + 1) + ' parallax value:', el.dataset.parallax);
       });
     },
-    test3_StaggerAnimation: function() {
+    test3_StaggerAnimation: function () {
       const fadeSections = document.querySelectorAll('.fade-section');
       console.log('✓ Test 3 - Stagger:', fadeSections.length > 0 ? 'PASS - ' + fadeSections.length + ' fade sections found' : 'FAIL - No fade sections');
       if (fadeSections.length > 0) {
@@ -458,39 +513,39 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log('  Animation:', style.animation);
       }
     },
-    test4_CustomCursor: function() {
+    test4_CustomCursor: function () {
       const bodyStyle = window.getComputedStyle(document.body);
       console.log('✓ Test 4 - Custom Cursor:', bodyStyle.cursor.includes('url') ? 'PASS - Custom cursor active' : 'PASS - System cursor (acceptable)');
     },
-    test5_MorphingBlobs: function() {
+    test5_MorphingBlobs: function () {
       const blobs = document.querySelectorAll('.morphing-blob');
       console.log('✓ Test 5 - Morphing Blobs:', blobs.length > 0 ? 'PASS - ' + blobs.length + ' blobs found' : 'INFO - Morphing class not on elements yet');
     },
-    test6_ScrollSpy: function() {
+    test6_ScrollSpy: function () {
       const indicators = document.querySelectorAll('.section-indicator');
       console.log('✓ Test 6 - Scroll Spy:', indicators.length > 0 ? 'PASS - ' + indicators.length + ' indicators found' : 'INFO - No scroll spy indicators on page');
     },
-    test7_RippleEffect: function() {
+    test7_RippleEffect: function () {
       const buttons = document.querySelectorAll('.btn-primary, .btn-ghost');
       console.log('✓ Test 7 - Ripple Effect:', buttons.length > 0 ? 'PASS - ' + buttons.length + ' buttons found for ripple' : 'FAIL - No buttons found');
     },
-    test8_FloatingElements: function() {
+    test8_FloatingElements: function () {
       const floatingElements = document.querySelectorAll('.floating-metric');
       console.log('✓ Test 8 - Floating Elements:', floatingElements.length > 0 ? 'PASS - ' + floatingElements.length + ' floating elements' : 'INFO - No floating elements yet');
     },
-    test9_FormAnimations: function() {
+    test9_FormAnimations: function () {
       const formInputs = document.querySelectorAll('input[type="text"], input[type="email"], textarea');
       console.log('✓ Test 9 - Form Animations:', formInputs.length > 0 ? 'PASS - ' + formInputs.length + ' form inputs found' : 'INFO - No form inputs on this page');
       const hasFormInput = document.querySelector('.form-input');
       console.log('  Form input class:', hasFormInput ? 'Applied' : 'Not applied yet');
     },
-    test10_GradientText: function() {
+    test10_GradientText: function () {
       const gradientTitles = document.querySelectorAll('.gradient-title');
       console.log('✓ Test 10 - Gradient Text:', gradientTitles.length > 0 ? 'PASS - ' + gradientTitles.length + ' gradient titles found' : 'INFO - No gradient titles on this page');
       const animatedUnderlines = document.querySelectorAll('.animated-underline');
       console.log('  Animated underlines:', animatedUnderlines.length > 0 ? animatedUnderlines.length + ' links updated' : 'No underlines');
     },
-    runAllTests: function() {
+    runAllTests: function () {
       console.clear();
       console.log('%c=== ANIMATION ENHANCEMENTS TEST SUITE ===', 'color: #2dd4bf; font-size: 16px; font-weight: bold;');
       console.log('%cTesting all 10 modern design enhancements...', 'color: #0ea5e9; font-size: 12px;');
