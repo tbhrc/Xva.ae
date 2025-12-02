@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const bar = entry.target.querySelector('.metric-bar-fill');
-        if (bar && bar.hasAttribute('data-bar-target')) {
+        if (bar && bar.hasAttribute('data-bar-target') && !bar.hasAttribute('data-readiness')) {
           const targetWidth = bar.getAttribute('data-bar-target');
           setTimeout(() => {
             bar.style.width = targetWidth + '%';
@@ -136,6 +136,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     const pct = total > 0 ? Math.round((answered / total) * 100) : 0;
     readinessProgressLabel.textContent = pct;
+    // Ensure smooth transition
+    readinessProgressBar.style.transition = 'width 0.4s ease-out';
     readinessProgressBar.style.width = pct + "%";
     readinessProgressBar.setAttribute('role', 'progressbar');
     readinessProgressBar.setAttribute('aria-valuemin', '0');
