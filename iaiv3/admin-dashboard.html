@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead Dashboard - iMPLEMENTAi.ae</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f7fafc;
+            color: #1a202c;
+        }
+
+        .header {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            color: #1a202c;
+        }
+
+        .header-right {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .user-info {
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        .logout-btn {
+            padding: 0.5rem 1rem;
+            background: #e53e3e;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.2s ease;
+        }
+
+        .logout-btn:hover {
+            background: #c53030;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-card h3 {
+            font-size: 0.875rem;
+            color: #718096;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .stat-card .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .tab {
+            padding: 0.75rem 1.5rem;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-weight: 500;
+            color: #718096;
+            transition: all 0.2s ease;
+        }
+
+        .tab.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+
+        .tab:hover {
+            color: #667eea;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .table-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .table-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .table-header h2 {
+            font-size: 1.25rem;
+        }
+
+        .export-btn {
+            padding: 0.5rem 1rem;
+            background: #48bb78;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.2s ease;
+        }
+
+        .export-btn:hover {
+            background: #38a169;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: #f7fafc;
+        }
+
+        th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            color: #4a5568;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            padding: 1rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        tbody tr:hover {
+            background: #f7fafc;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-ready {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+
+        .badge-capable {
+            background: #bee3f8;
+            color: #2c5282;
+        }
+
+        .badge-emerging {
+            background: #feebc8;
+            color: #7c2d12;
+        }
+
+        .badge-exploring {
+            background: #fed7d7;
+            color: #742a2a;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: #718096;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: #718096;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>📊 Lead Dashboard</h1>
+        <div class="header-right">
+            <span class="user-info">👤 <span id="username"></span></span>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Statistics -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>AI Readiness Leads</h3>
+                <div class="number" id="aiReadinessCount">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>ROI Calculator Leads</h3>
+                <div class="number" id="roiCalculatorCount">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Contact Submissions</h3>
+                <div class="number" id="contactCount">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Today's Leads</h3>
+                <div class="number" id="todayCount">0</div>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('aiReadiness')">AI Readiness</button>
+            <button class="tab" onclick="switchTab('roiCalculator')">ROI Calculator</button>
+            <button class="tab" onclick="switchTab('contact')">Contact Forms</button>
+        </div>
+
+        <!-- AI Readiness Tab -->
+        <div id="aiReadiness" class="tab-content active">
+            <div class="table-container">
+                <div class="table-header">
+                    <h2>AI Readiness Assessment Leads</h2>
+                    <button class="export-btn" onclick="exportData('ai_readiness_leads')">📥 Export CSV</button>
+                </div>
+                <div id="aiReadinessTable"></div>
+            </div>
+        </div>
+
+        <!-- ROI Calculator Tab -->
+        <div id="roiCalculator" class="tab-content">
+            <div class="table-container">
+                <div class="table-header">
+                    <h2>ROI Calculator Leads</h2>
+                    <button class="export-btn" onclick="exportData('roi_calculator_leads')">📥 Export CSV</button>
+                </div>
+                <div id="roiCalculatorTable"></div>
+            </div>
+        </div>
+
+        <!-- Contact Tab -->
+        <div id="contact" class="tab-content">
+            <div class="table-container">
+                <div class="table-header">
+                    <h2>Contact Form Submissions</h2>
+                    <button class="export-btn" onclick="exportData('contact_submissions')">📥 Export CSV</button>
+                </div>
+                <div id="contactTable"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Check authentication
+        if (!sessionStorage.getItem('adminLoggedIn')) {
+            window.location.href = 'admin-login.html';
+        }
+
+        // Display username
+        document.getElementById('username').textContent = sessionStorage.getItem('adminUsername') || 'Admin';
+
+        const API_URL = 'http://localhost:5000/api';
+
+        // Logout function
+        function logout() {
+            sessionStorage.clear();
+            window.location.href = 'admin-login.html';
+        }
+
+        // Switch tabs
+        function switchTab(tabName) {
+            // Update tab buttons
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Update tab content
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active');
+        }
+
+        // Load statistics
+        async function loadStats() {
+            try {
+                const response = await fetch(`${API_URL}/stats`);
+                const data = await response.json();
+
+                if (data.success) {
+                    const stats = data.stats;
+                    document.getElementById('aiReadinessCount').textContent = stats.ai_readiness_count;
+                    document.getElementById('roiCalculatorCount').textContent = stats.roi_calculator_count;
+                    document.getElementById('contactCount').textContent = stats.contact_count;
+                    document.getElementById('todayCount').textContent = stats.today_ai_readiness + stats.today_roi_calculator;
+                }
+            } catch (error) {
+                console.error('Error loading stats:', error);
+            }
+        }
+
+        // Load AI Readiness leads
+        async function loadAIReadinessLeads() {
+            const container = document.getElementById('aiReadinessTable');
+            container.innerHTML = '<div class="loading">Loading...</div>';
+
+            try {
+                const response = await fetch(`${API_URL}/leads/ai-readiness`);
+                const data = await response.json();
+
+                if (data.success && data.leads.length > 0) {
+                    let html = `
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Company</th>
+                                    <th>Phone</th>
+                                    <th>Score</th>
+                                    <th>Level</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                    `;
+
+                    data.leads.forEach(lead => {
+                        const date = new Date(lead.created_at).toLocaleDateString();
+                        const levelClass = lead.readiness_level.toLowerCase().replace(' ', '-');
+                        html += `
+                            <tr>
+                                <td>${date}</td>
+                                <td><strong>${lead.name}</strong></td>
+                                <td>${lead.email}</td>
+                                <td>${lead.company}</td>
+                                <td>${lead.phone || 'N/A'}</td>
+                                <td>${lead.score}/30</td>
+                                <td><span class="badge badge-${levelClass}">${lead.readiness_level}</span></td>
+                            </tr>
+                        `;
+                    });
+
+                    html += '</tbody></table>';
+                    container.innerHTML = html;
+                } else {
+                    container.innerHTML = '<div class="empty-state">No leads yet</div>';
+                }
+            } catch (error) {
+                console.error('Error loading AI Readiness leads:', error);
+                container.innerHTML = '<div class="empty-state">Error loading data. Make sure API server is running.</div>';
+            }
+        }
+
+        // Load ROI Calculator leads
+        async function loadROICalculatorLeads() {
+            const container = document.getElementById('roiCalculatorTable');
+            container.innerHTML = '<div class="loading">Loading...</div>';
+
+            try {
+                const response = await fetch(`${API_URL}/leads/roi-calculator`);
+                const data = await response.json();
+
+                if (data.success && data.leads.length > 0) {
+                    let html = `
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Company</th>
+                                    <th>Employees</th>
+                                    <th>Annual Savings</th>
+                                    <th>Payback</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                    `;
+
+                    data.leads.forEach(lead => {
+                        const date = new Date(lead.created_at).toLocaleDateString();
+                        const savings = lead.annual_savings ? `AED ${lead.annual_savings.toLocaleString()}` : 'N/A';
+                        html += `
+                            <tr>
+                                <td>${date}</td>
+                                <td><strong>${lead.name || 'Anonymous'}</strong></td>
+                                <td>${lead.email || 'N/A'}</td>
+                                <td>${lead.company || 'N/A'}</td>
+                                <td>${lead.employees || 'N/A'}</td>
+                                <td>${savings}</td>
+                                <td>${lead.payback_months || 'N/A'} months</td>
+                            </tr>
+                        `;
+                    });
+
+                    html += '</tbody></table>';
+                    container.innerHTML = html;
+                } else {
+                    container.innerHTML = '<div class="empty-state">No leads yet</div>';
+                }
+            } catch (error) {
+                console.error('Error loading ROI Calculator leads:', error);
+                container.innerHTML = '<div class="empty-state">Error loading data. Make sure API server is running.</div>';
+            }
+        }
+
+        // Export data
+        async function exportData(tableName) {
+            try {
+                const response = await fetch(`${API_URL}/export/${tableName}`);
+                const data = await response.json();
+
+                if (data.success) {
+                    alert(`✅ Exported to ${data.filename}`);
+                } else {
+                    alert('❌ Export failed');
+                }
+            } catch (error) {
+                console.error('Error exporting data:', error);
+                alert('❌ Export failed. Make sure API server is running.');
+            }
+        }
+
+        // Load all data on page load
+        window.addEventListener('DOMContentLoaded', function () {
+            loadStats();
+            loadAIReadinessLeads();
+            loadROICalculatorLeads();
+        });
+    </script>
+</body>
+
+</html>
