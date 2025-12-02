@@ -1,7 +1,7 @@
 {
   "name": "iaiv3",
   "version": "1.0.0",
-  "description": "ImplementAI static website — build with Tailwind locally",
+  "description": "iMPLEMENTAi.ae static website — build with Tailwind locally",
   "scripts": {
     "build:css": "tailwindcss -i ./src/styles.css -o ./assets/css/main.css --minify",
     "watch:css": "tailwindcss -i ./src/styles.css -o ./assets/css/main.css --watch",

@@ -1,0 +1,68 @@
+____________________
+Version 7.0
+
+Task List:
+- [x] Add rule in README: Company name is always iMPLEMENTAi.ae.
+- [x] Add rule in README: Process requires Task List, Walkthrough, and Version Control.
+- [x] Update content site-wide to use iMPLEMENTAi.ae.
+- [x] Establish version control starting at Version 7.0.
+
+Implementation Details:
+- Created README.md with branding and process rules.
+- Performed site-wide text replacement of "ImplementAI" and "ImplementAI.ae" to "iMPLEMENTAi.ae".
+- Created WALKTHROUGH.md.
+- Updated version-control file with this entry.
+____________________________
+Version 7.2
+
+HTML Duplication Cleanup and Domain/Footer Updates
+Goal
+The goal was to resolve CACHE_BUST redeclaration lint errors and canonical URL inconsistencies across all identified HTML files, remove duplicated HTML content, ensure consistent branding (iMPLEMENTAi.ae), and implement a consistent 4-column sitemap footer.
+
+Changes
+1. HTML Duplication Cleanup
+Duplicated HTML content (nested <html> structures) was removed from the following files. Unique content was preserved and integrated into the main structure.
+
+about.html
+departments.html
+fractional-caio.html
+workshops.html
+terms.html
+team.html
+privacy.html
+solutions-hr.html
+solutions-finance.html
+solutions-ops.html
+solutions-sales.html
+strategy.html
+resources.html
+contact.html
+2. Domain and Canonical URL Updates
+All canonical URLs were updated to use https://www.implementai.ae/.
+All internal links were verified to use www or relative paths.
+CACHE_BUST script (const CACHE_BUST = '20251202.v2.0';) was added to the <head> of all files to ensure proper caching.
+3. Footer Expansion
+The footer was updated across all pages to a consistent 4-column sitemap layout.
+Footer columns:
+iMPLEMENTAi.ae: Description and social links.
+Services: Links to Strategy, Automation, Workshops, Fractional CAIO, AI Readiness.
+Solutions: Links to Solutions Hub, HR, Finance, Operations, Sales.
+Company: Links to About, Team, Resources, Contact, Privacy, Terms.
+Copyright text updated to 2025 iMPLEMENTAi.ae.
+4. Additional File Updates
+uae-guide.html
+: Updated with CACHE_BUST, new footer, and correct navigation.
+services.html
+: Updated with CACHE_BUST, new footer, and correct navigation.
+roi-calculator.html
+: Updated with CACHE_BUST, new footer, and correct navigation.
+ai-readiness-result.html
+: Updated with CACHE_BUST, new footer, and correct navigation.
+ai-readiness.html
+: Updated with CACHE_BUST, new footer, and correct navigation.
+automation.html
+: Verified CACHE_BUST and footer.
+Verification
+Link Check: Verified that no links point to https://implementai.ae (non-www) or http://.
+Duplication Check: Verified that no files contain multiple <!DOCTYPE html> declarations.
+Structure Check: Verified that all files have the correct CACHE_BUST script and canonical URL.

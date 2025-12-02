@@ -1,5 +1,5 @@
 
-ImplementAI.ae Multi Page Website (v3)
+iMPLEMENTAi.ae Multi Page Website (v3)
 =====================================
 
 New in this version
@@ -34,3 +34,6 @@ Deploying on Hostinger
 Tailwind CSS is loaded from CDN in each HTML file.
 Custom helpers and animation styles are defined in assets/css/styles.css.
 Client-side behaviour (scroll bar, animations, readiness logic) is in assets/js/main.js.
+
+##Version Control
+all new developments must be updated in the @v6-Improvements
