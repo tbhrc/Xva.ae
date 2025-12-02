@@ -1,7 +1,7 @@
 # Modern Animations & Interactions Guide
 
 ## Overview
-Your ImplementAI.ae website now features **smooth, professional animations and micro-interactions** that make the site feel modern and polished while maintaining excellent performance.
+Your iMPLEMENTAi.ae website now features **smooth, professional animations and micro-interactions** that make the site feel modern and polished while maintaining excellent performance.
 
 ---
 
