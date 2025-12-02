@@ -1852,6 +1852,264 @@ h3 {
   }
 }
 
+/* ==================== ENHANCEMENT 1: 3D CARD TILT EFFECT ==================== */
+.service-card, .resource-card {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.service-card:hover, .resource-card:hover {
+  transform: translateZ(20px) rotateX(5deg) rotateY(-5deg);
+}
+
+/* ==================== ENHANCEMENT 2: PARALLAX HERO BLOBS ==================== */
+.hero-blob {
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+.hero-blob-1 {
+  animation: blobFloat1 8s ease-in-out infinite;
+}
+
+.hero-blob-2 {
+  animation: blobFloat2 10s ease-in-out infinite;
+}
+
+@keyframes blobFloat1 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(20px, -30px) scale(1.05);
+  }
+  50% {
+    transform: translate(-15px, 20px) scale(0.95);
+  }
+  75% {
+    transform: translate(30px, 15px) scale(1.08);
+  }
+}
+
+@keyframes blobFloat2 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(-25px, 25px) scale(1.08);
+  }
+  66% {
+    transform: translate(20px, -20px) scale(0.95);
+  }
+}
+
+/* ==================== ENHANCEMENT 3: STAGGERED PAGE LOAD ==================== */
+.fade-section {
+  animation: fadeInUp 0.7s ease-out forwards;
+  opacity: 0;
+}
+
+.fade-section:nth-child(1) { animation-delay: 0.1s; }
+.fade-section:nth-child(2) { animation-delay: 0.2s; }
+.fade-section:nth-child(3) { animation-delay: 0.3s; }
+.fade-section:nth-child(4) { animation-delay: 0.4s; }
+.fade-section:nth-child(5) { animation-delay: 0.5s; }
+
+.service-card, .resource-card {
+  animation: slideUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.service-card:nth-child(1) { animation-delay: 0.2s; }
+.service-card:nth-child(2) { animation-delay: 0.3s; }
+.service-card:nth-child(3) { animation-delay: 0.4s; }
+.service-card:nth-child(4) { animation-delay: 0.5s; }
+.service-card:nth-child(5) { animation-delay: 0.6s; }
+.service-card:nth-child(6) { animation-delay: 0.7s; }
+
+.resource-card:nth-child(1) { animation-delay: 0.2s; }
+.resource-card:nth-child(2) { animation-delay: 0.3s; }
+.resource-card:nth-child(3) { animation-delay: 0.4s; }
+.resource-card:nth-child(4) { animation-delay: 0.5s; }
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==================== ENHANCEMENT 4: CUSTOM CURSOR (CSS Base) ==================== */
+body {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="4" fill="%230ea5e9" opacity="0.8"/><circle cx="16" cy="16" r="8" fill="none" stroke="%230ea5e9" stroke-width="1" opacity="0.4"/></svg>') 16 16, auto;
+}
+
+a, button {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="5" fill="%232dd4bf" opacity="0.9"/><circle cx="16" cy="16" r="10" fill="none" stroke="%232dd4bf" stroke-width="1.5" opacity="0.6"/></svg>') 16 16, pointer;
+}
+
+/* ==================== ENHANCEMENT 5: MORPHING BLOB BACKGROUND ==================== */
+@keyframes blobMorph {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  25% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  50% {
+    border-radius: 70% 30% 40% 60% / 30% 60% 60% 40%;
+  }
+  75% {
+    border-radius: 40% 70% 60% 30% / 60% 40% 30% 70%;
+  }
+}
+
+.morphing-blob {
+  animation: blobMorph 8s ease-in-out infinite, blobFloat 6s ease-in-out infinite;
+}
+
+@keyframes blobFloat {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(20px, -30px);
+  }
+}
+
+/* ==================== ENHANCEMENT 6: SCROLL SPY GLOW ==================== */
+.section-indicator {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.section-indicator.active {
+  color: #2dd4bf;
+  text-shadow: 0 0 10px rgba(45, 212, 191, 0.5);
+  transform: scale(1.1);
+}
+
+/* ==================== ENHANCEMENT 7: BUTTON RIPPLE EFFECT ==================== */
+.btn-primary, .btn-ghost {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(45, 212, 191, 0.8), rgba(45, 212, 191, 0));
+  transform: scale(0);
+  animation: ripple-animation 0.6s ease-out;
+  pointer-events: none;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* ==================== ENHANCEMENT 8: FLOATING ACTION ELEMENTS ==================== */
+.floating-metric {
+  animation: float 3s ease-in-out infinite;
+}
+
+.floating-metric:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.floating-metric:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.floating-metric:nth-child(3) {
+  animation-delay: 1s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* ==================== ENHANCEMENT 9: ENHANCED FORM INTERACTIONS ==================== */
+.form-input {
+  position: relative;
+  border-bottom: 2px solid rgba(71, 85, 105, 0.3);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+  background: linear-gradient(to right, rgba(45, 212, 191, 0), rgba(45, 212, 191, 0));
+  background-size: 0% 100%;
+  background-position: left;
+  background-repeat: no-repeat;
+}
+
+.form-input:focus {
+  border-bottom-color: #2dd4bf;
+  background-size: 100% 100%;
+  background: linear-gradient(to right, rgba(45, 212, 191, 0.1), rgba(45, 212, 191, 0.05));
+  box-shadow: 0 2px 8px rgba(45, 212, 191, 0.1) inset;
+  outline: none;
+}
+
+.form-label {
+  transition: all 0.3s ease;
+  transform-origin: left;
+}
+
+.form-input:focus ~ .form-label,
+.form-input:not(:placeholder-shown) ~ .form-label {
+  transform: translateY(-20px) scale(0.85);
+  color: #2dd4bf;
+}
+
+/* ==================== ENHANCEMENT 10: GRADIENT TEXT & ANIMATED UNDERLINES ==================== */
+.gradient-title {
+  background: linear-gradient(135deg, #2dd4bf, #06b6d4, #0ea5e9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 6s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animated-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.animated-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #2dd4bf, #0ea5e9);
+  transition: width 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.animated-underline:hover::after {
+  width: 100%;
+}
+
 /* ==================== REDUCED MOTION SUPPORT ==================== */
 
 @media (prefers-reduced-motion: reduce) {

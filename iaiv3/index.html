@@ -6,8 +6,13 @@
 <title>ImplementAI.ae | Index</title>
 <meta name="description" content="ImplementAI.ae is a UAE based AI consulting firm providing strategy, workshops, automation builds and fractional CAIO leadership for mid market organisations." />
 <!-- Production: Use compiled Tailwind CSS instead of CDN -->
-<link rel="stylesheet" href="assets/css/main.css" />
-<link rel="stylesheet" href="assets/css/styles.css" />
+<link rel="stylesheet" href="assets/css/main.css?v=2.0" />
+<link rel="stylesheet" href="assets/css/styles.css?v=2.0" />
+<!-- Auto Cache Buster -->
+<script>
+  const CACHE_BUST = '20251202.v2.0';
+  window.cacheBustUrl = (url) => url.includes('?') ? url + '&cb=' + CACHE_BUST : url + '?cb=' + CACHE_BUST;
+</script>
 <!-- SEO & Social (replace example.com with your real domain) -->
 <meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://example.com/index.html" />
@@ -66,9 +71,9 @@
 <main id="main" class="pt-20 md:pt-24">
 <section class="relative overflow-hidden">
 <div class="pointer-events-none absolute inset-0">
-<div class="absolute -top-40 -left-32 w-96 h-96 rounded-full bg-teal-400/12 blur-3xl">
+<div class="absolute -top-40 -left-32 w-96 h-96 rounded-full bg-teal-400/12 blur-3xl hero-blob hero-blob-1" data-parallax="0.3">
 </div>
-<div class="absolute -bottom-52 right-0 w-[30rem] h-[30rem] rounded-full bg-sky-500/12 blur-3xl">
+<div class="absolute -bottom-52 right-0 w-[30rem] h-[30rem] rounded-full bg-sky-500/12 blur-3xl hero-blob hero-blob-2" data-parallax="0.15">
 </div>
 </div>
 <div class="relative max-w-6xl mx-auto px-4 py-16 lg:py-20">
@@ -78,7 +83,7 @@
 <span class="inline-flex items-center rounded-full bg-gradient-to-r from-teal-400 to-cyan-600 px-2 py-0.5 text-[10px] font-semibold text-white">             UAE mid market focus           </span>
 <span>Strategy, delivery and leadership for AI adoption.</span>
 </div>
-<h1 class="text-3xl sm:text-4xl lg:text-[2.8rem] font-semibold tracking-tight text-slate-50 mb-4">           Turn AI from noise into a disciplined part of your operating model.         </h1>
+<h1 class="gradient-title text-3xl sm:text-4xl lg:text-[2.8rem] font-semibold tracking-tight mb-4" style="background-size: 200% 200%;">           Turn AI from noise into a disciplined part of your operating model.         </h1>
 <p class="text-sm sm:text-[15px] text-slate-300 max-w-xl mb-4">           ImplementAI.ae works with UAE organisations that are ready to move beyond isolated experiments. We design AI strategies, build agents and automations, and provide fractional Chief AI Office leadership so your teams can work with confidence.         </p>
 <div class="flex flex-wrap gap-2 mb-5">
 <span class="chip">AI strategic roadmaps</span>
@@ -261,7 +266,7 @@
 </div>
 </div>
 </footer>
-<script src="assets/js/main.js">
+<script src="assets/js/main.js?v=2.0">
 </script>
 </body>
 </html>

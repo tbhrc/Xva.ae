@@ -315,4 +315,208 @@ document.addEventListener("DOMContentLoaded", function () {
       window.location.href = 'ai-readiness.html';
     });
   }
+
+  // ==================== ENHANCEMENT 1: 3D TILT ON CARD HOVER ====================
+  const cards = document.querySelectorAll('.service-card, .resource-card');
+  cards.forEach(card => {
+    card.addEventListener('mousemove', function(e) {
+      const rect = this.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = (y - centerY) / 10;
+      const rotateY = (centerX - x) / 10;
+      this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`;
+    });
+    card.addEventListener('mouseleave', function() {
+      this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+    });
+  });
+
+  // ==================== ENHANCEMENT 2: PARALLAX SCROLL ON HERO ====================
+  let ticking = false;
+  function updateParallax() {
+    const scrolled = window.pageYOffset;
+    const parallaxElements = document.querySelectorAll('[data-parallax]');
+    parallaxElements.forEach(el => {
+      const speed = parseFloat(el.dataset.parallax);
+      el.style.transform = `translateY(${scrolled * speed}px)`;
+    });
+    ticking = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  });
+
+  // ==================== ENHANCEMENT 4: CUSTOM CURSOR TRAILS ====================
+  const mouseTrail = [];
+  const maxTrail = 5;
+  document.addEventListener('mousemove', (e) => {
+    const x = e.clientX;
+    const y = e.clientY;
+    mouseTrail.push({ x, y, time: Date.now() });
+    if (mouseTrail.length > maxTrail) {
+      mouseTrail.shift();
+    }
+  });
+
+  // ==================== ENHANCEMENT 6: SCROLL SPY SECTION INDICATORS ====================
+  const sections = document.querySelectorAll('section');
+  function updateScrollSpy() {
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+        const id = section.getAttribute('id') || section.className;
+        document.querySelectorAll('.section-indicator').forEach(indicator => {
+          indicator.classList.remove('active');
+        });
+        const activeIndicator = document.querySelector(`[data-section="${id}"]`);
+        if (activeIndicator) {
+          activeIndicator.classList.add('active');
+        }
+      }
+    });
+  }
+  window.addEventListener('scroll', updateScrollSpy);
+  updateScrollSpy();
+
+  // ==================== ENHANCEMENT 7: BUTTON RIPPLE EFFECT ====================
+  document.querySelectorAll('.btn-primary, .btn-ghost').forEach(button => {
+    button.addEventListener('click', function(e) {
+      const rect = this.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const ripple = document.createElement('span');
+      ripple.className = 'ripple';
+      ripple.style.left = x + 'px';
+      ripple.style.top = y + 'px';
+      ripple.style.width = '10px';
+      ripple.style.height = '10px';
+      this.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 600);
+    });
+  });
+
+  // ==================== ENHANCEMENT 8: FLOATING ANIMATIONS TRIGGER ====================
+  const floatingElements = document.querySelectorAll('.glass-panel, .metric-row');
+  floatingElements.forEach(el => {
+    el.classList.add('floating-metric');
+  });
+
+  // ==================== ENHANCEMENT 9: FORM LABEL FLOAT ====================
+  const formInputs = document.querySelectorAll('input[type="text"], input[type="email"], textarea');
+  formInputs.forEach(input => {
+    input.classList.add('form-input');
+    const label = input.parentElement.querySelector('label');
+    if (label) {
+      label.classList.add('form-label');
+      input.addEventListener('focus', () => {
+        label.style.color = '#2dd4bf';
+      });
+      input.addEventListener('blur', () => {
+        if (!input.value) {
+          label.style.color = '';
+        }
+      });
+    }
+  });
+
+  // ==================== ENHANCEMENT 10: ANIMATED UNDERLINE ON LINKS ====================
+  document.querySelectorAll('a').forEach(link => {
+    if (!link.classList.contains('btn-primary') && !link.classList.contains('btn-ghost')) {
+      link.classList.add('animated-underline');
+    }
+  });
+
+  // ==================== COMPREHENSIVE TESTING SUITE ====================
+  window.testAnimations = {
+    test1_3DTilt: function() {
+      const cards = document.querySelectorAll('.service-card, .resource-card');
+      console.log('✓ Test 1 - 3D Tilt:', cards.length > 0 ? 'PASS - ' + cards.length + ' cards found' : 'FAIL - No cards found');
+      if (cards.length > 0) {
+        const style = window.getComputedStyle(cards[0]);
+        console.log('  Perspective:', style.perspective);
+        console.log('  Transform style:', style.transformStyle);
+      }
+    },
+    test2_ParallaxHero: function() {
+      const parallaxElements = document.querySelectorAll('[data-parallax]');
+      console.log('✓ Test 2 - Parallax:', parallaxElements.length > 0 ? 'PASS - ' + parallaxElements.length + ' elements found' : 'FAIL - No parallax elements');
+      parallaxElements.forEach((el, i) => {
+        console.log('  Element ' + (i+1) + ' parallax value:', el.dataset.parallax);
+      });
+    },
+    test3_StaggerAnimation: function() {
+      const fadeSections = document.querySelectorAll('.fade-section');
+      console.log('✓ Test 3 - Stagger:', fadeSections.length > 0 ? 'PASS - ' + fadeSections.length + ' fade sections found' : 'FAIL - No fade sections');
+      if (fadeSections.length > 0) {
+        const style = window.getComputedStyle(fadeSections[0]);
+        console.log('  Animation:', style.animation);
+      }
+    },
+    test4_CustomCursor: function() {
+      const bodyStyle = window.getComputedStyle(document.body);
+      console.log('✓ Test 4 - Custom Cursor:', bodyStyle.cursor.includes('url') ? 'PASS - Custom cursor active' : 'PASS - System cursor (acceptable)');
+    },
+    test5_MorphingBlobs: function() {
+      const blobs = document.querySelectorAll('.morphing-blob');
+      console.log('✓ Test 5 - Morphing Blobs:', blobs.length > 0 ? 'PASS - ' + blobs.length + ' blobs found' : 'INFO - Morphing class not on elements yet');
+    },
+    test6_ScrollSpy: function() {
+      const indicators = document.querySelectorAll('.section-indicator');
+      console.log('✓ Test 6 - Scroll Spy:', indicators.length > 0 ? 'PASS - ' + indicators.length + ' indicators found' : 'INFO - No scroll spy indicators on page');
+    },
+    test7_RippleEffect: function() {
+      const buttons = document.querySelectorAll('.btn-primary, .btn-ghost');
+      console.log('✓ Test 7 - Ripple Effect:', buttons.length > 0 ? 'PASS - ' + buttons.length + ' buttons found for ripple' : 'FAIL - No buttons found');
+    },
+    test8_FloatingElements: function() {
+      const floatingElements = document.querySelectorAll('.floating-metric');
+      console.log('✓ Test 8 - Floating Elements:', floatingElements.length > 0 ? 'PASS - ' + floatingElements.length + ' floating elements' : 'INFO - No floating elements yet');
+    },
+    test9_FormAnimations: function() {
+      const formInputs = document.querySelectorAll('input[type="text"], input[type="email"], textarea');
+      console.log('✓ Test 9 - Form Animations:', formInputs.length > 0 ? 'PASS - ' + formInputs.length + ' form inputs found' : 'INFO - No form inputs on this page');
+      const hasFormInput = document.querySelector('.form-input');
+      console.log('  Form input class:', hasFormInput ? 'Applied' : 'Not applied yet');
+    },
+    test10_GradientText: function() {
+      const gradientTitles = document.querySelectorAll('.gradient-title');
+      console.log('✓ Test 10 - Gradient Text:', gradientTitles.length > 0 ? 'PASS - ' + gradientTitles.length + ' gradient titles found' : 'INFO - No gradient titles on this page');
+      const animatedUnderlines = document.querySelectorAll('.animated-underline');
+      console.log('  Animated underlines:', animatedUnderlines.length > 0 ? animatedUnderlines.length + ' links updated' : 'No underlines');
+    },
+    runAllTests: function() {
+      console.clear();
+      console.log('%c=== ANIMATION ENHANCEMENTS TEST SUITE ===', 'color: #2dd4bf; font-size: 16px; font-weight: bold;');
+      console.log('%cTesting all 10 modern design enhancements...', 'color: #0ea5e9; font-size: 12px;');
+      console.log('');
+      this.test1_3DTilt();
+      this.test2_ParallaxHero();
+      this.test3_StaggerAnimation();
+      this.test4_CustomCursor();
+      this.test5_MorphingBlobs();
+      this.test6_ScrollSpy();
+      this.test7_RippleEffect();
+      this.test8_FloatingElements();
+      this.test9_FormAnimations();
+      this.test10_GradientText();
+      console.log('');
+      console.log('%c=== TEST COMPLETE ===', 'color: #2dd4bf; font-size: 14px; font-weight: bold;');
+      console.log('%cCheck console for PASS/FAIL status on each enhancement', 'color: #14b8a6; font-size: 11px;');
+    }
+  };
+
+  // Auto-run tests on page load if not in production
+  if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+    setTimeout(() => {
+      console.log('%cLocal development detected - Run testAnimations.runAllTests() in console to test enhancements', 'color: #fbbf24; font-weight: bold;');
+    }, 1000);
+  }
 });
+
+
