@@ -13,7 +13,7 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://implementai.ae/sitemap.xml
+Sitemap: https://www.implementai.ae/sitemap.xml
 
 # Crawl delay (optional, adjust as needed)
 Crawl-delay: 1

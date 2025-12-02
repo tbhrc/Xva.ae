@@ -1,0 +1,14 @@
+____________________
+Version 7.0
+
+Task List:
+- [x] Add rule in README: Company name is always iMPLEMENTAi.ae.
+- [x] Add rule in README: Process requires Task List, Walkthrough, and Version Control.
+- [x] Update content site-wide to use iMPLEMENTAi.ae.
+- [x] Establish version control starting at Version 7.0.
+
+Implementation Details:
+- Created README.md with branding and process rules.
+- Performed site-wide text replacement of "ImplementAI" and "ImplementAI.ae" to "iMPLEMENTAi.ae".
+- Created WALKTHROUGH.md.
+- Updated version-control file with this entry.
