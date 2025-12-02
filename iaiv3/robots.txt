@@ -3,10 +3,18 @@ Allow: /
 Disallow: /admin/
 Disallow: /private/
 
-Sitemap: https://example.com/sitemap.xml
+# Explicitly allow AI bots
+User-agent: GPTBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://implementai.ae/sitemap.xml
 
 # Crawl delay (optional, adjust as needed)
 Crawl-delay: 1
 
-# Request rate (optional)
-Request-rate: 1/1s
