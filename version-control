@@ -190,10 +190,55 @@ Version 7.9
 
 Task List (completed)
 - Fix branding reference in build script.
-- Improve readability/structure on resources page “Coming Soon” panel.
+- Improve readability/structure on resources page "Coming Soon" panel.
 - Tweak testimonial header alignment for consistency.
 
 Changes
 - Updated `iaiv3/build.sh` branding comment to use iMPLEMENTAi.ae.
-- Added dividers and better spacing in `iaiv3/resources.html` “Coming Soon” block plus a small helper style.
+- Added dividers and better spacing in `iaiv3/resources.html` "Coming Soon" block plus a small helper style.
 - Adjusted testimonial section heading alignment on `iaiv3/index.html` for cleaner layout.
+
+____________________
+Version 7.10
+
+Task List (completed)
+- Add navigation/footer touchpoints to admin pages.
+- Fix admin UI branding text.
+
+Changes
+- Rebuilt `iaiv3/admin-login.html` with top navigation links (Home/Insights/Contact), corrected "Admin Dashboard" title, and added a footer mini-sitemap (Privacy/Terms).
+- Rebuilt `iaiv3/admin-dashboard.html` with a fixed top navigation bar linking back to the main site, cleaned header text, and added a footer mini-sitemap for Privacy/Terms.
+
+____________________
+Version 7.11
+
+Task List (completed)
+- Add blog system (blog index + reusable post pages).
+- Publish first 3 blog posts aligned to keyword research.
+
+Changes
+- Added `iaiv3/blog.html` with hero, card grid, and links to first articles.
+- Created three articles with Article schema, premium nav/footer, and CTAs:
+  - `iaiv3/blog-ai-implementation-dubai.html`
+  - `iaiv3/blog-ai-assistants-vs-chatbots-uae.html`
+  - `iaiv3/blog-process-automation-roi-uae.html`
+
+____________________
+Version 7.11 (Planning)
+
+Task List
+- [ ] Add blog system (blog index + reusable post template; Article schema, breadcrumbs, author/date, read time).
+- [ ] Publish first 3 blog posts aligned to keyword research:
+    1) AI Implementation in Dubai (shadow IT-safe rollout)
+    2) AI Assistants vs Chatbots for regulated UAE workflows
+    3) Process Automation ROI (90-day payback for finance/ops)
+- [ ] Create location service pages (city-targeted):
+    - `ai-consulting-dubai.html`
+    - `ai-consulting-abu-dhabi.html`
+    - `ai-consulting-sharjah.html`
+    Each covering AI Consulting/Implementation/Automation with local proof, assurance, and FAQ schema.
+- [ ] Refresh `automation.html` to cover Assistants/Chatbots/Agents + Process Automation explicitly.
+- [ ] Add SME-focused section/page for “SME AI Transformation / AI-Powered SME Growth.”
+- [ ] Wire nav/footer and internal links to new pages/posts; update `sitemap.xml` and canonicals.
+- [ ] Add FAQ schema to location pages and Process Automation section; ensure Organization/Article schema persists.
+- [ ] (Optional) Add “Locations” strip or footer links to city pages; add Blog link under Insights/nav.

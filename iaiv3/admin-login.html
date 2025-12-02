@@ -32,6 +32,7 @@
             padding: 3rem;
             width: 100%;
             max-width: 400px;
+            position: relative;
         }
 
         .logo {
@@ -120,13 +121,65 @@
             color: #718096;
             font-size: 0.85rem;
         }
+
+        .top-nav {
+            position: fixed;
+            top: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 0.5rem 0.75rem;
+            border-radius: 999px;
+            backdrop-filter: blur(10px);
+            z-index: 10;
+        }
+
+        .top-nav a {
+            color: #f5f7ff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .top-nav a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-mini {
+            position: fixed;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        .footer-mini a {
+            color: rgba(255, 255, 255, 0.92);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer-mini a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 
 <body>
+    <div class="top-nav">
+        <a href="index.html">iMPLEMENTAi.ae</a>
+        <a href="resources.html">Insights</a>
+        <a href="contact.html">Contact</a>
+    </div>
     <div class="login-container">
         <div class="logo">
-            <h1>🔐 Admin Dashboard</h1>
+            <h1>Admin Dashboard</h1>
             <p>iMPLEMENTAi.ae Lead Management</p>
         </div>
 
@@ -149,6 +202,10 @@
         <div class="info-text">
             Default credentials: admin / admin123
         </div>
+    </div>
+
+    <div class="footer-mini">
+        <span>&copy; 2025 iMPLEMENTAi.ae</span> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a>
     </div>
 
     <script>
