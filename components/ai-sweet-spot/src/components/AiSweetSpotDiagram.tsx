@@ -65,8 +65,8 @@ const INITIATIVES: Array<{
   label: string;
   groups: PillarId[];
 }> = [
-  { x: 230, y: 110, width: 170, height: 40, label: "Unstoppable Company Game", groups: ["strategy"] },
-  { x: 400, y: 100, width: 260, height: 40, label: "AI Strategic & Execution Roadmap Workshop", groups: ["strategy"] },
+  { x: 170, y: 130, width: 170, height: 40, label: "Unstoppable Company Game", groups: ["strategy"] },
+  { x: 340, y: 95, width: 260, height: 40, label: "AI Strategic & Execution Roadmap Workshop", groups: ["strategy"] },
   { x: 655, y: 100, width: 160, height: 40, label: "HTC Campaign", groups: ["strategy"] },
   { x: 820, y: 120, width: 220, height: 40, label: "End in Mind Process Mapping", groups: ["strategy", "execution"] },
   { x: 955, y: 140, width: 180, height: 40, label: "AI Command Room", groups: ["execution"] },
@@ -96,10 +96,10 @@ const useHighlight = (active: Group) => {
 export const AiSweetSpotDiagram: React.FC = () => {
   const [activeGroup, setActiveGroup] = useState<Group>(null);
   const hi = useHighlight(activeGroup);
+  const activeMeta = activeGroup ? GROUP_META[activeGroup] : null;
 
   const onEnter = (group: Group) => () => setActiveGroup(group);
   const onLeave = () => setActiveGroup(null);
-  const activeMeta = activeGroup ? GROUP_META[activeGroup] : null;
 
   return (
     <div className="diagram-shell">
@@ -169,11 +169,13 @@ export const AiSweetSpotDiagram: React.FC = () => {
                 : "Hover over a circle or initiative to see where it fits in your AI operating model."}
             </p>
             <ul className="highlight-list">
-              {(activeMeta ? activeMeta.highlights : [
-                "Connected view across strategy, execution, people, and technology",
-                "Initiatives grouped so sponsors know where to lean in",
-                "Signals that business value is being delivered responsibly",
-              ]).map((item) => (
+              {(activeMeta
+                ? activeMeta.highlights
+                : [
+                    "Connected view across strategy, execution, people, and technology",
+                    "Initiatives grouped so sponsors know where to lean in",
+                    "Signals that business value is being delivered responsibly",
+                  ]).map((item) => (
                 <li key={item}>
                   <span className="bullet" />
                   {item}
@@ -211,14 +213,30 @@ export const AiSweetSpotDiagram: React.FC = () => {
                   </radialGradient>
 
                   <radialGradient id="circleFill" cx="50%" cy="40%" r="70%">
-                    <stop offset="0%" stopColor="rgba(0, 184, 196, 0.12)" />
-                    <stop offset="70%" stopColor="rgba(0, 102, 204, 0.05)" />
+                    <stop offset="0%" stopColor="rgba(0, 184, 196, 0.16)" />
+                    <stop offset="50%" stopColor="rgba(0, 102, 204, 0.1)" />
+                    <stop offset="85%" stopColor="rgba(0, 102, 204, 0.02)" />
                     <stop offset="100%" stopColor="transparent" />
                   </radialGradient>
 
+                  <linearGradient id="pillFill" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#ffffff" />
+                    <stop offset="100%" stopColor="#f0f6ff" />
+                  </linearGradient>
+
                   <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
-                    <feDropShadow dx="0" dy="20" stdDeviation="22" floodColor="#000000" floodOpacity="0.45" />
+                    <feDropShadow dx="0" dy="20" stdDeviation="22" floodColor="#000000" floodOpacity="0.35" />
                   </filter>
+
+                  <filter id="depthShadow" x="-35%" y="-35%" width="170%" height="170%">
+                    <feDropShadow dx="0" dy="8" stdDeviation="12" floodColor="#0a223d" floodOpacity="0.25" />
+                    <feDropShadow dx="0" dy="2" stdDeviation="8" floodColor="#0b1018" floodOpacity="0.18" />
+                  </filter>
+
+                  <filter id="pillShadow" x="-40%" y="-40%" width="180%" height="180%">
+                    <feDropShadow dx="0" dy="6" stdDeviation="8" floodColor="#0b1b2d" floodOpacity="0.18" />
+                  </filter>
+
                   {PILLARS.map((pillar) => (
                     <filter
                       key={pillar.id}
@@ -231,9 +249,9 @@ export const AiSweetSpotDiagram: React.FC = () => {
                       <feDropShadow
                         dx="0"
                         dy="0"
-                        stdDeviation="16"
+                        stdDeviation="18"
                         floodColor={`${GROUP_META[pillar.id as PillarId].accent}`}
-                        floodOpacity="0.35"
+                        floodOpacity="0.45"
                       />
                     </filter>
                   ))}
@@ -241,7 +259,6 @@ export const AiSweetSpotDiagram: React.FC = () => {
 
                 <rect x="0" y="0" width="1200" height="900" fill="url(#bgGrad)" rx={28} />
 
-                {/* Four main circles */}
                 {PILLARS.map((pillar) => {
                   const active = activeGroup === null || activeGroup === pillar.id;
                   const accent = GROUP_META[pillar.id as PillarId].accent;
@@ -257,7 +274,7 @@ export const AiSweetSpotDiagram: React.FC = () => {
                       role="button"
                       aria-label={`${pillar.label} pillar highlights ${pillar.sub}`}
                       style={{ cursor: "pointer" }}
-                      filter={`url(#${active ? `glow-${pillar.id}` : "softShadow"})`}
+                      filter={`url(#${active ? `glow-${pillar.id}` : "depthShadow"})`}
                     >
                       <circle
                         cx={pillar.cx}
@@ -296,9 +313,9 @@ export const AiSweetSpotDiagram: React.FC = () => {
                   );
                 })}
 
-                {/* AI Sweet Spot */}
-                <g>
-                  <circle cx={600} cy={450} r={95} fill="#f7f8fb" stroke="#f7f8fb" strokeWidth={2} />
+                <g className="sweet-spot">
+                  <circle cx={600} cy={450} r={115} fill="rgba(0, 184, 196, 0.06)" stroke="transparent" />
+                  <circle cx={600} cy={450} r={95} fill="#f7f8fb" stroke="#f7f8fb" strokeWidth={2} filter="url(#softShadow)" />
                   <text x={600} y={443} textAnchor="middle" fill="#0f1115" fontSize={20} fontWeight={700}>
                     AI Sweet
                   </text>
@@ -307,7 +324,6 @@ export const AiSweetSpotDiagram: React.FC = () => {
                   </text>
                 </g>
 
-                {/* Inner overlap labels */}
                 <text
                   x={600}
                   y={230}
@@ -352,12 +368,8 @@ export const AiSweetSpotDiagram: React.FC = () => {
                   Up-to-date Skilled Workforce
                 </text>
 
-                {/* Small pill label helper */}
-                {INITIATIVES.map((pill) =>
-                  renderPill(pill, hi, (pill.groups[0] ?? null) as Group, setActiveGroup)
-                )}
+                {INITIATIVES.map((pill) => renderPill(pill, hi, (pill.groups[0] ?? null) as Group, setActiveGroup))}
 
-                {/* Legend */}
                 <text
                   x={600}
                   y={880}
@@ -386,7 +398,6 @@ function renderPill(
   const rx = pill.height / 2;
   const cx = pill.x + pill.width / 2;
   const cy = pill.y + pill.height / 2;
-
   const accent = pill.groups.length === 1 ? GROUP_META[pill.groups[0]].accent : "#8fb3ff";
   const visibility = hi(pill.groups);
 
@@ -400,7 +411,7 @@ function renderPill(
       tabIndex={0}
       role="button"
       aria-label={`${pill.label} (${pill.groups.join(" & ")} initiative)`}
-      style={{ ...hi(pill.groups), cursor: "pointer" }}
+      style={{ ...visibility, cursor: "pointer" }}
     >
       <rect
         x={pill.x}
@@ -409,10 +420,11 @@ function renderPill(
         height={pill.height}
         rx={rx}
         ry={rx}
-        fill="#ffffff"
+        fill="url(#pillFill)"
         stroke={accent}
         strokeDasharray="5 5"
         opacity={visibility.opacity}
+        filter="url(#pillShadow)"
       />
       <text
         x={cx}
