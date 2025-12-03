@@ -66,3 +66,179 @@ Verification
 Link Check: Verified that no links point to https://implementai.ae (non-www) or http://.
 Duplication Check: Verified that no files contain multiple <!DOCTYPE html> declarations.
 Structure Check: Verified that all files have the correct CACHE_BUST script and canonical URL.
+# Implement AI Website Update  
+### Key Points and Objectives (Version 7.3)
+
+## Version Control
+- A full project backup has been created.
+- Current working version: **7.2**.
+- GitHub version control lacks detail, so a **manual version control document** is being used.
+- For every update:
+  - Copy all edits into the version control doc.
+  - Add a long line of underscores as a separator.
+  - Label the new section with the next version number (e.g., **7.3**).
+  - List changes clearly.
+
+## Website Direction
+- Current site looks too "techy" and more aligned with AI agents.
+- Needs a **complete redesign** focused on:
+  - Professionalism
+  - Corporate credibility
+  - C level expectations
+  - Consultancy-first approach
+- The new direction should resemble:
+  - McKinsey
+  - Bain
+  - KPMG
+  - Top 5 AI consultancy websites from Google
+
+## Brand Positioning
+- The company includes **three senior AI consultants** working with major entities.
+- Website must reflect:
+  - High expertise
+  - Enterprise readiness
+  - Strong trust and authority
+
+## Required Tasks
+- Transcribe all previous voice messages.
+- Gather screenshots of leading consultancy websites.
+- Save screenshots + transcription into a folder.
+- Feed both back into the AI for design analysis.
+
+## Design & Creative Direction
+- Professional enterprise-level theme.
+- Must still show:
+  - Agentic power
+  - High capability
+  - Clean modern visuals
+- Inspirations:
+  - Apple website design
+  - Envato Elements premium UI themes
+- Include smooth animations and motion.
+
+## Urgency
+- Deadline: **Website must launch tonight**.
+
+____________________
+Version 7.3
+
+Task List (completed)
+- Add homepage trust bar with client categories.
+- Add 2 testimonial pulls to homepage.
+- Add compliance strip (data residency, human-in-loop, secure by design, responsible AI principles).
+
+Changes
+- Updated `iaiv3/index.html` with a trust bar section highlighting regulated/high-growth sectors served.
+- Added two testimonial cards showcasing governance and cross-function AI operating model outcomes.
+- Inserted a compliance strip emphasizing in-region data hosting, human-in-loop validation, secure-by-design posture, and responsible AI principles.
+
+____________________
+Version 7.4
+
+Task List (completed)
+- Replace illustrative scenario with two sector micro-cases on homepage.
+
+Changes
+- Updated `iaiv3/index.html` to showcase two anonymized 90-day micro-cases (GCC Healthcare and UAE Retail) with concrete metrics, governance notes, and stack callouts.
+- Added supporting styles for the new case grid and cards.
+
+____________________
+Version 7.5
+
+Task List (completed)
+- Normalize CTA hierarchy on homepage (primary = Book Consultation, secondary = Check AI Readiness).
+- Add Insights nav item and featured insight block.
+
+Changes
+- Updated `iaiv3/index.html` hero, CTA, and mobile nav buttons to make “Book Consultation” the primary CTA and “Check AI Readiness” the secondary.
+- Added “Insights” to desktop and mobile navigation pointing to `resources.html`.
+- Added a featured insight block highlighting the AI Operating Model playbook with CTA buttons.
+- Included supporting styles for the featured insight block.
+
+____________________
+Version 7.6
+
+Task List (completed)
+- Improve featured insight readability.
+- Add resources page with the featured paper and upcoming assets.
+
+Changes
+- Tweaked featured insight colors on `iaiv3/index.html` for higher contrast on headings and body text.
+- Added `iaiv3/resources.html` with nav/footer parity, hero, featured “AI Operating Model Playbook” card, and placeholders for upcoming assets; CTA buttons for download (stub) and discussion.
+
+____________________
+Version 7.7
+
+Task List (completed)
+- Provide working PDF download for the AI Operating Model Playbook.
+
+Changes
+- Generated a downloadable PDF at `iaiv3/assets/pdfs/AI-Operating-Model-Playbook.pdf`.
+- Wired the “Download PDF” CTA on `iaiv3/resources.html` to the new file (with download attribute).
+
+____________________
+Version 7.8
+
+Task List (completed)
+- Replace stub PDF with full “AI Operating Model Playbook” content using our frameworks.
+
+Changes
+- Regenerated `iaiv3/assets/pdfs/AI-Operating-Model-Playbook.pdf` with multi-page content covering cadence, human-in-loop patterns, ROI tracking, stack/security, 90-day launch plan, and engagement model; references capability, flower, and org frameworks.
+
+____________________
+Version 7.9
+
+Task List (completed)
+- Fix branding reference in build script.
+- Improve readability/structure on resources page "Coming Soon" panel.
+- Tweak testimonial header alignment for consistency.
+
+Changes
+- Updated `iaiv3/build.sh` branding comment to use iMPLEMENTAi.ae.
+- Added dividers and better spacing in `iaiv3/resources.html` "Coming Soon" block plus a small helper style.
+- Adjusted testimonial section heading alignment on `iaiv3/index.html` for cleaner layout.
+
+____________________
+Version 7.10
+
+Task List (completed)
+- Add navigation/footer touchpoints to admin pages.
+- Fix admin UI branding text.
+
+Changes
+- Rebuilt `iaiv3/admin-login.html` with top navigation links (Home/Insights/Contact), corrected "Admin Dashboard" title, and added a footer mini-sitemap (Privacy/Terms).
+- Rebuilt `iaiv3/admin-dashboard.html` with a fixed top navigation bar linking back to the main site, cleaned header text, and added a footer mini-sitemap for Privacy/Terms.
+
+____________________
+Version 7.11
+
+Task List (completed)
+- Add blog system (blog index + reusable post pages).
+- Publish first 3 blog posts aligned to keyword research.
+
+Changes
+- Added `iaiv3/blog.html` with hero, card grid, and links to first articles.
+- Created three articles with Article schema, premium nav/footer, and CTAs:
+  - `iaiv3/blog-ai-implementation-dubai.html`
+  - `iaiv3/blog-ai-assistants-vs-chatbots-uae.html`
+  - `iaiv3/blog-process-automation-roi-uae.html`
+
+____________________
+Version 7.11 (Planning)
+
+Task List
+- [ ] Add blog system (blog index + reusable post template; Article schema, breadcrumbs, author/date, read time).
+- [ ] Publish first 3 blog posts aligned to keyword research:
+    1) AI Implementation in Dubai (shadow IT-safe rollout)
+    2) AI Assistants vs Chatbots for regulated UAE workflows
+    3) Process Automation ROI (90-day payback for finance/ops)
+- [ ] Create location service pages (city-targeted):
+    - `ai-consulting-dubai.html`
+    - `ai-consulting-abu-dhabi.html`
+    - `ai-consulting-sharjah.html`
+    Each covering AI Consulting/Implementation/Automation with local proof, assurance, and FAQ schema.
+- [ ] Refresh `automation.html` to cover Assistants/Chatbots/Agents + Process Automation explicitly.
+- [ ] Add SME-focused section/page for “SME AI Transformation / AI-Powered SME Growth.”
+- [ ] Wire nav/footer and internal links to new pages/posts; update `sitemap.xml` and canonicals.
+- [ ] Add FAQ schema to location pages and Process Automation section; ensure Organization/Article schema persists.
+- [ ] (Optional) Add “Locations” strip or footer links to city pages; add Blog link under Insights/nav.

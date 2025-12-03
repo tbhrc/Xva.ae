@@ -1,0 +1,302 @@
+/* v7.3 Corporate Design System */
+:root {
+    --corp-navy: #0a192f;
+    --corp-light-navy: #112240;
+    --corp-slate: #8892b0;
+    --corp-light-slate: #a8b2d1;
+    --corp-white: #e6f1ff;
+    --corp-gold: #c5a059; /* Premium accent */
+    --corp-blue-accent: #64ffda; /* Tech accent, kept subtle */
+    
+    --font-main: 'Inter', 'Segoe UI', sans-serif;
+    --font-heading: 'Playfair Display', serif; /* For that premium consultancy feel */
+    
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+body {
+    background-color: var(--corp-navy);
+    color: var(--corp-slate);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--corp-white);
+    font-family: var(--font-main); /* Keeping it clean, maybe serif for specific highlights */
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.corp-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navigation */
+.corp-nav {
+    background: rgba(10, 25, 47, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1rem 0;
+}
+
+.corp-nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.corp-logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--corp-white);
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.corp-logo span {
+    color: var(--corp-gold);
+}
+
+.corp-menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.corp-menu a {
+    color: var(--corp-light-slate);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.corp-menu a:hover {
+    color: var(--corp-gold);
+}
+
+.corp-btn {
+    border: 1px solid var(--corp-gold);
+    color: var(--corp-gold);
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    background: transparent;
+    cursor: pointer;
+}
+
+.corp-btn:hover {
+    background: rgba(197, 160, 89, 0.1);
+}
+
+.corp-btn-primary {
+    background: var(--corp-gold);
+    color: var(--corp-navy);
+    font-weight: 600;
+}
+
+.corp-btn-primary:hover {
+    background: #d4b06a;
+}
+
+/* Hero Section */
+.corp-hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 80px;
+}
+
+.corp-hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    opacity: 0.4;
+}
+
+.corp-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(10, 25, 47, 0.95), rgba(10, 25, 47, 0.7));
+    z-index: -1;
+}
+
+.corp-hero-content {
+    max-width: 800px;
+}
+
+.corp-hero h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.corp-hero p {
+    font-size: 1.2rem;
+    color: var(--corp-light-slate);
+    margin-bottom: 2rem;
+    max-width: 600px;
+}
+
+/* Bento Grid / Features */
+.corp-section {
+    padding: 100px 0;
+}
+
+.corp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.corp-card {
+    background: var(--corp-light-navy);
+    padding: 2rem;
+    border-radius: 8px;
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.corp-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--corp-gold);
+    box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+}
+
+.corp-card h3 {
+    color: var(--corp-white);
+    margin-top: 0;
+}
+
+.corp-card-icon {
+    font-size: 2rem;
+    color: var(--corp-gold);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+/* Team Section */
+.corp-team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.corp-team-member {
+    text-align: center;
+}
+
+.corp-team-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border: 3px solid var(--corp-gold);
+    background-color: var(--corp-light-navy);
+}
+
+.corp-team-name {
+    font-size: 1.25rem;
+    color: var(--corp-white);
+    margin-bottom: 0.5rem;
+}
+
+.corp-team-role {
+    color: var(--corp-gold);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.corp-team-bio {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.corp-social-link {
+    color: var(--corp-light-slate);
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+
+.corp-social-link:hover {
+    color: var(--corp-white);
+}
+
+/* Footer */
+.corp-footer {
+    background: #020c1b;
+    padding: 5rem 0 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.corp-footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 3rem;
+}
+
+.corp-footer-col h4 {
+    color: var(--corp-white);
+    margin-bottom: 1.5rem;
+}
+
+.corp-footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.corp-footer-links li {
+    margin-bottom: 0.8rem;
+}
+
+.corp-footer-links a {
+    color: var(--corp-slate);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.corp-footer-links a:hover {
+    color: var(--corp-gold);
+}
+
+/* Utilities */
+.text-gold { color: var(--corp-gold); }
+.text-center { text-align: center; }
+.mb-4 { margin-bottom: 1rem; }
+.mt-4 { margin-top: 1rem; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .corp-hero h1 { font-size: 2.5rem; }
+    .corp-nav-inner { flex-direction: column; gap: 1rem; }
+    .corp-menu { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .corp-footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
