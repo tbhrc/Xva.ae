@@ -9,7 +9,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=SF+Pro+Display:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/v7.3-premium.css">
+  <link rel="preload" href="assets/css/v7.3-premium.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="assets/css/v7.3-premium.css"></noscript>
+    <link rel="stylesheet" href="assets/css/v7.3-premium.css">
   <style>
     .blog-hero {
       padding: 160px 0 80px;
@@ -103,7 +105,7 @@
 
 <body>
   <!-- Navigation -->
-  <nav class="prem-nav">
+    <nav class="prem-nav">
     <div class="prem-container prem-nav-inner">
       <a href="index.html" class="prem-logo"><img src="assets/images/2.png" alt="iMPLEMENTAi.ae" style="height: 45px; width: auto;"></a>
       <ul class="prem-menu">
@@ -111,7 +113,7 @@
         <li><a href="strategy.html">Strategy</a></li>
         <li><a href="departments.html">Solutions</a></li>
         <li><a href="resources.html">Insights</a></li>
-        <li><a href="blog.html" style="color: var(--prem-text);">Blog</a></li>
+        <li><a href="blog.html">Blog</a></li>
         <li><a href="team.html">Team</a></li>
         <li><a href="ai-readiness.html">Check AI Readiness</a></li>
         <li><a href="about.html">About</a></li>
@@ -246,3 +248,4 @@
 </body>
 
 </html>
+

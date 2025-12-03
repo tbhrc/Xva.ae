@@ -19,7 +19,7 @@
 }
 
 body {
-    background-color: var(--prem-bg);
+    background-color: #0f192b;
     color: var(--prem-text);
     font-family: var(--font-main);
     line-height: 1.5;
