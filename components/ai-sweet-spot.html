@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" />
+  <title>AI Sweet Spot Interactive</title>
+  <style>
+    :root {
+      --accent: #a93cfa;
+      --accent-soft: rgba(169, 60, 250, 0.35);
+      --bg-deep: #080410;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg-deep);
+      color: #f2e9ff;
+      font-family: "Segoe UI", "Inter", system-ui, -apple-system, sans-serif;
+      overflow: hidden;
+    }
+    .bg {
+      position: fixed;
+      inset: -10%;
+      background:
+        radial-gradient(circle at 18% 22%, rgba(115, 43, 190, 0.4), transparent 45%),
+        radial-gradient(circle at 80% 28%, rgba(88, 23, 170, 0.45), transparent 50%),
+        radial-gradient(circle at 55% 78%, rgba(62, 14, 120, 0.4), transparent 55%),
+        linear-gradient(120deg, #05020b, #0d0820, #05020b);
+      filter: blur(40px) saturate(120%);
+      animation: drift 18s ease-in-out infinite alternate;
+      z-index: 0;
+      opacity: 0.9;
+    }
+    @keyframes drift {
+      0% { transform: translate3d(-3%, -2%, 0) scale(1); }
+      50% { transform: translate3d(2%, 1%, 0) scale(1.02); }
+      100% { transform: translate3d(-1%, 3%, 0) scale(1); }
+    }
+    .viewport {
+      position: relative;
+      z-index: 1;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2vh 2vw;
+    }
+    .image-wrap {
+      position: relative;
+      width: min(96vw, 96vh);
+      max-height: 92vh;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      pointer-events: none;
+      filter: drop-shadow(0 16px 50px rgba(0, 0, 0, 0.35));
+    }
+    .hotspot-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .spot {
+      position: absolute;
+      left: var(--x);
+      top: var(--y);
+      width: var(--w);
+      height: var(--h);
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      pointer-events: auto;
+      cursor: pointer;
+      transition: transform 0.25s ease, filter 0.25s ease;
+    }
+    .spot::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(circle at 50% 50%, rgba(175, 71, 255, 0.8) 0%, rgba(140, 63, 255, 0.55) 35%, rgba(140, 63, 255, 0.1) 70%, rgba(140, 63, 255, 0) 100%);
+      opacity: 0;
+      transform: scale(0.85);
+      transition: opacity 0.2s ease, transform 0.25s ease;
+      mix-blend-mode: screen;
+      filter: drop-shadow(0 0 18px rgba(169, 60, 250, 0.45));
+    }
+    .spot:hover {
+      transform: translate(-50%, -50%) scale(1.06);
+    }
+    .spot:hover::before {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .tooltip {
+      position: fixed;
+      pointer-events: none;
+      background: rgba(18, 10, 32, 0.92);
+      color: #f4e9ff;
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-size: 13px;
+      line-height: 1.3;
+      max-width: 240px;
+      border: 1px solid rgba(169, 60, 250, 0.5);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(6px);
+      opacity: 0;
+      transform: translate(-50%, -120%);
+      transition: opacity 0.18s ease, transform 0.18s ease;
+      z-index: 10;
+    }
+    .tooltip strong {
+      display: block;
+      color: #c27bff;
+      font-weight: 700;
+      margin-bottom: 2px;
+      letter-spacing: 0.2px;
+    }
+    body.hovering .tooltip { opacity: 1; }
+
+    @media (max-width: 900px) {
+      .image-wrap { width: 92vw; max-height: 88vh; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="viewport">
+    <div class="image-wrap">
+      <img src="AI-Sweet-Spot.png" alt="AI Sweet Spot diagram" />
+      <div class="hotspot-layer">
+        <!-- Central core -->
+        <div class="spot" style="--x:50%;--y:50%;--w:18%;--h:14%;" aria-label="AI Sweet Spot" data-title="AI Sweet Spot" data-desc="Where strategy, people, technology, and execution meet."></div>
+
+        <!-- Inner lenses -->
+        <div class="spot" style="--x:50%;--y:30%;--w:18%;--h:12%;" aria-label="Fit for Purpose Systems" data-title="Fit for Purpose Systems" data-desc="Purpose-built systems tuned for AI effectiveness."></div>
+        <div class="spot" style="--x:32%;--y:50%;--w:18%;--h:12%;" aria-label="Active Employee Engagement" data-title="Active Employee Engagement" data-desc="Teams activated and engaged around AI adoption."></div>
+        <div class="spot" style="--x:68%;--y:50%;--w:18%;--h:12%;" aria-label="Measurable Business Results" data-title="Measurable Business Results" data-desc="Tangible outcomes and metrics tied to AI value." ></div>
+        <div class="spot" style="--x:50%;--y:70%;--w:18%;--h:12%;" aria-label="Up-to-date Skilled Workforce" data-title="Up-to-date Skilled Workforce" data-desc="Workforce continuously skilled to leverage AI." ></div>
+
+        <!-- Main quadrants -->
+        <div class="spot" style="--x:32%;--y:32%;--w:32%;--h:26%;" aria-label="Strategy - AI Strategic Roadmap" data-title="STRATEGY" data-desc="AI Strategic Roadmap and direction setting." ></div>
+        <div class="spot" style="--x:68%;--y:32%;--w:32%;--h:26%;" aria-label="Execution - AI Enabled Execution" data-title="EXECUTION" data-desc="AI-enabled execution across the organization." ></div>
+        <div class="spot" style="--x:32%;--y:68%;--w:32%;--h:26%;" aria-label="People - AI Powered People" data-title="PEOPLE" data-desc="AI-powered people, culture, and capability." ></div>
+        <div class="spot" style="--x:68%;--y:68%;--w:32%;--h:26%;" aria-label="Technology - AI Integrated Technology" data-title="TECHNOLOGY" data-desc="AI-integrated technology stack and platforms." ></div>
+
+        <!-- Strategy outer ring -->
+        <div class="spot" style="--x:24%;--y:12%;--w:10%;--h:8%;" aria-label="AI Strategic and Execution Roadmap Workshop" data-title="AI Strategic & Execution Roadmap Workshop" data-desc="Collaborative workshop to map the AI journey." ></div>
+        <div class="spot" style="--x:50%;--y:10%;--w:10%;--h:8%;" aria-label="HTC Campaign" data-title="HTC Campaign" data-desc="High-touch campaign to drive AI awareness." ></div>
+        <div class="spot" style="--x:66%;--y:11%;--w:10%;--h:8%;" aria-label="End in Mind Process Mapping" data-title="End in Mind Process Mapping" data-desc="Design processes backwards from desired outcomes." ></div>
+        <div class="spot" style="--x:80%;--y:16%;--w:10%;--h:8%;" aria-label="AI Command Room" data-title="AI Command Room" data-desc="Central hub for orchestrating AI initiatives." ></div>
+
+        <!-- Execution outer ring -->
+        <div class="spot" style="--x:87%;--y:32%;--w:8%;--h:8%;" aria-label="OKRz" data-title="OKRz" data-desc="Outcome-focused OKRs aligned to AI impact." ></div>
+        <div class="spot" style="--x:89%;--y:44%;--w:8%;--h:8%;" aria-label="DDD EEE Framework" data-title="DDD EEE Framework" data-desc="Data-driven decisions paired with executable excellence." ></div>
+        <div class="spot" style="--x:86%;--y:56%;--w:8%;--h:8%;" aria-label="SaaS Audit Review" data-title="SaaS Audit Review" data-desc="Evaluate SaaS landscape for AI leverage." ></div>
+        <div class="spot" style="--x:80%;--y:68%;--w:8%;--h:8%;" aria-label="Data Audit Review" data-title="Data Audit Review" data-desc="Assess data readiness for AI programs." ></div>
+
+        <!-- Technology outer ring -->
+        <div class="spot" style="--x:72%;--y:86%;--w:10%;--h:8%;" aria-label="AI Agents Automation Integration" data-title="AI Agents Automation Integration" data-desc="Integrate AI agents and automation into workflows." ></div>
+        <div class="spot" style="--x:58%;--y:90%;--w:10%;--h:8%;" aria-label="Use Case Library" data-title="Use Case Library" data-desc="Curated library of AI use cases and patterns." ></div>
+
+        <!-- People outer ring -->
+        <div class="spot" style="--x:43%;--y:90%;--w:10%;--h:8%;" aria-label="Access to Talent" data-title="Access to Talent" data-desc="Talent pipeline and expert network for AI." ></div>
+        <div class="spot" style="--x:30%;--y:86%;--w:10%;--h:8%;" aria-label="Upskilling" data-title="Upskilling" data-desc="Continuous learning to elevate AI capability." ></div>
+        <div class="spot" style="--x:22%;--y:72%;--w:10%;--h:8%;" aria-label="Critical Thinking" data-title="Critical Thinking" data-desc="Strengthen critical thinking for AI decisions." ></div>
+        <div class="spot" style="--x:18%;--y:60%;--w:10%;--h:8%;" aria-label="Innovators Culture" data-title="Innovators Culture" data-desc="Culture that rewards experimentation and innovation." ></div>
+        <div class="spot" style="--x:18%;--y:44%;--w:10%;--h:8%;" aria-label="AI Agility Check" data-title="AI Agility Check" data-desc="Gauge organizational agility for AI adoption." ></div>
+        <div class="spot" style="--x:18%;--y:28%;--w:10%;--h:8%;" aria-label="Unstoppable Company Game" data-title="Unstoppable Company Game" data-desc="Gamified experience to embed AI behaviors." ></div>
+      </div>
+    </div>
+    <div class="tooltip" id="tooltip" role="tooltip"></div>
+  </div>
+
+  <script>
+    const tooltip = document.getElementById('tooltip');
+    const spots = document.querySelectorAll('.spot');
+
+    spots.forEach((spot) => {
+      spot.addEventListener('mouseenter', () => {
+        document.body.classList.add('hovering');
+        tooltip.innerHTML = `<strong>${spot.dataset.title}</strong><span>${spot.dataset.desc}</span>`;
+      });
+
+      spot.addEventListener('mousemove', (event) => {
+        const offset = 14;
+        const x = event.clientX + offset;
+        const y = event.clientY - offset;
+        tooltip.style.left = `${x}px`;
+        tooltip.style.top = `${y}px`;
+      });
+
+      spot.addEventListener('mouseleave', () => {
+        document.body.classList.remove('hovering');
+      });
+    });
+  </script>
+</body>
+</html>
