@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog & Insights | iMPLEMENTAi.ae</title>
+  <meta name="description" content="iMPLEMENTAi.ae blog on AI implementation, automation, and governance for UAE enterprises.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=SF+Pro+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/v7.3-premium.css">
+  <style>
+    .blog-hero {
+      padding: 160px 0 80px;
+      background: linear-gradient(135deg, #0f192b 0%, #1c2f4d 70%, #0f192b 100%);
+      color: #f6fbff;
+      text-align: left;
+    }
+
+    .blog-hero h1 {
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .blog-hero p {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.15rem;
+      max-width: 760px;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .blog-card {
+      background: #fff;
+      border: 1px solid var(--prem-border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      height: 100%;
+    }
+
+    .blog-card h3 {
+      margin: 0;
+      color: var(--prem-text);
+    }
+
+    .blog-card p {
+      margin: 0;
+      color: var(--prem-text-secondary);
+      line-height: 1.6;
+    }
+
+    .blog-meta {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+      color: var(--prem-text-secondary);
+    }
+
+    .tag {
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      background: var(--prem-bg-alt);
+      border: 1px solid var(--prem-border);
+      font-size: 0.85rem;
+      color: var(--prem-text);
+    }
+
+    .blog-card a {
+      color: var(--prem-accent-blue);
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: auto;
+    }
+
+    .blog-card a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 1024px) {
+      .blog-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <link rel="canonical" href="https://www.implementai.ae/blog.html" />
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="prem-nav">
+    <div class="prem-container prem-nav-inner">
+      <a href="index.html" class="prem-logo"><img src="assets/images/2.png" alt="iMPLEMENTAi.ae" style="height: 45px; width: auto;"></a>
+      <ul class="prem-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="strategy.html">Strategy</a></li>
+        <li><a href="departments.html">Solutions</a></li>
+        <li><a href="resources.html">Insights</a></li>
+        <li><a href="blog.html" style="color: var(--prem-text);">Blog</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="ai-readiness.html">Check AI Readiness</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <a href="contact.html" class="prem-btn">Book Consultation</a>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+    <a href="index.html">Home</a>
+    <a href="strategy.html">Strategy</a>
+    <a href="departments.html">Solutions</a>
+    <a href="resources.html">Insights</a>
+    <a href="blog.html" style="color: var(--prem-accent-blue); font-weight: 600;">Blog</a>
+    <a href="team.html">Team</a>
+    <a href="ai-readiness.html">Check AI Readiness</a>
+    <a href="about.html">About</a>
+    <a href="contact.html" class="prem-btn">Book Consultation</a>
+  </div>
+
+  <script>
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    if (mobileMenuToggle) {
+      mobileMenuToggle.addEventListener('click', function () {
+        this.classList.toggle('active');
+        mobileMenuOverlay.classList.toggle('active');
+        document.body.style.overflow = mobileMenuOverlay.classList.contains('active') ? 'hidden' : '';
+      });
+      mobileMenuOverlay.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function () {
+          mobileMenuToggle.classList.remove('active');
+          mobileMenuOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+  </script>
+
+  <!-- Hero -->
+  <header class="blog-hero">
+    <div class="prem-container">
+      <span class="eyebrow" style="color: rgba(255,255,255,0.75);">Blog</span>
+      <h1 style="font-size: 3.2rem;">AI Implementation, Automation, and Governance for UAE Enterprises</h1>
+      <p>Actionable guidance on AI rollout, human-in-loop controls, and ROI measurement—built from engagements with mid-market and regulated organizations.</p>
+    </div>
+  </header>
+
+  <main class="prem-section" style="padding-top: 80px;">
+    <div class="prem-container">
+      <div class="blog-grid">
+        <article class="blog-card">
+          <div class="blog-meta">8 min read · Article</div>
+          <h3>AI Implementation in Dubai: Ship Fast Without Shadow IT</h3>
+          <p>How to launch AI safely in Dubai using decision rights, guardrails, and a 90-day cadence with in-region controls.</p>
+          <div class="blog-meta">
+            <span class="tag">AI Implementation</span>
+            <span class="tag">Dubai</span>
+            <span class="tag">Governance</span>
+          </div>
+          <a href="blog-ai-implementation-dubai.html">Read the article</a>
+        </article>
+
+        <article class="blog-card">
+          <div class="blog-meta">7 min read · Article</div>
+          <h3>AI Assistants vs Chatbots: What Works in Regulated UAE Workflows</h3>
+          <p>Where to use assistants, chatbots, and agents, plus human-in-loop patterns that keep finance, ops, and support compliant.</p>
+          <div class="blog-meta">
+            <span class="tag">AI Assistants</span>
+            <span class="tag">Chatbots</span>
+            <span class="tag">Compliance</span>
+          </div>
+          <a href="blog-ai-assistants-vs-chatbots-uae.html">Read the article</a>
+        </article>
+
+        <article class="blog-card">
+          <div class="blog-meta">6 min read · Article</div>
+          <h3>Process Automation ROI: 90-Day Payback for Finance & Ops</h3>
+          <p>Three workflows to automate first, with human QA, auditability, and a payback clock that CFOs accept.</p>
+          <div class="blog-meta">
+            <span class="tag">Process Automation</span>
+            <span class="tag">ROI</span>
+            <span class="tag">Finance & Ops</span>
+          </div>
+          <a href="blog-process-automation-roi-uae.html">Read the article</a>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="prem-footer">
+    <div class="prem-container">
+      <div class="prem-footer-grid">
+        <div>
+          <a href="index.html" class="prem-logo" style="margin-bottom: 1.5rem; display: block;"><img src="assets/images/2.png" alt="iMPLEMENTAi.ae" style="height: 45px; width: auto;"></a>
+          <p style="color: var(--prem-text-secondary); max-width: 300px;">
+            The premier AI consultancy for the UAE mid-market. Bridging the gap between technology and business value.
+          </p>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <a href="strategy.html">AI Strategy</a>
+          <a href="automation.html">Automation & Agents</a>
+          <a href="fractional-caio.html">Fractional CAIO</a>
+          <a href="workshops.html">Workshops</a>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <a href="about.html">About Us</a>
+          <a href="team.html">Our Team</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy.html">Privacy Policy</a>
+        </div>
+        <div>
+          <h4>Connect</h4>
+          <a href="https://www.linkedin.com/company/implementai-ae">LinkedIn</a>
+          <a href="mailto:sales@implementai.ae">Email Us</a>
+        </div>
+      </div>
+      <div style="border-top: 1px solid var(--prem-border); padding-top: 2rem; text-align: center; color: var(--prem-text-secondary); font-size: 0.85rem;">
+        &copy; 2025 iMPLEMENTAi.ae. All rights reserved.
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI ROI Calculator | iMPLEMENTAi.ae</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/v7.3-premium.css">
+</head>
+
+<body>
+
+    <nav class="prem-nav">
+        <div class="prem-container prem-nav-inner">
+            <a href="index.html" class="prem-logo"><img src="assets/images/2.png" alt="iMPLEMENTAi.ae"
+                    style="height: 45px; width: auto;"></a>
+            <ul class="prem-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="strategy.html">Strategy</a></li>
+                <li><a href="departments.html">Solutions</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="ai-readiness.html" style="color: var(--prem-accent-blue); font-weight: 600;">Check AI
+                        Readiness</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <a href="contact.html" class="prem-btn">Book Consultation</a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+        <a href="index.html">Home</a>
+        <a href="strategy.html">Strategy</a>
+        <a href="departments.html">Solutions</a>
+        <a href="team.html">Team</a>
+        <a href="ai-readiness.html" style="color: var(--prem-accent-blue); font-weight: 600;">Check AI Readiness</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="prem-btn">Book Consultation</a>
+    </div>
+
+    <script>
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', function () {
+                this.classList.toggle('active');
+                mobileMenuOverlay.classList.toggle('active');
+                document.body.style.overflow = mobileMenuOverlay.classList.contains('active') ? 'hidden' : '';
+            });
+            mobileMenuOverlay.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function () {
+                    mobileMenuToggle.classList.remove('active');
+                    mobileMenuOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
+    </script>
+
+    <!-- Header -->
+    <header class="prem-hero" style="height: 60vh; min-height: 400px;">
+        <video autoplay muted loop playsinline class="prem-hero-video">
+            <source src="assets/videos/Hybrid-Intelligence.mp4" type="video/mp4">
+        </video>
+        <div class="prem-hero-content">
+            <span class="eyebrow" style="color: rgba(255,255,255,0.8);">Free Tool</span>
+            <h1 style="font-size: 3.5rem; margin-bottom: 1rem; color: #FFF;">AI ROI Calculator</h1>
+            <p style="max-width: 700px; margin: 0 auto; color: rgba(255,255,255,0.9); font-size: 1.2rem;">
+                Calculate the potential return on investment for your AI automation initiatives
+            </p>
+        </div>
+    </header>
+
+    <section class="prem-section">
+        <div class="prem-container">
+            <div style="max-width: 1000px; margin: 0 auto;">
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem;">
+
+                    <!-- Input Form -->
+                    <div class="prem-card">
+                        <h2 style="margin-bottom: 2rem;">Your Current Situation</h2>
+
+                        <div class="input-group">
+                            <label>Number of Employees</label>
+                            <input type="number" id="employees" value="100" min="1" class="calc-input">
+                        </div>
+
+                        <div class="input-group">
+                            <label>Average Hourly Rate (AED)</label>
+                            <input type="number" id="hourlyRate" value="150" min="1" class="calc-input">
+                        </div>
+
+                        <div class="input-group">
+                            <label>Manual Hours Per Employee/Month</label>
+                            <input type="number" id="manualHours" value="20" min="1" class="calc-input">
+                            <small>Time spent on repetitive tasks</small>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Expected Automation Rate (%)</label>
+                            <input type="range" id="automationRate" value="30" min="10" max="70" class="calc-slider">
+                            <div
+                                style="text-align: center; font-weight: 600; color: var(--prem-accent-blue); margin-top: 0.5rem;">
+                                <span id="automationRateValue">30</span>%
+                            </div>
+                            <small>Percentage of manual work that can be automated</small>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Implementation Cost (AED)</label>
+                            <input type="number" id="implementationCost" value="150000" min="0" class="calc-input">
+                            <small>One-time setup and development costs</small>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Monthly Maintenance (AED)</label>
+                            <input type="number" id="monthlyCost" value="10000" min="0" class="calc-input">
+                            <small>Ongoing support and maintenance</small>
+                        </div>
+                    </div>
+
+                    <!-- Results Display -->
+                    <div>
+                        <div class="prem-card"
+                            style="background: linear-gradient(135deg, var(--prem-text) 0%, #1a2942 100%); color: #FFF; margin-bottom: 1.5rem;">
+                            <h3 style="color: #FFF; margin-bottom: 2rem; text-align: center;">Projected Annual Savings
+                            </h3>
+                            <div style="text-align: center; margin-bottom: 2rem;">
+                                <div style="font-size: 3.5rem; font-weight: 700; color: #00c8b4;" id="annualSavings">AED
+                                    0</div>
+                                <div style="font-size: 1.1rem; color: rgba(255,255,255,0.8); margin-top: 0.5rem;">per
+                                    year</div>
+                            </div>
+
+                            <div
+                                style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2);">
+                                <div>
+                                    <div
+                                        style="font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-bottom: 0.5rem;">
+                                        Monthly Savings</div>
+                                    <div style="font-size: 1.5rem; font-weight: 600; color: #00c8b4;"
+                                        id="monthlySavings">AED 0</div>
+                                </div>
+                                <div>
+                                    <div
+                                        style="font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-bottom: 0.5rem;">
+                                        Hours Saved/Month</div>
+                                    <div style="font-size: 1.5rem; font-weight: 600; color: #00c8b4;" id="hoursSaved">0
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="prem-card">
+                            <h4 style="margin-bottom: 1rem;">ROI Metrics</h4>
+                            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                                <div class="metric-row">
+                                    <span>Payback Period</span>
+                                    <strong id="paybackPeriod">0 months</strong>
+                                </div>
+                                <div class="metric-row">
+                                    <span>3-Year ROI</span>
+                                    <strong id="threeYearROI" style="color: var(--prem-accent-blue);">0%</strong>
+                                </div>
+                                <div class="metric-row">
+                                    <span>5-Year Net Benefit</span>
+                                    <strong id="fiveYearBenefit" style="color: #00c8b4;">AED 0</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="prem-card" style="background: var(--prem-bg-alt); text-align: center;">
+                            <p style="margin-bottom: 1rem; font-size: 0.95rem;">Want a detailed analysis for your
+                                specific use case?</p>
+                            <a href="contact.html" class="prem-btn" style="width: 100%; justify-content: center;">Get
+                                Custom ROI Report</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Assumptions -->
+                <div class="prem-card" style="background: var(--prem-bg-alt);">
+                    <h4 style="margin-bottom: 1rem;">Calculation Assumptions</h4>
+                    <ul
+                        style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; list-style: none; padding: 0;">
+                        <li>✓ Based on conservative automation estimates</li>
+                        <li>✓ Includes implementation and maintenance costs</li>
+                        <li>✓ Assumes gradual rollout over 3 months</li>
+                        <li>✓ Does not include productivity gains or quality improvements</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="prem-footer">
+        <div class="prem-container">
+            <div class="prem-footer-grid">
+                <div>
+                    <a href="index.html" class="prem-logo" style="margin-bottom: 1.5rem; display: block;"><img
+                            src="assets/images/2.png" alt="iMPLEMENTAi.ae" style="height: 45px; width: auto;"></a>
+                    <p style="color: var(--prem-text-secondary); max-width: 300px;">
+                        The premier AI consultancy for the UAE mid-market.
+                    </p>
+                </div>
+                <div>
+                    <h4>Services</h4>
+                    <a href="strategy.html">AI Strategy</a>
+                    <a href="automation.html">Automation & Agents</a>
+                    <a href="fractional-caio.html">Fractional CAIO</a>
+                </div>
+                <div>
+                    <h4>Company</h4>
+                    <a href="about.html">About Us</a>
+                    <a href="team.html">Our Team</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <a href="https://www.linkedin.com/company/implementai-ae">LinkedIn</a>
+                    <a href="mailto:sales@implementai.ae">Email Us</a>
+                </div>
+            </div>
+            <div
+                style="border-top: 1px solid var(--prem-border); padding-top: 2rem; text-align: center; color: var(--prem-text-secondary); font-size: 0.85rem;">
+                &copy; 2025 iMPLEMENTAi.ae. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--prem-text);
+        }
+
+        .input-group small {
+            display: block;
+            color: var(--prem-text-secondary);
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+        }
+
+        .calc-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--prem-border);
+            border-radius: 8px;
+            font-family: var(--font-main);
+            font-size: 1rem;
+            transition: border-color 0.2s ease;
+        }
+
+        .calc-input:focus {
+            outline: none;
+            border-color: var(--prem-accent-blue);
+        }
+
+        .calc-slider {
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: var(--prem-border);
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .calc-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--prem-accent-blue);
+            cursor: pointer;
+        }
+
+        .calc-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--prem-accent-blue);
+            cursor: pointer;
+            border: none;
+        }
+
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--prem-border);
+        }
+
+        .metric-row:last-child {
+            border-bottom: none;
+        }
+
+        @media (max-width: 768px) {
+            .prem-section>.prem-container>div>div:first-child {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <script>
+        // Get all inputs
+        const employees = document.getElementById('employees');
+        const hourlyRate = document.getElementById('hourlyRate');
+        const manualHours = document.getElementById('manualHours');
+        const automationRate = document.getElementById('automationRate');
+        const implementationCost = document.getElementById('implementationCost');
+        const monthlyCost = document.getElementById('monthlyCost');
+
+        // Update automation rate display
+        automationRate.addEventListener('input', function () {
+            document.getElementById('automationRateValue').textContent = this.value;
+            calculate();
+        });
+
+        // Add event listeners to all inputs
+        [employees, hourlyRate, manualHours, automationRate, implementationCost, monthlyCost].forEach(input => {
+            input.addEventListener('input', calculate);
+        });
+
+        function calculate() {
+            // Get values
+            const emp = parseInt(employees.value) || 0;
+            const rate = parseFloat(hourlyRate.value) || 0;
+            const hours = parseFloat(manualHours.value) || 0;
+            const autoRate = parseFloat(automationRate.value) / 100 || 0;
+            const implCost = parseFloat(implementationCost.value) || 0;
+            const monthCost = parseFloat(monthlyCost.value) || 0;
+
+            // Calculate hours saved per month
+            const hoursSavedPerMonth = emp * hours * autoRate;
+
+            // Calculate monthly savings
+            const monthlySavingsValue = (hoursSavedPerMonth * rate) - monthCost;
+
+            // Calculate annual savings
+            const annualSavingsValue = monthlySavingsValue * 12;
+
+            // Calculate payback period (months)
+            const paybackMonths = monthlySavingsValue > 0 ? Math.ceil(implCost / monthlySavingsValue) : 0;
+
+            // Calculate 3-year ROI
+            const threeYearSavings = (annualSavingsValue * 3) - implCost - (monthCost * 36);
+            const threeYearROIValue = implCost > 0 ? ((threeYearSavings / implCost) * 100) : 0;
+
+            // Calculate 5-year net benefit
+            const fiveYearBenefit = (annualSavingsValue * 5) - implCost - (monthCost * 60);
+
+            // Update display
+            document.getElementById('annualSavings').textContent = `AED ${annualSavingsValue.toLocaleString('en-AE', { maximumFractionDigits: 0 })}`;
+            document.getElementById('monthlySavings').textContent = `AED ${monthlySavingsValue.toLocaleString('en-AE', { maximumFractionDigits: 0 })}`;
+            document.getElementById('hoursSaved').textContent = hoursSavedPerMonth.toLocaleString('en-AE', { maximumFractionDigits: 0 });
+            document.getElementById('paybackPeriod').textContent = `${paybackMonths} months`;
+            document.getElementById('threeYearROI').textContent = `${threeYearROIValue.toLocaleString('en-AE', { maximumFractionDigits: 0 })}%`;
+            document.getElementById('fiveYearBenefit').textContent = `AED ${fiveYearBenefit.toLocaleString('en-AE', { maximumFractionDigits: 0 })}`;
+        }
+
+        // Initial calculation
+        calculate();
+    </script>
+
+</body>
+
+</html>

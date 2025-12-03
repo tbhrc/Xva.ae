@@ -1,0 +1,318 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team | iMPLEMENTAi.ae</title>
+    <meta name="description"
+        content="Meet the expert team behind iMPLEMENTAi.ae. Senior consultants in AI strategy, HR transformation, and technology leadership.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/v7.3-premium.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="prem-nav">
+        <div class="prem-container prem-nav-inner">
+            <a href="index.html" class="prem-logo"><img src="assets/images/2.png" alt="iMPLEMENTAi.ae"
+                    style="height: 45px; width: auto;"></a>
+            <ul class="prem-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="strategy.html">Strategy</a></li>
+                <li><a href="departments.html">Solutions</a></li>
+                <li><a href="team.html" style="color: var(--prem-text);">Team</a></li>
+                <li><a href="ai-readiness.html" style="color: var(--prem-accent-blue); font-weight: 600;">Check AI
+                        Readiness</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <a href="contact.html" class="prem-btn">Book Consultation</a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+        <a href="index.html">Home</a>
+        <a href="strategy.html">Strategy</a>
+        <a href="departments.html">Solutions</a>
+        <a href="team.html">Team</a>
+        <a href="ai-readiness.html" style="color: var(--prem-accent-blue); font-weight: 600;">Check AI Readiness</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="prem-btn">Book Consultation</a>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', function () {
+                this.classList.toggle('active');
+                mobileMenuOverlay.classList.toggle('active');
+                document.body.style.overflow = mobileMenuOverlay.classList.contains('active') ? 'hidden' : '';
+            });
+
+            // Close menu when clicking on a link
+            mobileMenuOverlay.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function () {
+                    mobileMenuToggle.classList.remove('active');
+                    mobileMenuOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
+    </script>
+
+    <!-- Header -->
+    <!-- Header with Video Background -->
+    <header class="prem-hero" style="height: 60vh; min-height: 400px;">
+        <video autoplay muted loop playsinline class="prem-hero-video">
+            <source src="assets/videos/Hybrid-Intelligence.mp4" type="video/mp4">
+        </video>
+        <div class="prem-hero-content">
+            <span class="eyebrow" style="color: rgba(255,255,255,0.8);">Our Leadership</span>
+            <h1 style="font-size: 3.5rem; margin-bottom: 1rem; color: #FFF;">Expert Leadership</h1>
+            <p style="max-width: 700px; margin: 0 auto; color: rgba(255,255,255,0.9); font-size: 1.2rem;">
+                Our team combines decades of experience in organizational transformation, technology leadership, and
+                artificial intelligence strategy.
+            </p>
+        </div>
+    </header>
+
+    <!-- Team Grid -->
+    <section class="prem-section prem-section-alt">
+        <div class="prem-container">
+            <div class="prem-grid-2" style="gap: 5rem;">
+
+                <!-- Jan de Wachter -->
+                <div class="scroll-reveal" style="display: flex; gap: 2rem; align-items: start;">
+                    <div style="flex-shrink: 0;">
+                        <img src="assets/images/Jan de Wachter - Photo 02.png" alt="Jan de Wachter"
+                            style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; object-position: center; border: 4px solid var(--prem-border); box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                    </div>
+                    <div>
+                        <h3 style="font-size: 1.75rem; margin-bottom: 0.5rem;">Jan de Wachter</h3>
+                        <div
+                            style="color: var(--prem-accent-blue); font-size: 0.9rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">
+                            Organizational Transformation & HR Strategy</div>
+                        <p style="color: var(--prem-text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">
+                            Seasoned HR expert with over 22 years of experience in organizational development and HR
+                            transformation across the Middle East. Specializes in aligning workforce strategy with
+                            technological adoption.
+                        </p>
+                        <a href="https://www.linkedin.com/in/jan-d-8840038/" target="_blank"
+                            class="prem-btn prem-btn-outline"
+                            style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
+                            LinkedIn Profile
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Ignatius (Natie) Rautenbach -->
+                <div class="scroll-reveal delay-100" style="display: flex; gap: 2rem; align-items: start;">
+                    <div style="flex-shrink: 0;">
+                        <img src="assets/images/Ignatius (Natie) Rautenbach.jpg" alt="Ignatius (Natie) Rautenbach"
+                            style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; object-position: center; border: 4px solid var(--prem-border); box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                    </div>
+                    <div>
+                        <h3 style="font-size: 1.75rem; margin-bottom: 0.5rem;">Ignatius (Natie) Rautenbach</h3>
+                        <div
+                            style="color: var(--prem-accent-blue); font-size: 0.9rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">
+                            AI Strategy & Ethics</div>
+                        <p style="color: var(--prem-text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">
+                            Lead AI Strategist with 15+ years of experience. Expert in ethical AI, responsible AI
+                            implementation, and transforming complex data into actionable business insights.
+                        </p>
+                        <a href="https://www.linkedin.com/in/natierau/" target="_blank"
+                            class="prem-btn prem-btn-outline"
+                            style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
+                            LinkedIn Profile
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Christopher Booth -->
+                <div class="scroll-reveal delay-200" style="display: flex; gap: 2rem; align-items: start;">
+                    <div style="flex-shrink: 0;">
+                        <img src="assets/images/Christopher Booth.jpg" alt="Christopher Booth"
+                            style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; object-position: center; border: 4px solid var(--prem-border); box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                    </div>
+                    <div>
+                        <h3 style="font-size: 1.75rem; margin-bottom: 0.5rem;">Christopher Booth</h3>
+                        <div
+                            style="color: var(--prem-accent-blue); font-size: 0.9rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">
+                            Generative AI & Product Ownership</div>
+                        <p style="color: var(--prem-text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">
+                            Specialist in Generative AI and conversational agents. Brings deep expertise in product
+                            ownership for large-scale AI deployments, including banking sector chatbots.
+                        </p>
+                        <a href="https://www.linkedin.com/in/christopher--booth/" target="_blank"
+                            class="prem-btn prem-btn-outline"
+                            style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
+                            LinkedIn Profile
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Stephen Kruger -->
+                <div class="scroll-reveal delay-300" style="display: flex; gap: 2rem; align-items: start;">
+                    <div style="flex-shrink: 0;">
+                        <img src="assets/images/Stephen Kruger.jpg" alt="Stephen Kruger"
+                            style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; object-position: center; border: 4px solid var(--prem-border); box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                    </div>
+                    <div>
+                        <h3 style="font-size: 1.75rem; margin-bottom: 0.5rem;">Stephen Kruger</h3>
+                        <div
+                            style="color: var(--prem-accent-blue); font-size: 0.9rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">
+                            CTO & Technology Leadership</div>
+                        <p style="color: var(--prem-text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">
+                            Former CTO of Careem and inDrive with 20 patents. Expert in platform architecture, cloud
+                            security, and scaling engineering teams for high-growth tech companies.
+                        </p>
+                        <a href="https://www.linkedin.com/in/stephen-kruger/" target="_blank"
+                            class="prem-btn prem-btn-outline"
+                            style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
+                            LinkedIn Profile
+                        </a>
+                    </div>
+                </div>
+
+                <!-- David Potgieter -->
+                <div class="scroll-reveal delay-400" style="display: flex; gap: 2rem; align-items: start;">
+                    <div style="flex-shrink: 0;">
+                        <img src="assets/images/David Potgieter.png" alt="David Potgieter"
+                            style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; object-position: center; border: 4px solid var(--prem-border); box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                    </div>
+                    <div>
+                        <h3 style="font-size: 1.75rem; margin-bottom: 0.5rem;">David Potgieter</h3>
+                        <div
+                            style="color: var(--prem-accent-blue); font-size: 0.9rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">
+                            Co-Founder & Certified AI Coach</div>
+                        <p style="color: var(--prem-text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">
+                            Co-founder of iMPLEMENTAi.ae and Talent Bridge HR Consultancy. Certified AI Coach in Dubai
+                            since 2009 with over 24 years of business experience. Specializes in transforming companies
+                            and personal brands through strategic AI adoption.
+                        </p>
+                        <a href="https://www.linkedin.com/in/uaehr/" target="_blank" class="prem-btn prem-btn-outline"
+                            style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
+                            LinkedIn Profile
+                        </a>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="prem-footer">
+        <div class="prem-container">
+            <div class="prem-footer-grid">
+                <div>
+                    <a href="index.html" class="prem-logo"
+                        style="margin-bottom: 1.5rem; display: block;">iMPLEMENTAi.ae</a>
+                    <p style="color: var(--prem-text-secondary); max-width: 300px;">
+                        The premier AI consultancy for the UAE mid-market. Bridging the gap between technology and
+                        business value.
+                    </p>
+                </div>
+                <div>
+                    <h4>Services</h4>
+                    <a href="strategy.html">AI Strategy</a>
+                    <a href="automation.html">Automation & Agents</a>
+                    <a href="fractional-caio.html">Fractional CAIO</a>
+                    <a href="workshops.html">Workshops</a>
+                </div>
+                <div>
+                    <h4>Company</h4>
+                    <a href="about.html">About Us</a>
+                    <a href="team.html">Our Team</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <a href="https://www.linkedin.com/company/implementai-ae">LinkedIn</a>
+                    <a href="mailto:sales@implementai.ae">Email Us</a>
+                </div>
+            </div>
+            <div
+                style="border-top: 1px solid var(--prem-border); padding-top: 2rem; text-align: center; color: var(--prem-text-secondary); font-size: 0.85rem;">
+                &copy; 2025 iMPLEMENTAi.ae. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        .prem-team-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            border: 2px solid var(--prem-border);
+        }
+    </style>
+
+    <!-- Scroll Animation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.scroll-reveal').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

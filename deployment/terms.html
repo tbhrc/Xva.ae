@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | iMPLEMENTAi.ae</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/v7.3-premium.css">
+</head>
+<body>
+
+    <nav class="prem-nav">
+        <div class="prem-container prem-nav-inner">
+            <a href="index.html" class="prem-logo"><img src="assets/images/2.png" alt="iMPLEMENTAi.ae" style="height: 45px; width: auto;"></a>
+            <ul class="prem-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="strategy.html">Strategy</a></li>
+                <li><a href="departments.html">Solutions</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="ai-readiness.html" style="color: var(--prem-accent-blue); font-weight: 600;">Check AI Readiness</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <a href="contact.html" class="prem-btn">Book Consultation</a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+        <a href="index.html">Home</a>
+        <a href="strategy.html">Strategy</a>
+        <a href="departments.html">Solutions</a>
+        <a href="team.html">Team</a>
+        <a href="ai-readiness.html" style="color: var(--prem-accent-blue); font-weight: 600;">Check AI Readiness</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="prem-btn">Book Consultation</a>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                mobileMenuOverlay.classList.toggle('active');
+                document.body.style.overflow = mobileMenuOverlay.classList.contains('active') ? 'hidden' : '';
+            });
+
+            // Close menu when clicking on a link
+            mobileMenuOverlay.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenuToggle.classList.remove('active');
+                    mobileMenuOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
+    </script>
+
+        <!-- Header with Video Background -->
+    <header class="prem-hero" style="height: 60vh; min-height: 400px;">
+        <video autoplay muted loop playsinline class="prem-hero-video">
+            <source src="assets/videos/Hybrid-Intelligence.mp4" type="video/mp4">
+        </video>
+        <div class="prem-hero-content">
+            <span class="eyebrow" style="color: rgba(255,255,255,0.8);">Legal</span>
+            <h1 style="font-size: 3.5rem; margin-bottom: 1rem; color: #FFF;">Terms of Service</h1>
+            <p style="max-width: 700px; margin: 0 auto; color: rgba(255,255,255,0.9); font-size: 1.2rem;">
+                Our terms and conditions
+            </p>
+        </div>
+    </header>
+
+    <section class="prem-section">
+        <div class="prem-container">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="prem-card">
+                    <p>Terms of service content will be added here.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="prem-footer">
+        <div class="prem-container">
+            <div class="prem-footer-grid">
+                <div>
+                    <a href="index.html" class="prem-logo" style="margin-bottom: 1.5rem; display: block;"><img src="assets/images/2.png" alt="iMPLEMENTAi.ae" style="height: 45px; width: auto;"></a>
+                    <p style="color: var(--prem-text-secondary); max-width: 300px;">
+                        The premier AI consultancy for the UAE mid-market. Bridging the gap between technology and business value.
+                    </p>
+                </div>
+                <div>
+                    <h4>Services</h4>
+                    <a href="strategy.html">AI Strategy</a>
+                    <a href="automation.html">Automation & Agents</a>
+                    <a href="fractional-caio.html">Fractional CAIO</a>
+                    <a href="workshops.html">Workshops</a>
+                </div>
+                <div>
+                    <h4>Company</h4>
+                    <a href="about.html">About Us</a>
+                    <a href="team.html">Our Team</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <a href="https://www.linkedin.com/company/implementai-ae">LinkedIn</a>
+                    <a href="mailto:sales@implementai.ae">Email Us</a>
+                </div>
+            </div>
+            <div style="border-top: 1px solid var(--prem-border); padding-top: 2rem; text-align: center; color: var(--prem-text-secondary); font-size: 0.85rem;">
+                &copy; 2025 iMPLEMENTAi.ae. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

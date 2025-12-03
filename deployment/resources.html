@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insights | iMPLEMENTAi.ae</title>
+  <meta name="description"
+    content="Insights and playbooks from iMPLEMENTAi.ae on AI operating models, governance, and enterprise delivery.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=SF+Pro+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/v7.3-premium.css">
+  <style>
+    .mini-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--prem-border);
+      opacity: 0.8;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="prem-nav">
+    <div class="prem-container prem-nav-inner">
+      <a href="index.html" class="prem-logo"><img src="assets/images/2.png" alt="iMPLEMENTAi.ae" style="height: 45px; width: auto;"></a>
+      <ul class="prem-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="strategy.html">Strategy</a></li>
+        <li><a href="departments.html">Solutions</a></li>
+        <li><a href="resources.html" style="color: var(--prem-text);">Insights</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="ai-readiness.html">Check AI Readiness</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <a href="contact.html" class="prem-btn">Book Consultation</a>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+    <a href="index.html">Home</a>
+    <a href="strategy.html">Strategy</a>
+    <a href="departments.html">Solutions</a>
+    <a href="resources.html">Insights</a>
+    <a href="team.html">Team</a>
+    <a href="ai-readiness.html">Check AI Readiness</a>
+    <a href="about.html">About</a>
+    <a href="contact.html" class="prem-btn" style="background: var(--prem-accent-blue); border-color: var(--prem-accent-blue);">Book Consultation</a>
+  </div>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    if (mobileMenuToggle) {
+      mobileMenuToggle.addEventListener('click', function () {
+        this.classList.toggle('active');
+        mobileMenuOverlay.classList.toggle('active');
+        document.body.style.overflow = mobileMenuOverlay.classList.contains('active') ? 'hidden' : '';
+      });
+      mobileMenuOverlay.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function () {
+          mobileMenuToggle.classList.remove('active');
+          mobileMenuOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+  </script>
+
+  <!-- Hero -->
+  <header class="prem-hero" style="height: 60vh; min-height: 420px;">
+    <video autoplay muted loop playsinline class="prem-hero-video">
+      <source src="assets/videos/Hybrid-Intelligence.mp4" type="video/mp4">
+    </video>
+    <div class="prem-hero-content">
+      <span class="eyebrow" style="color: rgba(255,255,255,0.8);">Insights</span>
+      <h1 style="font-size: 3.4rem; margin-bottom: 1rem; color: #FFF;">AI Operating Models, Done Right</h1>
+      <p style="max-width: 760px; margin: 0 auto; color: rgba(255,255,255,0.9); font-size: 1.2rem;">
+        Practical playbooks, governance patterns, and ROI methods for UAE enterprises moving from pilots to production.
+      </p>
+    </div>
+  </header>
+
+  <!-- Insights Grid -->
+  <section class="prem-section">
+    <div class="prem-container">
+      <div class="prem-grid-2">
+        <div class="prem-card scroll-reveal" style="gap: 1rem;">
+          <span class="eyebrow">Featured Paper</span>
+          <h2 style="margin: 0;">The AI Operating Model Playbook</h2>
+          <p style="margin: 0; color: var(--prem-text-secondary);">A concise, 8-minute PDF on how to stand up AI governance, human-in-loop controls, and ROI measurement without slowing delivery.</p>
+          <ul class="feature-list" style="margin-top: 0.5rem;">
+            <li><svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Executive steering cadence and RACI</li>
+            <li><svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Human QA patterns and audit trails</li>
+            <li><svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Value tracking for CIO, COO, CFO</li>
+          </ul>
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+            <a href="assets/pdfs/AI-Operating-Model-Playbook.pdf" class="prem-btn" style="background: var(--prem-accent-blue); border-color: var(--prem-accent-blue);" download>Download PDF</a>
+            <a href="contact.html" class="prem-btn prem-btn-outline">Book a Discussion</a>
+          </div>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.75rem; color: var(--prem-text-secondary); font-size: 0.95rem;">
+            <div><strong>Format:</strong> PDF · 8 min read</div>
+            <div><strong>For:</strong> CIO · COO · CFO</div>
+            <div><strong>Focus:</strong> Governance & ROI</div>
+          </div>
+        </div>
+
+        <div class="prem-card scroll-reveal delay-100" style="gap: 0.75rem;">
+          <span class="eyebrow">Coming Soon</span>
+          <div class="mini-divider"></div>
+          <div>
+            <h3 style="margin: 0;">Human-in-Loop Playbook</h3>
+            <p style="margin: 0; color: var(--prem-text-secondary);">Templates and QA patterns for regulated workflows (healthcare, finance, public sector).</p>
+          </div>
+          <div class="mini-divider"></div>
+          <div>
+            <h3 style="margin: 0;">AI Value Tracker</h3>
+            <p style="margin: 0; color: var(--prem-text-secondary);">A KPI pack to align Ops, Finance, and IT around uplift and payback.</p>
+          </div>
+          <div class="mini-divider"></div>
+          <div>
+            <h3 style="margin: 0;">Agent Security Checklist</h3>
+            <p style="margin: 0; color: var(--prem-text-secondary);">Controls for data residency, PII handling, and auditability across vendors.</p>
+          </div>
+          <a href="contact.html" class="prem-btn prem-btn-outline" style="align-self: flex-start;">Request Early Access</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="prem-footer">
+    <div class="prem-container">
+      <div class="prem-footer-grid">
+        <div>
+          <a href="index.html" class="prem-logo" style="margin-bottom: 1.5rem; display: block;"><img src="assets/images/2.png" alt="iMPLEMENTAi.ae" style="height: 45px; width: auto;"></a>
+          <p style="color: var(--prem-text-secondary); max-width: 300px;">
+            The premier AI consultancy for the UAE mid-market. Bridging the gap between technology and business value.
+          </p>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <a href="strategy.html">AI Strategy</a>
+          <a href="automation.html">Automation & Agents</a>
+          <a href="fractional-caio.html">Fractional CAIO</a>
+          <a href="workshops.html">Workshops</a>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <a href="about.html">About Us</a>
+          <a href="team.html">Our Team</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy.html">Privacy Policy</a>
+        </div>
+        <div>
+          <h4>Connect</h4>
+          <a href="https://www.linkedin.com/company/implementai-ae">LinkedIn</a>
+          <a href="mailto:sales@implementai.ae">Email Us</a>
+        </div>
+      </div>
+      <div style="border-top: 1px solid var(--prem-border); padding-top: 2rem; text-align: center; color: var(--prem-text-secondary); font-size: 0.85rem;">
+        &copy; 2025 iMPLEMENTAi.ae. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal reuse
+    document.addEventListener('DOMContentLoaded', () => {
+      const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+      document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+    });
+  </script>
+</body>
+
+</html>
