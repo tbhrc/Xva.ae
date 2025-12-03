@@ -8,7 +8,7 @@ Write-Host "Press Ctrl+C to stop the server" -ForegroundColor Yellow
 Write-Host ""
 
 # Change to the iaiv3 directory
-Set-Location -Path "$PSScriptRoot\iaiv3"
+# Set-Location -Path "$PSScriptRoot\iaiv3"
 
 # Start the API server
 python api_server.py
