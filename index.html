@@ -1,283 +1,1018 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Sweet Spot Interactive</title>
-  <style>
-    :root {
-      --bg: #0a0b12;
-      --panel: rgba(20, 22, 34, 0.9);
-      --border: rgba(116, 99, 255, 0.6);
-      --glow: rgba(134, 117, 255, 0.35);
-      --text: #e8e9f3;
-      --muted: #a8a9b8;
-      --accent: #9c87ff;
-      --shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
-    }
+  <title>iMPLEMENTAi.ae | Enterprise AI Consultancy</title>
+  <meta name="description"
+    content="The premier AI consultancy for UAE enterprises. We turn AI from noise into disciplined, high-impact capability.">
 
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: radial-gradient(circle at 30% 20%, rgba(68, 54, 140, 0.25), transparent 45%),
-                  radial-gradient(circle at 80% 80%, rgba(63, 82, 181, 0.25), transparent 50%),
-                  var(--bg);
-      color: var(--text);
-      font-family: "Segoe UI", "Inter", system-ui, -apple-system, sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=SF+Pro+Display:wght@400;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/v7.3-premium.css">
 
-    .stage {
-      position: relative;
-      width: min(80vw, 1200px);
-      max-width: 90vw;
-      aspect-ratio: 1 / 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      isolation: isolate;
-      animation: fadeInScale 1.2s ease forwards;
-      opacity: 0;
-      transform: translateY(10px) scale(0.97);
-    }
-
-    .image-wrapper {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .base-image {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.6));
-      pointer-events: none;
-      user-select: none;
-    }
-
-    .hotspot {
-      position: absolute;
-      cursor: pointer;
-      transition: transform 220ms ease, opacity 220ms ease, filter 220ms ease;
-      border-radius: 50%;
-      opacity: 0.45;
-      background: radial-gradient(circle, var(--glow) 0%, rgba(156, 135, 255, 0.1) 60%, transparent 70%);
-      mix-blend-mode: screen;
-      pointer-events: auto;
-      transform: scale(1);
-    }
-
-    .hotspot:hover,
-    .hotspot:focus-visible { opacity: 0.85; transform: scale(1.06); }
-    .hotspot.active { opacity: 1; transform: scale(1.08); filter: drop-shadow(0 0 22px rgba(156, 135, 255, 0.45)); }
-
-    /* Tooltip styling */
-    .tooltip {
-      position: absolute;
-      min-width: 230px;
-      max-width: 320px;
-      padding: 14px 16px;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      color: var(--text);
-      opacity: 0;
-      transform: translateY(8px);
-      pointer-events: none;
-      transition: opacity 180ms ease, transform 180ms ease;
-      z-index: 3;
-    }
-
-    .tooltip.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
-    .tooltip h3 { margin: 0 0 6px; font-size: 1rem; color: var(--accent); letter-spacing: 0.2px; }
-    .tooltip p { margin: 0; font-size: 0.92rem; line-height: 1.35; color: var(--muted); }
-
-    /* Layout helpers */
-    .overlay-layer { position: absolute; inset: 0; pointer-events: none; }
-
-    /* Center pulse for AI Sweet Spot */
-    .pulse {
-      animation: pulse 1.8s ease-out 0.6s 2;
-    }
-
-    @keyframes fadeInScale {
-      0% { opacity: 0; transform: translateY(16px) scale(0.95); }
-      60% { opacity: 1; transform: translateY(0) scale(1.01); }
-      100% { opacity: 1; transform: translateY(0) scale(1); }
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(0.95); opacity: 0.6; }
-      50% { transform: scale(1.08); opacity: 1; }
-      100% { transform: scale(1); opacity: 0.7; }
-    }
-
-    /* Responsive tweaks */
-    @media (max-width: 768px) {
-      .stage { width: min(94vw, 640px); }
-      .tooltip { max-width: 280px; font-size: 0.9rem; }
-    }
-  </style>
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.implementai.ae/" />
 </head>
+
 <body>
-  <div class="stage" id="stage">
-    <div class="image-wrapper" id="imageWrapper">
-      <img src="components/AI-Sweet-Spot.png" alt="AI Sweet Spot Diagram" class="base-image" draggable="false">
 
-      <!-- Invisible interactive hotspots mapped over the image -->
-      <div class="hotspot" data-key="strategy" style="left: 30%; top: 34%; width: 30%; height: 30%;"></div>
-      <div class="hotspot" data-key="execution" style="left: 60%; top: 34%; width: 30%; height: 30%;"></div>
-      <div class="hotspot" data-key="people" style="left: 30%; top: 63%; width: 30%; height: 30%;"></div>
-      <div class="hotspot" data-key="technology" style="left: 60%; top: 63%; width: 30%; height: 30%;"></div>
-      <div class="hotspot pulse" data-key="center" style="left: 43%; top: 43%; width: 14%; height: 14%; border-radius: 50%;"></div>
-
-      <!-- Outer ring hotspots -->
-      <div class="hotspot" data-key="roadmap" style="left: 19%; top: 19%; width: 16%; height: 16%;"></div>
-      <div class="hotspot" data-key="execution-outer" style="left: 70%; top: 19%; width: 16%; height: 16%;"></div>
-      <div class="hotspot" data-key="people-outer" style="left: 19%; top: 72%; width: 16%; height: 16%;"></div>
-      <div class="hotspot" data-key="technology-outer" style="left: 70%; top: 72%; width: 16%; height: 16%;"></div>
+  <!-- Navigation -->
+  <nav class="prem-nav">
+    <div class="prem-container prem-nav-inner">
+      <a href="index.html" class="prem-logo"><img src="assets/images/2.png" alt="iMPLEMENTAi.ae"
+          style="height: 45px; width: auto;"></a>
+      <ul class="prem-menu">
+        <li><a href="index.html" style="color: var(--prem-text);">Home</a></li>
+        <li><a href="strategy.html">Strategy</a></li>
+        <li><a href="departments.html">Solutions</a></li>
+        <li><a href="resources.html">Insights</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="ai-readiness.html">Check AI Readiness</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <a href="contact.html" class="prem-btn">Book Consultation</a>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
+  </nav>
 
-    <!-- Tooltip container -->
-    <div class="tooltip" id="tooltip">
-      <h3 id="tooltipTitle">Title</h3>
-      <p id="tooltipBody">Description</p>
-    </div>
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+    <a href="index.html">Home</a>
+    <a href="strategy.html">Strategy</a>
+    <a href="departments.html">Solutions</a>
+    <a href="resources.html">Insights</a>
+    <a href="team.html">Team</a>
+    <a href="ai-readiness.html">Check AI Readiness</a>
+    <a href="about.html">About</a>
+    <a href="contact.html" class="prem-btn" style="background: var(--prem-accent-blue); border-color: var(--prem-accent-blue);">Book Consultation</a>
   </div>
 
   <script>
-    const hotspots = Array.from(document.querySelectorAll('.hotspot'));
-    const tooltip = document.getElementById('tooltip');
-    const tooltipTitle = document.getElementById('tooltipTitle');
-    const tooltipBody = document.getElementById('tooltipBody');
-    const stage = document.getElementById('stage');
-    let activeKey = null;
-
-    // Content copy for each hotspot
-    const content = {
-      strategy: {
-        title: 'Strategy',
-        body: 'Prioritize the initiatives that unlock competitive advantage, sequence them, and align leadership on the AI ambition and constraints.'
-      },
-      execution: {
-        title: 'Execution',
-        body: 'Translate strategy into shippable workstreams, lean governance, and measurable milestones tied directly to business outcomes.'
-      },
-      people: {
-        title: 'People',
-        body: 'Activate teams with change-ready behaviors, clear ownership, and continuous learning so AI solutions land and stick.'
-      },
-      technology: {
-        title: 'Technology',
-        body: 'Modernize the stack for secure data, composable services, and AI-native integrations that scale with demand.'
-      },
-      center: {
-        title: 'AI Sweet Spot',
-        body: 'Where strategy, execution, people, and technology overlap to create fit-for-purpose systems and measurable value.'
-      },
-      roadmap: {
-        title: 'AI Strategic Roadmap',
-        body: 'A sequenced plan that de-risks early bets, funds itself through wins, and guides capability building over time.'
-      },
-      'execution-outer': {
-        title: 'AI-Enabled Execution',
-        body: 'Delivery playbooks, operating rhythms, and instrumentation that keep teams shipping AI features confidently.'
-      },
-      'people-outer': {
-        title: 'AI-Powered People',
-        body: 'Upskilling, change adoption, and incentives that make AI augment every role instead of adding friction.'
-      },
-      'technology-outer': {
-        title: 'AI-Integrated Technology',
-        body: 'Data, MLOps, and automation pipelines woven into existing systems with clear SLAs and observability.'
-      }
-    };
-
-    // Position tooltip near hotspot while keeping it on-screen
-    function positionTooltip(hotspotRect) {
-      const stageRect = stage.getBoundingClientRect();
-      const padding = 12;
-      let top = hotspotRect.top - stageRect.top - tooltip.offsetHeight - 10;
-      let left = hotspotRect.left - stageRect.left + hotspotRect.width / 2 - tooltip.offsetWidth / 2;
-
-      if (top < padding) top = hotspotRect.bottom - stageRect.top + 10;
-      if (left < padding) left = padding;
-      const maxLeft = stageRect.width - tooltip.offsetWidth - padding;
-      if (left > maxLeft) left = maxLeft;
-
-      tooltip.style.top = `${top}px`;
-      tooltip.style.left = `${left}px`;
-    }
-
-    function showTooltip(key, rect) {
-      const copy = content[key];
-      if (!copy) return;
-      tooltipTitle.textContent = copy.title;
-      tooltipBody.textContent = copy.body;
-      tooltip.classList.add('visible');
-      positionTooltip(rect);
-    }
-
-    function hideTooltip() {
-      tooltip.classList.remove('visible');
-    }
-
-    function clearActive() {
-      hotspots.forEach(h => h.classList.remove('active'));
-      activeKey = null;
-    }
-
-    hotspots.forEach(hotspot => {
-      const key = hotspot.dataset.key;
-
-      hotspot.addEventListener('mouseenter', () => {
-        if (activeKey && activeKey !== key) return; // keep active tooltip until cleared
-        showTooltip(key, hotspot.getBoundingClientRect());
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    if (mobileMenuToggle) {
+      mobileMenuToggle.addEventListener('click', function () {
+        this.classList.toggle('active');
+        mobileMenuOverlay.classList.toggle('active');
+        document.body.style.overflow = mobileMenuOverlay.classList.contains('active') ? 'hidden' : '';
       });
-
-      hotspot.addEventListener('mouseleave', () => {
-        if (activeKey === key) return; // keep if active
-        hideTooltip();
+      mobileMenuOverlay.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function () {
+          mobileMenuToggle.classList.remove('active');
+          mobileMenuOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+        });
       });
-
-      hotspot.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const rect = hotspot.getBoundingClientRect();
-        if (activeKey === key) {
-          clearActive();
-          hideTooltip();
-          return;
-        }
-        clearActive();
-        hotspot.classList.add('active');
-        activeKey = key;
-        showTooltip(key, rect);
-      });
-    });
-
-    // Close tooltip when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('.hotspot')) {
-        clearActive();
-        hideTooltip();
-      }
-    });
-
-    // Reposition tooltip on resize for current active hotspot
-    window.addEventListener('resize', () => {
-      if (!activeKey) return;
-      const activeHotspot = hotspots.find(h => h.dataset.key === activeKey);
-      if (activeHotspot) positionTooltip(activeHotspot.getBoundingClientRect());
-    });
+    }
   </script>
+
+  <!-- Hero Section -->
+  <header class="prem-hero">
+    <video autoplay muted loop playsinline class="prem-hero-video">
+      <source src="assets/videos/Hybrid-Intelligence.mp4" type="video/mp4">
+    </video>
+    <div class="prem-hero-content">
+      <h1>Turn AI from Noise into<br>Disciplined Capability.</h1>
+      <p>We help UAE enterprises move beyond isolated experiments to build sustainable, high-impact AI operating models.
+      </p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="contact.html" class="prem-btn"
+          style="background: var(--prem-accent-blue); border-color: var(--prem-accent-blue);">Book Consultation</a>
+        <a href="ai-readiness.html" class="prem-btn prem-btn-outline"
+          style="background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.4); color: #fff;">Check Your
+          AI Readiness</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Trust Bar -->
+  <section class="prem-section" style="padding: 60px 0 40px;">
+    <div class="prem-container">
+      <div class="trust-bar scroll-reveal">
+        <div class="trust-left">
+          <span class="eyebrow">Trusted By Leaders</span>
+          <p>Partnering with regulated and high-growth enterprises across the UAE.</p>
+        </div>
+        <div class="trust-logos">
+          <div class="trust-chip">GCC Healthcare</div>
+          <div class="trust-chip">National Aviation</div>
+          <div class="trust-chip">Retail Conglomerate</div>
+          <div class="trust-chip">Gov’t Services</div>
+          <div class="trust-chip">Digital Bank</div>
+          <div class="trust-chip">Logistics Leader</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="prem-section prem-section-alt" style="padding: 80px 0;">
+    <div class="prem-container">
+      <div class="section-header scroll-reveal" style="text-align: center;">
+        <span class="eyebrow">Proof, Not Promises</span>
+        <h2 class="section-title" style="font-size: 2.4rem; text-align: left; margin-left: auto; margin-right: auto; max-width: 900px;">Leaders On Working With iMPLEMENTAi.ae</h2>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card scroll-reveal">
+          <p class="quote">“They built an AI operating cadence our board trusts. We went from pilots to production in a single quarter with full governance.”</p>
+          <div class="meta">
+            <div class="name">Chief Digital Officer</div>
+            <div class="role">GCC Healthcare Group (anonymized)</div>
+          </div>
+        </div>
+        <div class="testimonial-card scroll-reveal delay-100">
+          <p class="quote">“Ops, finance, and HR now share the same AI playbook. We measure uplift weekly and ship safely—no more shadow AI.”</p>
+          <div class="meta">
+            <div class="name">COO</div>
+            <div class="role">UAE Multi-site Retailer</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Engagement Journey Section -->
+  <section class="prem-section">
+    <div class="prem-container">
+      <div class="section-header scroll-reveal" style="text-align: center;">
+        <span class="eyebrow">Our Approach</span>
+        <h2 class="section-title">From First Conversation to Embedded AI Capability</h2>
+        <p
+          style="font-size: 1.2rem; color: var(--prem-text-secondary); margin-top: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+          A proven 5-stage engagement model that takes you from discovery to ongoing AI leadership.
+        </p>
+      </div>
+
+      <!-- Interactive Engagement Journey Component -->
+      <div class="engagement-journey">
+        <div class="journey-stage" data-stage="1">
+          <div class="stage-number">1</div>
+          <div class="stage-content">
+            <h3>Discovery</h3>
+            <p>Short call to understand your context, constraints and appetite for AI.</p>
+          </div>
+          <div class="stage-connector"></div>
+        </div>
+        <div class="journey-stage" data-stage="2">
+          <div class="stage-number">2</div>
+          <div class="stage-content">
+            <h3>Leadership workshop</h3>
+            <p>One or two days with decision makers to align on opportunities and risks.</p>
+          </div>
+          <div class="stage-connector"></div>
+        </div>
+        <div class="journey-stage" data-stage="3">
+          <div class="stage-number">3</div>
+          <div class="stage-content">
+            <h3>Strategy sprint</h3>
+            <p>Four to eight weeks to design your AI roadmap and value impact model.</p>
+          </div>
+          <div class="stage-connector"></div>
+        </div>
+        <div class="journey-stage" data-stage="4">
+          <div class="stage-number">4</div>
+          <div class="stage-content">
+            <h3>Delivery sprints</h3>
+            <p>Targeted builds of agents and automations in high value workflows.</p>
+          </div>
+          <div class="stage-connector"></div>
+        </div>
+        <div class="journey-stage" data-stage="5">
+          <div class="stage-number">5</div>
+          <div class="stage-content">
+            <h3>Fractional CAIO</h3>
+            <p>Ongoing leadership and governance as AI becomes part of the operating model.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Client Micro-Cases -->
+  <section class="prem-section prem-section-alt">
+    <div class="prem-container">
+      <div class="section-header scroll-reveal" style="text-align: center;">
+        <span class="eyebrow">Proven Results</span>
+        <h2 class="section-title" style="font-size: 2.8rem;">Two 90-Day Wins</h2>
+        <p style="font-size: 1.2rem; color: var(--prem-text-secondary); margin-top: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+          Disciplined AI delivery with measurable ROI. Sector names anonymized; metrics verified.
+        </p>
+      </div>
+
+      <div class="case-studies-grid">
+        <div class="case-card scroll-reveal">
+          <div class="case-badge">Healthcare · GCC</div>
+          <h3>AI Command Center for Clinical Ops</h3>
+          <p class="case-summary">Connected EHR, contact center, and supply chain to a single AI operating cadence with human-in-loop validation.</p>
+          <ul class="case-metrics">
+            <li><span>Manual hours removed</span><strong>1,420 / month</strong></li>
+            <li><span>Discharge-to-billing latency</span><strong>-27%</strong></li>
+            <li><span>Time to first value</span><strong>82 days</strong></li>
+            <li><span>Governance</span><strong>Weekly steering + audit trail</strong></li>
+          </ul>
+          <p class="case-note">Stack: secure in-region hosting, role-based access, human QA on all clinical prompts.</p>
+        </div>
+
+        <div class="case-card scroll-reveal delay-100">
+          <div class="case-badge">Retail · UAE</div>
+          <h3>Omni-Channel Ops & Finance Automation</h3>
+          <p class="case-summary">Deployed agents across reconciliation, POs, and store support, tied to shared KPIs for Ops and Finance.</p>
+          <ul class="case-metrics">
+            <li><span>Productivity uplift</span><strong>+31%</strong></li>
+            <li><span>Payback</span><strong>82 days</strong></li>
+            <li><span>Workflows automated</span><strong>3 core (recon, tickets, PO)</strong></li>
+            <li><span>Shadow AI incidents</span><strong>0 (centralized guardrails)</strong></li>
+          </ul>
+          <p class="case-note">Stack: vendor-agnostic LLM layer, audit logging, SOC2-aligned controls, human sign-off for financial actions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Insight -->
+  <section class="prem-section">
+    <div class="prem-container">
+      <div class="featured-insight scroll-reveal">
+        <div class="insight-copy">
+          <span class="eyebrow">Insights</span>
+          <h3 style="margin: 0 0 0.75rem;">The AI Operating Model Playbook</h3>
+          <p style="margin: 0 0 1rem; color: var(--prem-text-secondary); font-size: 1.05rem;">How UAE enterprises move from pilots to production with governance, measurement, and human-in-loop controls.</p>
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+            <a href="resources.html" class="prem-btn" style="background: var(--prem-accent-blue); border-color: var(--prem-accent-blue);">Read the Paper</a>
+            <a href="contact.html" class="prem-btn prem-btn-outline">Discuss With Us</a>
+          </div>
+        </div>
+        <div class="insight-meta">
+          <div class="meta-item">
+            <span>Focus</span>
+            <strong>Governance & ROI</strong>
+          </div>
+          <div class="meta-item">
+            <span>For</span>
+            <strong>CIO · COO · CFO</strong>
+          </div>
+          <div class="meta-item">
+            <span>Format</span>
+            <strong>PDF · 8 min read</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compliance Strip -->
+  <section class="compliance-strip">
+    <div class="prem-container">
+      <div class="compliance-items">
+        <div class="compliance-pill">Data hosted in-region</div>
+        <div class="compliance-pill">Human-in-loop validation</div>
+        <div class="compliance-pill">Secure by design</div>
+        <div class="compliance-pill">Responsible AI principles</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="prem-section" style="text-align: center;">
+    <div class="prem-container">
+      <div class="scroll-reveal">
+        <h2 class="section-title" style="margin-bottom: 1.5rem;">Ready to Transform Your AI Strategy?</h2>
+        <p style="font-size: 1.2rem; color: var(--prem-text-secondary); max-width: 700px; margin: 0 auto 2.5rem;">
+          Start with our free AI Readiness Assessment or book a consultation to discuss your specific needs.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="contact.html" class="prem-btn"
+            style="background: var(--prem-accent-blue); border-color: var(--prem-accent-blue);">Book Consultation</a>
+          <a href="ai-readiness.html" class="prem-btn prem-btn-outline">Take the Assessment</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="prem-footer">
+    <div class="prem-container">
+      <div class="prem-footer-grid">
+        <div>
+          <a href="index.html" class="prem-logo" style="margin-bottom: 1.5rem; display: block;"><img
+              src="assets/images/2.png" alt="iMPLEMENTAi.ae" style="height: 45px; width: auto;"></a>
+          <p style="color: var(--prem-text-secondary); max-width: 300px;">
+            The premier AI consultancy for the UAE mid-market. Bridging the gap between technology and business value.
+          </p>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <a href="strategy.html">AI Strategy</a>
+          <a href="automation.html">Automation & Agents</a>
+          <a href="fractional-caio.html">Fractional CAIO</a>
+          <a href="workshops.html">Workshops</a>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <a href="about.html">About Us</a>
+          <a href="team.html">Our Team</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy.html">Privacy Policy</a>
+        </div>
+        <div>
+          <h4>Connect</h4>
+          <a href="https://www.linkedin.com/company/implementai-ae">LinkedIn</a>
+          <a href="mailto:sales@implementai.ae">Email Us</a>
+        </div>
+      </div>
+      <div
+        style="border-top: 1px solid var(--prem-border); padding-top: 2rem; text-align: center; color: var(--prem-text-secondary); font-size: 0.85rem;">
+        &copy; 2025 iMPLEMENTAi.ae. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Component Styles -->
+  <style>
+    .engagement-journey {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 3rem 2rem;
+      background: linear-gradient(135deg, #0a1628 0%, #1a2942 100%);
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .engagement-journey::before {
+      content: 'ENGAGEMENT JOURNEY';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 1rem 2rem;
+      background: rgba(0, 200, 180, 0.1);
+      border-bottom: 1px solid rgba(0, 200, 180, 0.3);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #00c8b4;
+    }
+
+    .journey-stage {
+      flex: 1;
+      position: relative;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.6s ease forwards;
+      padding-top: 3rem;
+    }
+
+    .journey-stage:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    .journey-stage:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .journey-stage:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    .journey-stage:nth-child(4) {
+      animation-delay: 0.4s;
+    }
+
+    .journey-stage:nth-child(5) {
+      animation-delay: 0.5s;
+    }
+
+    .stage-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #00c8b4 0%, #008f7f 100%);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 200, 180, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .journey-stage:hover .stage-number {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(0, 200, 180, 0.5);
+    }
+
+    .stage-content h3 {
+      color: #00c8b4;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .journey-stage:hover .stage-content h3 {
+      color: #00e6cc;
+    }
+
+    .stage-content p {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    .stage-connector {
+      position: absolute;
+      top: calc(3rem + 24px);
+      left: calc(100% - 24px);
+      width: calc(100% + 1rem);
+      height: 2px;
+      background: linear-gradient(90deg, rgba(0, 200, 180, 0.5) 0%, rgba(0, 200, 180, 0.1) 100%);
+      animation: drawLine 0.8s ease forwards;
+    }
+
+    .journey-stage:nth-child(1) .stage-connector {
+      animation-delay: 0.1s;
+    }
+
+    .journey-stage:nth-child(2) .stage-connector {
+      animation-delay: 0.2s;
+    }
+
+    .journey-stage:nth-child(3) .stage-connector {
+      animation-delay: 0.3s;
+    }
+
+    .journey-stage:nth-child(4) .stage-connector {
+      animation-delay: 0.4s;
+    }
+
+    .journey-stage:last-child .stage-connector {
+      display: none;
+    }
+
+    .client-scenario {
+      background: linear-gradient(135deg, #0a1628 0%, #1a2942 100%);
+      border-radius: 20px;
+      padding: 2.5rem;
+      color: white;
+      max-width: 600px;
+      margin: 3rem auto 0;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .client-scenario::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at top right, rgba(0, 200, 180, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .scenario-header {
+      margin-bottom: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .scenario-badge {
+      display: inline-block;
+      background: rgba(0, 200, 180, 0.2);
+      color: #00c8b4;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(0, 200, 180, 0.3);
+    }
+
+    .scenario-header h3 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: #00c8b4;
+      margin-bottom: 0.5rem;
+    }
+
+    .scenario-subtitle {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.9rem;
+    }
+
+    .scenario-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .scenario-metric {
+      opacity: 0;
+      animation: fadeIn 0.6s ease forwards;
+    }
+
+    .scenario-metric:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    .scenario-metric:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .scenario-metric:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    .scenario-metric:nth-child(4) {
+      animation-delay: 0.4s;
+    }
+
+    .scenario-metric:nth-child(5) {
+      animation-delay: 0.5s;
+      grid-column: 1 / -1;
+    }
+
+    .metric-label {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 0.5rem;
+      text-transform: capitalize;
+    }
+
+    .metric-value {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #00c8b4;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .metric-unit {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: 0.25rem;
+    }
+
+    .metric-text {
+      font-size: 1.1rem;
+      color: white;
+      font-weight: 500;
+    }
+
+    .scenario-chart {
+      margin: 2rem 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .growth-chart {
+      width: 100%;
+      height: 100px;
+    }
+
+    .chart-line {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: drawChart 2s ease forwards 0.5s;
+    }
+
+    .scenario-footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .scenario-footer p {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.6;
+    }
+
+    .case-studies-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .case-card {
+      background: #fff;
+      border: 1px solid var(--prem-border);
+      border-radius: 18px;
+      padding: 1.75rem;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .case-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #00c8b4, #0066cc);
+    }
+
+    .case-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(0, 200, 180, 0.12);
+      color: #006f63;
+      font-weight: 600;
+      font-size: 0.85rem;
+      border: 1px solid rgba(0, 200, 180, 0.25);
+      width: fit-content;
+    }
+
+    .case-summary {
+      margin: 0;
+      color: var(--prem-text-secondary);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .case-metrics {
+      list-style: none;
+      margin: 0.25rem 0 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem 1rem;
+    }
+
+    .case-metrics li {
+      background: var(--prem-bg-alt);
+      border: 1px solid var(--prem-border);
+      border-radius: 12px;
+      padding: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .case-metrics span {
+      color: var(--prem-text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .case-metrics strong {
+      color: var(--prem-text);
+      font-size: 1.05rem;
+    }
+
+    .case-note {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--prem-text-secondary);
+      line-height: 1.6;
+    }
+
+    .featured-insight {
+      background: linear-gradient(135deg, #0f192b 0%, #152643 70%, #0f192b 100%);
+      color: #f6fbff;
+      border-radius: 18px;
+      padding: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .featured-insight h3 {
+      color: #ffffff;
+    }
+
+    .featured-insight p {
+      color: rgba(255, 255, 255, 0.88) !important;
+    }
+
+    .featured-insight .prem-btn-outline {
+      color: #f6fbff;
+      border-color: rgba(255, 255, 255, 0.35);
+    }
+
+    .featured-insight .prem-btn-outline:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .insight-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .insight-meta .meta-item {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .insight-meta span {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.85rem;
+    }
+
+    .insight-meta strong {
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .trust-bar {
+      background: linear-gradient(135deg, #f7f8fa 0%, #ffffff 100%);
+      border: 1px solid var(--prem-border);
+      border-radius: 16px;
+      padding: 1.5rem 2rem;
+      display: grid;
+      grid-template-columns: 1.1fr 2fr;
+      gap: 1.5rem;
+      align-items: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .trust-left p {
+      margin: 0.3rem 0 0;
+      color: var(--prem-text-secondary);
+      font-size: 1rem;
+    }
+
+    .trust-logos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: flex-start;
+    }
+
+    .trust-chip {
+      padding: 0.6rem 1rem;
+      border-radius: 999px;
+      border: 1px solid var(--prem-border);
+      background: #fff;
+      font-size: 0.9rem;
+      color: var(--prem-text);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .trust-chip:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .testimonial-card {
+      background: #fff;
+      border: 1px solid var(--prem-border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #00c8b4, #0066cc);
+    }
+
+    .testimonial-card .quote {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--prem-text);
+      margin: 0;
+    }
+
+    .testimonial-card .meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      color: var(--prem-text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .testimonial-card .name {
+      font-weight: 600;
+      color: var(--prem-text);
+    }
+
+    .compliance-strip {
+      background: #0f192b;
+      color: #e9f6ff;
+      padding: 26px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .compliance-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+
+    .compliance-pill {
+      padding: 0.65rem 1.1rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #e9f6ff;
+      font-size: 0.95rem;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes drawLine {
+      from {
+        width: 0;
+      }
+
+      to {
+        width: calc(100% + 1rem);
+      }
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes drawChart {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .engagement-journey {
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .stage-connector {
+        top: calc(100% - 24px);
+        left: 24px;
+        width: 2px;
+        height: calc(100% + 2rem);
+        background: linear-gradient(180deg, rgba(0, 200, 180, 0.5) 0%, rgba(0, 200, 180, 0.1) 100%);
+      }
+
+      @keyframes drawLine {
+        from {
+          height: 0;
+        }
+
+        to {
+          height: calc(100% + 2rem);
+        }
+      }
+    }
+
+    @media (max-width: 768px) {
+      .scenario-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .scenario-metric:nth-child(5) {
+        grid-column: 1;
+      }
+
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-bar {
+        grid-template-columns: 1fr;
+      }
+
+      .case-studies-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .case-metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-insight {
+        grid-template-columns: 1fr;
+      }
+
+      .insight-meta {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <!-- Scripts -->
+  <script>
+    // Animated counter for metrics
+    document.addEventListener('DOMContentLoaded', function () {
+      const animateValue = (element, start, end, duration, suffix = '') => {
+        const range = end - start;
+        const increment = range / (duration / 16);
+        let current = start;
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= end) {
+            current = end;
+            clearInterval(timer);
+          }
+          element.textContent = Math.floor(current).toLocaleString() + suffix;
+        }, 16);
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const metrics = entry.target.querySelectorAll('.metric-value[data-target]');
+            metrics.forEach(metric => {
+              const target = parseInt(metric.dataset.target);
+              const suffix = metric.dataset.suffix || '';
+              animateValue(metric, 0, target, 2000, suffix);
+            });
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      const scenario = document.querySelector('.client-scenario');
+      if (scenario) observer.observe(scenario);
+    });
+
+    // Scroll reveal
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    const scrollObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+    document.querySelectorAll('.scroll-reveal').forEach(el => scrollObserver.observe(el));
+  </script>
+
 </body>
+
 </html>
