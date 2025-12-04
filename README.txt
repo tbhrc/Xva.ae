@@ -39,5 +39,10 @@ Tailwind CSS is loaded from CDN in each HTML file.
 Custom helpers and animation styles are defined in assets/css/styles.css.
 Client-side behaviour (scroll bar, animations, readiness logic) is in assets/js/main.js.
 
+## Backend setup
+- Install Python dependencies before running any backend scripts or tests:
+  - `pip install -r requirements.txt` (requires SQLAlchemy and FastAPI to be present).
+- If outbound package installs are blocked, download the SQLAlchemy wheel from an allowed network and install it locally with `pip install SQLAlchemy-<version>-py3-none-any.whl`.
+
 ## Version Control
 All new developments must be updated against the correct release stream (e.g., tag 7.3 for v7.23) so changes remain traceable back to the v7.22 stable baseline.
