@@ -11,14 +11,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="../assets/css/v7.3-premium.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="../assets/css/v7.3-premium.css"></noscript>
+  <noscript>
+    <link rel="stylesheet" href="../assets/css/v7.3-premium.css">
+  </noscript>
   <link rel="stylesheet" href="../assets/css/v7.3-premium.css">
-    <style>
+  <style>
     body {
       background: linear-gradient(180deg, #f6f8fb 0%, #eef2f7 100%);
       color: #1f2a44;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     }
+
     .card {
       background: #fff;
       border: 1px solid #e6edf5;
@@ -26,10 +29,12 @@
       box-shadow: 0 22px 60px rgba(18, 38, 63, 0.12);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
+
     .card:hover {
       transform: translateY(-4px);
       box-shadow: 0 26px 70px rgba(18, 38, 63, 0.14);
     }
+
     .pill {
       display: inline-flex;
       align-items: center;
@@ -42,12 +47,14 @@
       font-size: 0.9rem;
       white-space: nowrap;
     }
+
     .accent-line {
       width: 72px;
       height: 3px;
       background: linear-gradient(90deg, #0c2640, #4d8dff);
       border-radius: 999px;
     }
+
     .input-field {
       width: 100%;
       padding: 0.9rem 1rem;
@@ -58,27 +65,32 @@
       font-family: inherit;
       transition: border 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
     }
+
     .input-field:focus {
       outline: none;
       border-color: #0c2640;
       box-shadow: 0 0 0 4px rgba(12, 38, 64, 0.12);
       transform: translateY(-1px);
     }
+
     .form-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1.2rem;
       align-items: start;
     }
+
     .textarea-row {
       grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
       column-gap: 1.5rem;
       row-gap: 1.1rem;
     }
+
     .textarea {
       min-height: 120px;
       resize: vertical;
     }
+
     .eyebrow-soft {
       color: #6a768e;
       font-weight: 600;
@@ -86,9 +98,11 @@
       text-transform: uppercase;
       font-size: 0.8rem;
     }
+
     .shadow-subtle {
       box-shadow: 0 16px 40px rgba(18, 38, 63, 0.08);
     }
+
     .bullet-list {
       list-style: disc;
       padding-left: 1.2rem;
@@ -98,19 +112,40 @@
       color: #4a5670;
       line-height: 1.5;
     }
+
     .two-col {
       display: grid;
       grid-template-columns: 1.4fr 1fr;
       gap: 1.35rem;
     }
+
+    .hero-compact {
+      height: auto;
+      min-height: 0;
+      padding: 72px 0 30px !important;
+      align-items: flex-start;
+    }
+
     @media (max-width: 820px) {
-      .two-col { grid-template-columns: 1fr; }
+      .two-col {
+        grid-template-columns: 1fr;
+      }
     }
+
     @media (max-width: 640px) {
-      h1 { font-size: 2.2rem !important; }
-      .card { border-radius: 14px; }
-      .form-grid { grid-template-columns: 1fr; }
+      h1 {
+        font-size: 2.2rem !important;
+      }
+
+      .card {
+        border-radius: 14px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
     }
+
     .status {
       margin-top: 1rem;
       padding: 0.9rem 1rem;
@@ -118,28 +153,33 @@
       font-weight: 500;
       display: none;
     }
+
     .status.error {
       display: block;
       background: rgba(255, 59, 48, 0.08);
       color: #a40000;
       border: 1px solid rgba(255, 59, 48, 0.2);
     }
+
     .status.success {
       display: block;
       background: rgba(0, 102, 204, 0.08);
       color: #1f2a44;
       border: 1px solid rgba(0, 102, 204, 0.2);
     }
+
     .helper {
       color: #4a5670;
       font-size: 0.9rem;
     }
+
     .checkbox-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 0.5rem 1rem;
       margin-top: 0.5rem;
     }
+
     .checkbox-grid label,
     .radio-row label {
       display: flex;
@@ -148,6 +188,7 @@
       font-size: 0.95rem;
       color: #1f2a44;
     }
+
     .radio-row {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -193,7 +234,8 @@
     <a href="../team.html">Team</a>
     <a href="../ai-readiness.html">Check AI Readiness</a>
     <a href="../about.html">About</a>
-    <a href="../contact.html" class="prem-btn" style="background: var(--prem-accent-blue); border-color: var(--prem-accent-blue);">Book Consultation</a>
+    <a href="../contact.html" class="prem-btn"
+      style="background: var(--prem-accent-blue); border-color: var(--prem-accent-blue);">Book Consultation</a>
   </div>
 
   <script>
@@ -215,28 +257,31 @@
     }
   </script>
 
-  <header class="prem-hero" style="padding: 120px 0 60px; background: transparent;">
+  <header class="prem-hero hero-compact" style="background: transparent;">
     <div class="prem-container" style="text-align: center; max-width: 900px; margin: 0 auto;">
       <div class="accent-line" style="margin: 0 auto 1.25rem;"></div>
       <span class="eyebrow-soft">AI Experts Hub</span>
-      <h1 style="font-size: 3rem; margin: 0.5rem 0 1rem; letter-spacing: -0.5px; color: #0c2640;">Apply to join the AI Experts Hub</h1>
+      <h1 style="font-size: 3rem; margin: 0.5rem 0 1rem; letter-spacing: -0.5px; color: #0c2640;">Apply to join the AI
+        Experts Hub</h1>
       <p style="color: #4a5670; font-size: 1.05rem; max-width: 760px; margin: 0 auto;">
-        Paste your LinkedIn to start instantly, then optionally share more so we can showcase you beautifully in the public directory.
+        Paste your LinkedIn to start instantly, then optionally share more so we can showcase you beautifully in the
+        public directory.
       </p>
-      <div style="margin-top: 1.5rem; display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
+      <div style="margin-top: 1rem; display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
         <span class="pill">Private by default</span>
         <span class="pill">Takes under 60 seconds</span>
         <span class="pill">Curated review</span>
       </div>
-      <div style="margin-top: 1.8rem; display: flex; justify-content: center;">
-        <a href="./directory/directory.html" class="prem-btn" style="padding: 0.95rem 1.6rem; background: #0c2640; border-color: #0c2640;">
+      <div style="margin-top: 0.9rem; display: flex; justify-content: center;">
+        <a href="./directory/directory.html" class="prem-btn"
+          style="padding: 0.95rem 1.6rem; background: #0c2640; border-color: #0c2640;">
           Browse the AI Experts Directory
         </a>
       </div>
     </div>
   </header>
 
-  <section class="prem-section" style="padding: 20px 0 80px;">
+  <section class="prem-section" style="padding: 0 0 60px;">
     <div class="prem-container" style="max-width: 1100px;">
       <form id="expertsForm">
         <div class="card" style="padding: 2rem 2.2rem; margin-bottom: 1.5rem;">
@@ -244,12 +289,17 @@
             <div class="quick-apply">
               <div>
                 <p class="eyebrow-soft" style="margin-bottom: 0.35rem;">Step 1</p>
-                <h3 style="margin: 0 0 0.5rem; font-size: 1.6rem; color: #0c2640;">Paste your LinkedIn and apply instantly</h3>
-                <p style="color: #4a5670;">We use your LinkedIn to verify expertise and build your initial profile draft.</p>
+                <h3 style="margin: 0 0 0.5rem; font-size: 1.6rem; color: #0c2640;">Paste your LinkedIn and apply
+                  instantly</h3>
+                <p style="color: #4a5670;">We use your LinkedIn to verify expertise and build your initial profile
+                  draft.</p>
               </div>
               <div class="quick-apply-row" style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
-                <input type="url" class="input-field" id="linkedin" name="linkedin" required placeholder="https://www.linkedin.com/in/your-profile" aria-label="LinkedIn profile" style="flex: 1 1 260px;">
-                <button type="submit" id="submitBtnTop" class="prem-btn" style="padding: 0.95rem 1.6rem; background: #0c2640; border-color: #0c2640;">Apply</button>
+                <input type="url" class="input-field" id="linkedin" name="linkedin" required
+                  placeholder="https://www.linkedin.com/in/your-profile" aria-label="LinkedIn profile"
+                  style="flex: 1 1 260px;">
+                <button type="submit" id="submitBtnTop" class="prem-btn"
+                  style="padding: 0.95rem 1.6rem; background: #0c2640; border-color: #0c2640;">Apply</button>
               </div>
               <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; color: #4a5670;">
                 <span class="pill">Private by default</span>
@@ -272,11 +322,14 @@
         </div>
 
         <div class="card" style="padding: 2.2rem;">
-          <div style="display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; align-items: baseline;">
+          <div
+            style="display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; align-items: baseline;">
             <div>
               <p class="eyebrow-soft" style="margin-bottom: 0.35rem;">Step 2 (Optional)</p>
-              <h3 style="margin: 0 0 0.35rem; font-size: 1.6rem; color: #0c2640;">Share more so we can highlight you beautifully</h3>
-              <p style="color: #4a5670;">Everything below is optional. Add what matters most to clients discovering you.</p>
+              <h3 style="margin: 0 0 0.35rem; font-size: 1.6rem; color: #0c2640;">Share more so we can highlight you
+                beautifully</h3>
+              <p style="color: #4a5670;">Everything below is optional. Add what matters most to clients discovering you.
+              </p>
             </div>
             <span class="pill">Optional details</span>
           </div>
@@ -288,7 +341,8 @@
             </div>
             <div>
               <label style="display:block; margin-bottom: 0.35rem; font-weight:600;">Phone or WhatsApp number</label>
-              <input type="text" class="input-field" id="phone" name="phone" placeholder="+971..." aria-describedby="phoneHelp">
+              <input type="text" class="input-field" id="phone" name="phone" placeholder="+971..."
+                aria-describedby="phoneHelp">
               <span id="phoneHelp" class="helper">We use this only to contact you about potential projects.</span>
             </div>
             <div>
@@ -317,7 +371,8 @@
             <div>
               <label style="display:block; margin-bottom: 0.35rem; font-weight:600;">Preferred rate</label>
               <div style="display: grid; grid-template-columns: 1fr 140px; gap: 0.5rem;">
-                <input type="number" class="input-field" id="rate" name="rate" min="0" step="0.01" placeholder="e.g., 150">
+                <input type="number" class="input-field" id="rate" name="rate" min="0" step="0.01"
+                  placeholder="e.g., 150">
                 <select id="rateUnit" name="rateUnit" class="input-field">
                   <option value="per hour">per hour</option>
                   <option value="per day">per day</option>
@@ -345,49 +400,61 @@
               <label><input type="checkbox" name="expertise" value="ML Engineer"> ML Engineer</label>
               <label><input type="checkbox" name="expertise" value="MLOps Engineer"> MLOps Engineer</label>
               <label><input type="checkbox" name="expertise" value="AI Product Manager"> AI Product Manager</label>
-              <label><input type="checkbox" name="expertise" value="AI Developer, Front end"> AI Developer, Front end</label>
-              <label><input type="checkbox" name="expertise" value="AI Developer, Full stack"> AI Developer, Full stack</label>
+              <label><input type="checkbox" name="expertise" value="AI Developer, Front end"> AI Developer, Front
+                end</label>
+              <label><input type="checkbox" name="expertise" value="AI Developer, Full stack"> AI Developer, Full
+                stack</label>
               <label><input type="checkbox" name="expertise" value="Other"> Other</label>
             </div>
-            <input type="text" class="input-field" id="otherExpertise" name="otherExpertise" placeholder="If other, describe briefly" style="margin-top: 0.6rem;">
+            <input type="text" class="input-field" id="otherExpertise" name="otherExpertise"
+              placeholder="If other, describe briefly" style="margin-top: 0.6rem;">
           </div>
 
           <div style="margin-top: 1rem;">
             <label style="display:block; margin-bottom: 0.35rem; font-weight:600;">Preferred engagement style</label>
             <div class="checkbox-grid">
               <label><input type="checkbox" name="engagement" value="Solo contributor"> Solo contributor</label>
-              <label><input type="checkbox" name="engagement" value="Part of a squad or team"> Part of a squad or team</label>
-              <label><input type="checkbox" name="engagement" value="White label under iMPLEMENTAi.ae brand"> White label under iMPLEMENTAi.ae brand</label>
+              <label><input type="checkbox" name="engagement" value="Part of a squad or team"> Part of a squad or
+                team</label>
+              <label><input type="checkbox" name="engagement" value="White label under iMPLEMENTAi.ae brand"> White
+                label under iMPLEMENTAi.ae brand</label>
               <label><input type="checkbox" name="engagement" value="Own brand visible"> Own brand visible</label>
             </div>
           </div>
 
           <div class="form-grid textarea-row" style="margin-top: 1rem;">
             <div>
-              <label style="display:block; margin-bottom: 0.35rem; font-weight:600;" for="tools">Key tools and platforms you work with</label>
-              <textarea class="input-field textarea" id="tools" name="tools" placeholder="Examples: OpenAI, Anthropic, Gemini, Make, n8n, LangChain, Vector DBs, etc."></textarea>
+              <label style="display:block; margin-bottom: 0.35rem; font-weight:600;" for="tools">Key tools and platforms
+                you work with</label>
+              <textarea class="input-field textarea" id="tools" name="tools"
+                placeholder="Examples: OpenAI, Anthropic, Gemini, Make, n8n, LangChain, Vector DBs, etc."></textarea>
             </div>
             <div>
               <label style="display:block; margin-bottom: 0.35rem; font-weight:600;" for="note">Short note to us</label>
-              <textarea class="input-field textarea" id="note" name="note" placeholder="Tell us what kind of projects you are most interested in, and where you create the most value."></textarea>
+              <textarea class="input-field textarea" id="note" name="note"
+                placeholder="Tell us what kind of projects you are most interested in, and where you create the most value."></textarea>
             </div>
           </div>
 
           <div style="margin-top: 1rem;">
             <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: 600;">
               <input type="checkbox" id="consent" name="consent" required>
-              I agree that iMPLEMENTAi.ae may store my details for the purpose of matching me to current and future AI projects.
+              I agree that iMPLEMENTAi.ae may store my details for the purpose of matching me to current and future AI
+              projects.
             </label>
           </div>
 
-          <div style="margin-top: 1.5rem; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; align-items: center;">
+          <div
+            style="margin-top: 1.5rem; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; align-items: center;">
             <div style="color: #4a5670; display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
               <span class="pill">You control what is public</span>
               <span class="pill">Update anytime</span>
             </div>
             <div style="display: flex; gap: 0.75rem; align-items: center;">
               <div id="formStatus" class="status" role="status" aria-live="polite" style="margin: 0;"></div>
-              <button type="submit" id="submitBtn" class="prem-btn" style="padding: 0.95rem 1.8rem; background: #0c2640; border-color: #0c2640;">Apply with Optional Details</button>
+              <button type="submit" id="submitBtn" class="prem-btn"
+                style="padding: 0.95rem 1.8rem; background: #0c2640; border-color: #0c2640;">Apply with Optional
+                Details</button>
             </div>
           </div>
         </div>
@@ -395,15 +462,18 @@
         <div class="prem-grid-3" style="margin-top: 2rem; gap: 1.5rem;">
           <div class="card" style="padding: 1.5rem;">
             <h4 style="margin: 0 0 0.35rem; color: #0c2640;">Who we feature</h4>
-            <p style="margin: 0; color: #4a5670;">Seasoned AI leaders, builders, researchers, and operators with meaningful delivery in production.</p>
+            <p style="margin: 0; color: #4a5670;">Seasoned AI leaders, builders, researchers, and operators with
+              meaningful delivery in production.</p>
           </div>
           <div class="card" style="padding: 1.5rem;">
             <h4 style="margin: 0 0 0.35rem; color: #0c2640;">Profile polish</h4>
-            <p style="margin: 0; color: #4a5670;">Our editors refine your profile for clarity, storytelling, and mobile readability before it goes live.</p>
+            <p style="margin: 0; color: #4a5670;">Our editors refine your profile for clarity, storytelling, and mobile
+              readability before it goes live.</p>
           </div>
           <div class="card" style="padding: 1.5rem;">
             <h4 style="margin: 0 0 0.35rem; color: #0c2640;">Speed with care</h4>
-            <p style="margin: 0; color: #4a5670;">We acknowledge within 48 hours and share a preview link for your approval.</p>
+            <p style="margin: 0; color: #4a5670;">We acknowledge within 48 hours and share a preview link for your
+              approval.</p>
           </div>
         </div>
       </form>
@@ -493,5 +563,3 @@
 </body>
 
 </html>
-
-
