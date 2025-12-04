@@ -58,15 +58,40 @@
       color: var(--prem-text);
     }
 
+    .form-shell {
+      background: #f7f9fc;
+      border: 1px solid #dfe6f0;
+      border-radius: 16px;
+      box-shadow: 0 18px 48px rgba(0, 30, 60, 0.08);
+      overflow: hidden;
+    }
+
+    .form-header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      background: linear-gradient(90deg, #0c2640 0%, #0066cc 100%);
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      font-size: 0.95rem;
+    }
+
+    .form-header-bar span {
+      opacity: 0.9;
+      font-weight: 500;
+    }
+
     .form-control input,
     .form-control select,
     .form-control textarea {
       width: 100%;
-      padding: 0.85rem;
-      border-radius: 12px;
-      border: 1px solid var(--prem-border);
+      padding: 0.9rem;
+      border-radius: 10px;
+      border: 1px solid #c9d5e5;
       font-family: var(--font-main);
-      background: #f9fafb;
+      background: #fff;
       color: var(--prem-text);
       transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     }
@@ -144,10 +169,11 @@
 
     .form-section {
       margin-top: 1.5rem;
-      border: 1px solid var(--prem-border);
+      border: 1px solid #dfe6f0;
       border-radius: 12px;
       padding: 1.75rem;
-      background: var(--prem-bg-alt);
+      background: #ffffff;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
     }
 
     .form-section h3 {
