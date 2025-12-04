@@ -242,3 +242,58 @@ Task List
 - [ ] Wire nav/footer and internal links to new pages/posts; update `sitemap.xml` and canonicals.
 - [ ] Add FAQ schema to location pages and Process Automation section; ensure Organization/Article schema persists.
 - [ ] (Optional) Add “Locations” strip or footer links to city pages; add Blog link under Insights/nav.
+Version 7.12
+
+Task List (completed)
+- Mitigate white flash on page navigation by speeding CSS load and darkening initial paint.
+
+Changes
+- Set the base body background to a dark color in `iaiv3/assets/css/v7.3-premium.css` to reduce white flash before hero/video paint.
+- Added a preload hint for `v7.3-premium.css` in `iaiv3/index.html` with noscript fallback to speed first paint.
+
+____________________
+Version 7.13
+
+Task List (completed)
+- Standardize navigation (desktop/mobile) across prem-nav pages with consistent items including Blog.
+- Apply CSS preload + noscript fallback to all prem-nav pages to reduce white flash.
+
+Changes
+- Replaced nav/mobile menu blocks sitewide on prem-nav pages to: Home, Strategy, Solutions, Insights, Blog, Team, Check AI Readiness, About + Book Consultation CTA.
+- Added CSS preload + noscript fallback for `assets/css/v7.3-premium.css` across HTML pages using the premium stylesheet.
+
+____________________
+Version 7.14
+
+Task List (completed)
+- Create location SEO pages (Dubai, Abu Dhabi, Sharjah) with FAQ schema and standard nav/footer.
+- Add SME AI Transformation page.
+- Refresh Automation page to cover assistants/chatbots/process automation with FAQ schema.
+- Wire internal links and sitemap to new pages; add CSS preload where missing.
+
+Changes
+- Added `ai-consulting-dubai.html`, `ai-consulting-abu-dhabi.html`, `ai-consulting-sharjah.html` with 90-day cadence, controls, measurement, and FAQ schema.
+- Added `sme-ai-transformation.html` packaged program for SMEs.
+- Enhanced `automation.html` with assistants vs chatbots guidance, controls, ROI cadence, and FAQ schema; updated meta description.
+- Updated `sitemap.xml` to include blog and new location/SME pages.
+- Added a UAE coverage strip on `index.html` linking to the new location pages and SME program.
+
+____________________
+Version 7.11 (Planning)
+
+Task List
+- [ ] Add blog system (blog index + reusable post template; Article schema, breadcrumbs, author/date, read time).
+- [ ] Publish first 3 blog posts aligned to keyword research:
+    1) AI Implementation in Dubai (shadow IT-safe rollout)
+    2) AI Assistants vs Chatbots for regulated UAE workflows
+    3) Process Automation ROI (90-day payback for finance/ops)
+- [ ] Create location service pages (city-targeted):
+    - `ai-consulting-dubai.html`
+    - `ai-consulting-abu-dhabi.html`
+    - `ai-consulting-sharjah.html`
+    Each covering AI Consulting/Implementation/Automation with local proof, assurance, and FAQ schema.
+- [ ] Refresh `automation.html` to cover Assistants/Chatbots/Agents + Process Automation explicitly.
+- [ ] Add SME-focused section/page for “SME AI Transformation / AI-Powered SME Growth.”
+- [ ] Wire nav/footer and internal links to new pages/posts; update `sitemap.xml` and canonicals.
+- [ ] Add FAQ schema to location pages and Process Automation section; ensure Organization/Article schema persists.
+- [ ] (Optional) Add “Locations” strip or footer links to city pages; add Blog link under Insights/nav.
