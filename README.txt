@@ -4,7 +4,7 @@ iMPLEMENTAi.ae Multi Page Website (v3)
 
 Versioning
 - Stable baseline locked at **v7.22** (do not modify without a new version bump).
-- Current development train: **v7.23**, to be released publicly as **7.3** with a short release note in the tag description.
+- Current development train: **v7.23**, with a short release note in the tag description.
 
 New in this version
 - Animated hero graphic with SVG line and metric bars.
@@ -45,4 +45,4 @@ Client-side behaviour (scroll bar, animations, readiness logic) is in assets/js/
 - If outbound package installs are blocked, download the SQLAlchemy wheel from an allowed network and install it locally with `pip install SQLAlchemy-<version>-py3-none-any.whl`.
 
 ## Version Control
-All new developments must be updated against the correct release stream (e.g., tag 7.3 for v7.23) so changes remain traceable back to the v7.22 stable baseline.
+All new developments must be updated against the correct release stream (e.g., tag for v7.23) so changes remain traceable back to the v7.22 stable baseline.
