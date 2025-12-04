@@ -1,0 +1,431 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Experts Hub | iMPLEMENTAi.ae</title>
+  <meta name="description"
+    content="Join the iMPLEMENTAi.ae AI Experts Hub to be matched with AI consulting, engineering, and automation projects across the UAE.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="../assets/css/v7.3-premium.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="../assets/css/v7.3-premium.css"></noscript>
+  <link rel="stylesheet" href="../assets/css/v7.3-premium.css">
+  <style>
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(0, 102, 204, 0.08);
+      color: var(--prem-text);
+      font-size: 0.9rem;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hub-card {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .hub-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .form-control {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .form-control label {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--prem-text);
+    }
+
+    .form-control input,
+    .form-control select,
+    .form-control textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 10px;
+      border: 1px solid var(--prem-border);
+      font-family: var(--font-main);
+      background: #fff;
+      color: var(--prem-text);
+    }
+
+    .form-control textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .helper {
+      color: var(--prem-text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .checkbox-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.5rem 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .checkbox-grid label,
+    .radio-row label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+      color: var(--prem-text);
+    }
+
+    .radio-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.5rem 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .status {
+      margin-top: 1rem;
+      padding: 0.9rem 1rem;
+      border-radius: 10px;
+      font-weight: 500;
+      display: none;
+    }
+
+    .status.error {
+      display: block;
+      background: rgba(255, 59, 48, 0.08);
+      color: #a40000;
+      border: 1px solid rgba(255, 59, 48, 0.2);
+    }
+
+    .status.success {
+      display: block;
+      background: rgba(0, 102, 204, 0.08);
+      color: var(--prem-text);
+      border: 1px solid rgba(0, 102, 204, 0.2);
+    }
+
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .step-badge {
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      background: rgba(0, 102, 204, 0.12);
+      color: var(--prem-text);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="prem-nav">
+    <div class="prem-container prem-nav-inner">
+      <a href="../index.html" class="prem-logo"><img src="../assets/images/2.png" alt="iMPLEMENTAi.ae"
+          style="height: 45px; width: auto;"></a>
+      <ul class="prem-menu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../strategy.html">Strategy</a></li>
+        <li><a href="../departments.html">Solutions</a></li>
+        <li><a href="../resources.html">Insights</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../team.html">Team</a></li>
+        <li><a href="../ai-readiness.html">Check AI Readiness</a></li>
+        <li><a href="./hub.html" style="color: var(--prem-text);">AI Experts Hub</a></li>
+        <li><a href="../about.html">About</a></li>
+      </ul>
+      <a href="../contact.html" class="prem-btn">Book Consultation</a>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+    <a href="../index.html">Home</a>
+    <a href="../strategy.html">Strategy</a>
+    <a href="../departments.html">Solutions</a>
+    <a href="../resources.html">Insights</a>
+    <a href="../blog.html">Blog</a>
+    <a href="../team.html">Team</a>
+    <a href="../ai-readiness.html">Check AI Readiness</a>
+    <a href="./hub.html" style="color: var(--prem-accent-blue); font-weight: 600;">AI Experts Hub</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html" class="prem-btn">Book Consultation</a>
+  </div>
+
+  <script>
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    if (mobileMenuToggle) {
+      mobileMenuToggle.addEventListener('click', function () {
+        this.classList.toggle('active');
+        mobileMenuOverlay.classList.toggle('active');
+        document.body.style.overflow = mobileMenuOverlay.classList.contains('active') ? 'hidden' : '';
+      });
+      mobileMenuOverlay.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function () {
+          mobileMenuToggle.classList.remove('active');
+          mobileMenuOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+  </script>
+
+  <!-- Hero -->
+  <header class="prem-hero"
+    style="height: auto; padding: 160px 0 120px; background: radial-gradient(circle at 10% 20%, rgba(0,102,204,0.12), transparent 30%), linear-gradient(135deg, #0b1a2b 0%, #0c2640 100%); text-align: left;">
+    <div class="prem-container">
+      <div class="prem-hero-content" style="max-width: 950px; text-align: left; margin: 0;">
+        <span class="eyebrow" style="color: rgba(255,255,255,0.85);">AI Experts Hub</span>
+        <h1 style="color: #fff; font-size: 3.8rem; line-height: 1.05; margin-bottom: 1rem;">Join the iMPLEMENTAi.ae AI
+          Experts Hub</h1>
+        <p
+          style="max-width: 780px; margin: 0 0 1.5rem; color: rgba(255,255,255,0.9); font-size: 1.2rem; line-height: 1.6;">
+          Turn your AI skills into high value projects in the UAE and beyond. Join our private network of AI consultants,
+          engineers, and builders that we deploy into client projects.</p>
+        <p
+          style="max-width: 780px; margin: 0 0 2rem; color: rgba(255,255,255,0.8); font-size: 1rem; line-height: 1.6;">
+          iMPLEMENTAi.ae works with companies that want to implement AI, automation, and LLM solutions into real
+          operations. As new projects come in, we first look inside our Experts Hub to find the right specialists. If
+          you are an AI consultant, automation engineer, LLM specialist, or AI developer and you want to be considered
+          for future work, you can list yourself here in a few minutes using your LinkedIn profile.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
+          <a href="#apply" class="prem-btn" style="background: var(--prem-accent-blue); border-color: var(--prem-accent-blue);">Apply with your LinkedIn profile</a>
+          <a href="./directory/directory.html" class="prem-btn prem-btn-outline" style="color: #fff; border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.08);">Browse the AI Experts directory</a>
+        </div>
+        <p style="margin-top: 0.75rem; color: rgba(255,255,255,0.8); font-size: 0.95rem;">No fees to join, no obligation, you stay fully independent.</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Application form -->
+  <section class="prem-section prem-section-alt" id="apply">
+    <div class="prem-container">
+      <div class="section-header" style="margin-bottom: 2.5rem;">
+        <span class="eyebrow">Apply</span>
+        <h2 class="section-title" style="font-size: 2.6rem;">Apply to join the AI Experts Hub</h2>
+        <p style="color: var(--prem-text-secondary); font-size: 1.05rem;">Fill in the short form below to list yourself as an AI expert in our hub. We use your LinkedIn profile as the core source of information. Fields marked with * are required.</p>
+      </div>
+      <div class="prem-card" style="padding: 2rem;">
+        <form id="expertsForm">
+          <div class="form-grid">
+            <div class="form-control">
+              <label for="linkedin">LinkedIn profile URL *</label>
+              <input type="url" id="linkedin" name="linkedin" required placeholder="https://www.linkedin.com/in/your-profile">
+              <span class="helper">Must start with https://www.linkedin.com/</span>
+            </div>
+            <div class="form-control">
+              <label for="email">Email address</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com">
+            </div>
+            <div class="form-control">
+              <label for="phone">Phone or WhatsApp number</label>
+              <input type="text" id="phone" name="phone" placeholder="+971..." aria-describedby="phoneHelp">
+              <span id="phoneHelp" class="helper">We use this only to contact you about potential projects.</span>
+            </div>
+            <div class="form-control">
+              <label for="availability">Availability type *</label>
+              <select id="availability" name="availability" required>
+                <option value="">Select availability</option>
+                <option value="Full time, remote">Full time, remote</option>
+                <option value="Part time, remote">Part time, remote</option>
+                <option value="Project based or freelance">Project based or freelance</option>
+                <option value="Advisory or fractional">Advisory or fractional</option>
+              </select>
+            </div>
+            <div class="form-control">
+              <label for="currency">Preferred currency</label>
+              <select id="currency" name="currency">
+                <option value="">Select currency</option>
+                <option value="AED">AED</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+                <option value="INR">INR</option>
+                <option value="PHP">PHP</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-control">
+              <label for="rate">Preferred rate</label>
+              <div style="display: grid; grid-template-columns: 1fr 160px; gap: 0.5rem;">
+                <input type="number" id="rate" name="rate" min="0" step="0.01" placeholder="e.g., 150">
+                <select id="rateUnit" name="rateUnit">
+                  <option value="per hour">per hour</option>
+                  <option value="per day">per day</option>
+                  <option value="per week">per week</option>
+                  <option value="per month">per month</option>
+                  <option value="per project">per project</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-control">
+              <label for="cv">Upload CV or portfolio</label>
+              <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx,.zip">
+              <span class="helper">PDF, DOCX, or ZIP files are accepted.</span>
+            </div>
+          </div>
+
+          <div class="form-control" style="margin-top: 1.25rem;">
+            <label>Primary expertise *</label>
+            <div class="checkbox-grid">
+              <label><input type="checkbox" name="expertise" value="AI Consultant"> AI Consultant</label>
+              <label><input type="checkbox" name="expertise" value="Automation Engineer"> Automation Engineer</label>
+              <label><input type="checkbox" name="expertise" value="LLM Engineer"> LLM Engineer</label>
+              <label><input type="checkbox" name="expertise" value="Prompt Engineer"> Prompt Engineer</label>
+              <label><input type="checkbox" name="expertise" value="Data Scientist"> Data Scientist</label>
+              <label><input type="checkbox" name="expertise" value="ML Engineer"> ML Engineer</label>
+              <label><input type="checkbox" name="expertise" value="MLOps Engineer"> MLOps Engineer</label>
+              <label><input type="checkbox" name="expertise" value="AI Product Manager"> AI Product Manager</label>
+              <label><input type="checkbox" name="expertise" value="AI Developer, Front end"> AI Developer, Front end</label>
+              <label><input type="checkbox" name="expertise" value="AI Developer, Full stack"> AI Developer, Full stack</label>
+              <label><input type="checkbox" name="expertise" value="Other"> Other</label>
+            </div>
+            <input type="text" id="otherExpertise" name="otherExpertise" placeholder="If other, describe briefly" style="margin-top: 0.6rem; padding: 0.75rem; border-radius: 10px; border: 1px solid var(--prem-border);">
+          </div>
+
+          <div class="form-control" style="margin-top: 1.25rem;">
+            <label>Preferred engagement style</label>
+            <div class="checkbox-grid">
+              <label><input type="checkbox" name="engagement" value="Solo contributor"> Solo contributor</label>
+              <label><input type="checkbox" name="engagement" value="Part of a squad or team"> Part of a squad or team</label>
+              <label><input type="checkbox" name="engagement" value="White label under iMPLEMENTAi.ae brand"> White label under iMPLEMENTAi.ae brand</label>
+              <label><input type="checkbox" name="engagement" value="Own brand visible"> Own brand visible</label>
+            </div>
+          </div>
+
+          <div class="form-grid" style="margin-top: 1.25rem;">
+            <div class="form-control">
+              <label for="tools">Key tools and platforms you work with</label>
+              <textarea id="tools" name="tools" placeholder="Examples: OpenAI, Anthropic, Gemini, Make, n8n, LangChain, Vector DBs, etc."></textarea>
+            </div>
+            <div class="form-control">
+              <label for="note">Short note to us</label>
+              <textarea id="note" name="note" placeholder="Tell us what kind of projects you are most interested in, and where you create the most value."></textarea>
+            </div>
+          </div>
+
+          <div class="form-control" style="margin-top: 1rem;">
+            <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: 500;">
+              <input type="checkbox" id="consent" name="consent" required>
+              I agree that iMPLEMENTAi.ae may store my details for the purpose of matching me to current and future AI projects.
+            </label>
+          </div>
+
+          <div style="margin-top: 1.5rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+            <button type="submit" id="submitBtn" class="prem-btn" style="background: var(--prem-accent-blue); border-color: var(--prem-accent-blue); min-width: 220px;">Submit my expert profile</button>
+            <div id="formStatus" class="status" role="status" aria-live="polite"></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const form = document.getElementById('expertsForm');
+    const statusBox = document.getElementById('formStatus');
+    const submitBtn = document.getElementById('submitBtn');
+
+    const showStatus = (message, type) => {
+      statusBox.textContent = message;
+      statusBox.className = `status ${type}`;
+      statusBox.style.display = 'block';
+    };
+
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        statusBox.style.display = 'none';
+
+        const linkedInValue = (form.linkedin.value || '').trim();
+        const expertise = Array.from(form.querySelectorAll('input[name="expertise"]:checked')).map(i => i.value);
+        const availability = form.availability.value;
+        const consentChecked = form.consent.checked;
+
+        if (!linkedInValue.startsWith('https://www.linkedin.com/')) {
+          showStatus('Please provide a valid LinkedIn URL that starts with https://www.linkedin.com/', 'error');
+          return;
+        }
+
+        if (!expertise.length) {
+          showStatus('Select at least one primary expertise.', 'error');
+          return;
+        }
+
+        if (!availability) {
+          showStatus('Select your availability type.', 'error');
+          return;
+        }
+
+        if (!consentChecked) {
+          showStatus('Consent is required to proceed.', 'error');
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting...';
+
+        const formData = new FormData(form);
+        formData.set('expertise', expertise.join(', '));
+        formData.set('engagement', Array.from(form.querySelectorAll('input[name="engagement"]:checked')).map(i => i.value).join(', '));
+
+        try {
+          const response = await fetch('/api/ai-experts/apply', {
+            method: 'POST',
+            body: formData
+          });
+
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+
+          showStatus('Thank you. We have received your details. Your expert profile will be created from your LinkedIn information, and we will contact you when a relevant project comes in.', 'success');
+          form.reset();
+        } catch (error) {
+          showStatus('Something went wrong while submitting. Please try again or email sales@implementai.ae.', 'error');
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit my expert profile';
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>
+
+

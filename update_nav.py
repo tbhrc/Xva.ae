@@ -12,6 +12,7 @@ NAV_TEMPLATE = """  <!-- Navigation -->
         <li><a href="strategy.html"{strategy_style}>Strategy</a></li>
         <li><a href="departments.html"{solutions_style}>Solutions</a></li>
         <li><a href="resources.html"{insights_style}>Insights</a></li>
+        <li><a href="ai-experts/hub.html"{ai_hub_style}>AI Experts Hub</a></li>
         <li><a href="team.html"{team_style}>Team</a></li>
         <li><a href="ai-readiness.html"{readiness_style}>Check AI Readiness</a></li>
         <li><a href="about.html"{about_style}>About</a></li>
@@ -31,6 +32,7 @@ NAV_TEMPLATE = """  <!-- Navigation -->
     <a href="strategy.html">Strategy</a>
     <a href="departments.html">Solutions</a>
     <a href="resources.html">Insights</a>
+    <a href="ai-experts/hub.html">AI Experts Hub</a>
     <a href="team.html">Team</a>
     <a href="ai-readiness.html">Check AI Readiness</a>
     <a href="about.html">About</a>
@@ -50,6 +52,7 @@ FILE_MAPPING = {
     'solutions-ops.html': 'solutions_style',
     'solutions-sales.html': 'solutions_style',
     'resources.html': 'insights_style',
+    'ai-experts/hub.html': 'ai_hub_style',
     'team.html': 'team_style',
     'ai-readiness.html': 'readiness_style',
     'about.html': 'about_style',
@@ -82,6 +85,7 @@ def update_file(filename):
         'strategy_style': '',
         'solutions_style': '',
         'insights_style': '',
+        'ai_hub_style': '',
         'team_style': '',
         'readiness_style': '',
         'about_style': ''

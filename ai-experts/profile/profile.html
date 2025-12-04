@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Expert Profile | iMPLEMENTAi.ae</title>
+  <meta name="description" content="Profile of an AI expert from the iMPLEMENTAi.ae Experts Hub.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="../../assets/css/v7.3-premium.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="../../assets/css/v7.3-premium.css"></noscript>
+  <link rel="stylesheet" href="../../assets/css/v7.3-premium.css">
+  <style>
+    .profile-hero {
+      background: linear-gradient(135deg, #0b1a2b 0%, #0c2640 100%);
+      color: #fff;
+      padding: 140px 0 90px;
+    }
+
+    .profile-hero h1 {
+      margin-bottom: 0.25rem;
+    }
+
+    .profile-meta {
+      color: rgba(255, 255, 255, 0.85);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      font-size: 0.98rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.9rem;
+      background: rgba(0, 102, 204, 0.15);
+      border-radius: 999px;
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .avatar-large {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: rgba(0, 102, 204, 0.15);
+      display: grid;
+      place-items: center;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .tag-row,
+    .tool-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag,
+    .tool {
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      background: var(--prem-bg-alt);
+      border: 1px solid var(--prem-border);
+      font-size: 0.92rem;
+    }
+
+    .tool {
+      background: rgba(0, 0, 0, 0.04);
+    }
+
+    .list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.35rem;
+      color: var(--prem-text-secondary);
+    }
+
+    .list li::before {
+      content: "•";
+      color: var(--prem-accent-blue);
+      margin-right: 0.5rem;
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .profile-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="prem-nav">
+    <div class="prem-container prem-nav-inner">
+      <a href="../../index.html" class="prem-logo"><img src="../../assets/images/2.png" alt="iMPLEMENTAi.ae"
+          style="height: 45px; width: auto;"></a>
+      <ul class="prem-menu">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../strategy.html">Strategy</a></li>
+        <li><a href="../../departments.html">Solutions</a></li>
+        <li><a href="../../resources.html">Insights</a></li>
+        <li><a href="../../blog.html">Blog</a></li>
+        <li><a href="../../team.html">Team</a></li>
+        <li><a href="../../ai-readiness.html">Check AI Readiness</a></li>
+        <li><a href="../hub.html" style="color: var(--prem-text);">AI Experts Hub</a></li>
+        <li><a href="../../about.html">About</a></li>
+      </ul>
+      <a href="../../contact.html" class="prem-btn">Book Consultation</a>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+    <a href="../../index.html">Home</a>
+    <a href="../../strategy.html">Strategy</a>
+    <a href="../../departments.html">Solutions</a>
+    <a href="../../resources.html">Insights</a>
+    <a href="../../blog.html">Blog</a>
+    <a href="../../team.html">Team</a>
+    <a href="../../ai-readiness.html">Check AI Readiness</a>
+    <a href="../hub.html" style="color: var(--prem-accent-blue); font-weight: 600;">AI Experts Hub</a>
+    <a href="../../about.html">About</a>
+    <a href="../../contact.html" class="prem-btn">Book Consultation</a>
+  </div>
+
+  <script>
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    if (mobileMenuToggle) {
+      mobileMenuToggle.addEventListener('click', function () {
+        this.classList.toggle('active');
+        mobileMenuOverlay.classList.toggle('active');
+        document.body.style.overflow = mobileMenuOverlay.classList.contains('active') ? 'hidden' : '';
+      });
+      mobileMenuOverlay.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function () {
+          mobileMenuToggle.classList.remove('active');
+          mobileMenuOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+  </script>
+
+  <section class="profile-hero">
+    <div class="prem-container">
+      <a href="../directory/directory.html" class="prem-btn prem-btn-outline"
+        style="margin-bottom: 1rem; display: inline-flex; align-items: center; gap: 0.4rem; color: #fff; border-color: rgba(255,255,255,0.35); background: rgba(255,255,255,0.08);">
+        ← Back to directory
+      </a>
+      <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+        <div class="avatar-large" id="profileAvatar">AE</div>
+        <div>
+          <h1 id="profileName">AI Expert</h1>
+          <p id="profileTagline" style="color: rgba(255,255,255,0.85); margin: 0 0 0.5rem;">Tagline</p>
+          <div class="profile-meta">
+            <span id="profileLocation">Location</span>
+            <span id="profileTimezone">Timezone</span>
+            <span id="profileLanguages">Languages</span>
+          </div>
+          <div id="vettedBadge" style="margin-top: 0.75rem; display: none;">
+            <span class="badge">Vetted by iMPLEMENTAi.ae</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="prem-section" style="padding-top: 80px;">
+    <div class="prem-container" id="profileContent">
+      <!-- Profile details injected by script -->
+    </div>
+  </section>
+
+  <script>
+    const mockProfiles = {
+      'sara-ali': {
+        name: 'Sara Al Mansoori',
+        tagline: 'Automation engineer focused on finance ops and service triage',
+        location: 'Dubai, UAE',
+        timezone: 'GMT+4',
+        languages: 'English, Arabic',
+        vetted: true,
+        summary: 'Sara designs and ships automation workflows that keep humans in the loop for finance and service operations. She has led deployments of triage assistants, reconciliations, and approvals, using reliable patterns that keep compliance teams comfortable. She is comfortable pairing with delivery teams to identify the highest impact flows and to measure time saved, accuracy, and adoption.',
+        skills: ['Automation Engineer', 'AI Consultant', 'Process Design', 'Risk Controls'],
+        tools: ['Make', 'LangChain', 'Python', 'OpenAI', 'FastAPI'],
+        projects: [
+          'Built AP automation with human approvals for a GCC retailer (35% cycle-time reduction).',
+          'Implemented support triage assistant with sentiment routing and audit logging.',
+          'Delivered reconciliation workflows with exception handling and dual review paths.'
+        ],
+        availability: 'Project based or freelance',
+        engagement: 'Solo contributor, can join existing squads',
+        rate: 'AED or USD · project based or day rate'
+      },
+      'omar-haddad': {
+        name: 'Omar Haddad',
+        tagline: 'LLM engineer building RAG assistants and internal copilots',
+        location: 'Amman, Jordan',
+        timezone: 'GMT+3',
+        languages: 'English, Arabic',
+        vetted: false,
+        summary: 'Omar specialises in retrieval-augmented generation, grounding, and prompt safety for enterprise assistants. He designs evaluation harnesses for accuracy and latency, and delivers hardened agents with fallbacks and monitoring. He collaborates with security to keep data boundaries tight and to keep latency predictable.',
+        skills: ['LLM Engineer', 'Prompt Engineer', 'RAG Architect'],
+        tools: ['LangGraph', 'Pinecone', 'Azure OpenAI', 'Anthropic', 'Docker'],
+        projects: [
+          'Built multilingual knowledge assistant with grounding and answer citations for a bank.',
+          'Designed agent evaluation harness for latency, factuality, and refusal handling.',
+          'Implemented escalation flow from agents to humans with traceable logs.'
+        ],
+        availability: 'Advisory or fractional',
+        engagement: 'Architecture, code pairing, and reviews',
+        rate: 'USD or AED · fractional retainers'
+      },
+      'fatima-khan': {
+        name: 'Fatima Khan',
+        tagline: 'Data scientist with demand forecasting and NLP expertise',
+        location: 'Abu Dhabi, UAE',
+        timezone: 'GMT+4',
+        languages: 'English, Urdu',
+        vetted: true,
+        summary: 'Fatima focuses on data science projects that need measurable business lift. She balances experimentation with production readiness and works closely with product teams on adoption and measurement. She has delivered forecasting models and NLP pipelines that stay maintainable with clear monitoring.',
+        skills: ['Data Scientist', 'ML Engineer', 'Forecasting', 'NLP'],
+        tools: ['PyTorch', 'Vertex AI', 'BigQuery', 'Airflow', 'dbt'],
+        projects: [
+          'Built demand forecasting models for a retail group with error tracking dashboards.',
+          'Delivered NLP pipeline for multilingual feedback classification with human review.',
+          'Set up MLOps foundations with CI/CD for models and data quality monitors.'
+        ],
+        availability: 'Part time, remote',
+        engagement: 'Can lead or support delivery teams',
+        rate: 'USD or AED · day rate or sprint-based'
+      },
+      'daniel-choi': {
+        name: 'Daniel Choi',
+        tagline: 'Full stack AI developer shipping production-ready front ends',
+        location: 'Singapore',
+        timezone: 'GMT+8',
+        languages: 'English, Mandarin',
+        vetted: false,
+        summary: 'Daniel ships polished AI product experiences end-to-end. He focuses on latency, UX, and observability, ensuring that assistants and tools feel reliable to end users. He can embed with teams to accelerate delivery with clean front-end code and solid integrations.',
+        skills: ['AI Developer, Full stack', 'AI Developer, Front end'],
+        tools: ['Next.js', 'TypeScript', 'Supabase', 'Vercel', 'OpenAI'],
+        projects: [
+          'Built customer support co-pilot with streaming UI and conversation memory.',
+          'Implemented analytics and tracing for assistant interactions to guide improvements.',
+          'Delivered branded client demos that convert into production projects.'
+        ],
+        availability: 'Project based or freelance',
+        engagement: 'Build-and-ship with your product team',
+        rate: 'USD or SGD · project or sprint pricing'
+      },
+      'james-ibrahim': {
+        name: 'James Ibrahim',
+        tagline: 'MLOps engineer building reliable deployment pipelines',
+        location: 'Dubai, UAE',
+        timezone: 'GMT+4',
+        languages: 'English',
+        vetted: true,
+        summary: 'James specialises in the reliability side of AI deployments. He builds pipelines, monitoring, and rollback patterns that keep production systems stable. He aligns closely with infra and security teams to ensure compliance, cost control, and predictable operations.',
+        skills: ['MLOps Engineer', 'ML Engineer', 'Platform Engineering'],
+        tools: ['Kubernetes', 'MLflow', 'Argo', 'Databricks', 'Grafana'],
+        projects: [
+          'Implemented ML deployment platform with CI/CD and blue/green rollouts.',
+          'Set up model monitoring for drift, latency, and cost with automated alerts.',
+          'Built feature store and lineage tracking for a multi-team data platform.'
+        ],
+        availability: 'Full time, remote',
+        engagement: 'Can lead platform workstreams',
+        rate: 'AED or USD · monthly or project based'
+      }
+    };
+
+    const profileNameEl = document.getElementById('profileName');
+    const profileTaglineEl = document.getElementById('profileTagline');
+    const profileLocationEl = document.getElementById('profileLocation');
+    const profileTimezoneEl = document.getElementById('profileTimezone');
+    const profileLanguagesEl = document.getElementById('profileLanguages');
+    const vettedBadgeEl = document.getElementById('vettedBadge');
+    const profileAvatarEl = document.getElementById('profileAvatar');
+    const profileContentEl = document.getElementById('profileContent');
+
+    const getProfileId = () => {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('id')) return params.get('id');
+
+      const segments = window.location.pathname.split('/').filter(Boolean);
+      const profileIndex = segments.indexOf('profile');
+      if (profileIndex >= 0 && segments[profileIndex + 1]) {
+        return segments[profileIndex + 1];
+      }
+      return null;
+    };
+
+    const renderProfile = (profile) => {
+      profileNameEl.textContent = profile.name;
+      profileTaglineEl.textContent = profile.tagline;
+      profileLocationEl.textContent = profile.location;
+      profileTimezoneEl.textContent = profile.timezone;
+      profileLanguagesEl.textContent = `Languages: ${profile.languages}`;
+      profileAvatarEl.textContent = profile.name.split(' ').map(w => w[0]).slice(0, 2).join('');
+      vettedBadgeEl.style.display = profile.vetted ? 'block' : 'none';
+
+      profileContentEl.innerHTML = `
+        <div class="profile-grid">
+          <div class="prem-card scroll-reveal">
+            <h3 style="margin-top: 0;">Summary</h3>
+            <p style="color: var(--prem-text-secondary); line-height: 1.7;">${profile.summary}</p>
+            <div style="margin-top: 1.25rem;">
+              <h4 style="margin-bottom: 0.5rem;">Key skills</h4>
+              <div class="tag-row">
+                ${profile.skills.map(skill => `<span class="tag">${skill}</span>`).join('')}
+              </div>
+            </div>
+            <div style="margin-top: 1.25rem;">
+              <h4 style="margin-bottom: 0.5rem;">Tools and platforms</h4>
+              <div class="tool-row">
+                ${profile.tools.map(tool => `<span class="tool">${tool}</span>`).join('')}
+              </div>
+            </div>
+          </div>
+          <div class="prem-card scroll-reveal">
+            <h3 style="margin-top: 0;">Availability</h3>
+            <p style="color: var(--prem-text-secondary); margin-bottom: 0.5rem;">${profile.availability}</p>
+            <p style="color: var(--prem-text-secondary); margin-bottom: 0.5rem;">Engagement: ${profile.engagement}</p>
+            <p style="color: var(--prem-text-secondary); margin-bottom: 1rem;">Preferred rates: ${profile.rate}</p>
+            <a href="mailto:sales@implementai.ae?subject=Expert%20profile%20inquiry:%20${encodeURIComponent(profile.name)}"
+              class="prem-btn" style="width: 100%; text-align: center; background: var(--prem-accent-blue); border-color: var(--prem-accent-blue);">Contact via iMPLEMENTAi.ae</a>
+          </div>
+        </div>
+        <div class="prem-card scroll-reveal" style="margin-top: 1.5rem;">
+          <h3 style="margin-top: 0;">Notable projects or achievements</h3>
+          <ul class="list">
+            ${profile.projects.map(item => `<li>${item}</li>`).join('')}
+          </ul>
+        </div>
+      `;
+    };
+
+    const profileId = getProfileId();
+    const profileData = profileId && mockProfiles[profileId] ? mockProfiles[profileId] : null;
+
+    if (profileData) {
+      renderProfile(profileData);
+    } else {
+      vettedBadgeEl.style.display = 'none';
+      profileNameEl.textContent = 'Profile not found';
+      profileTaglineEl.textContent = 'We could not find this expert profile.';
+      profileLocationEl.textContent = '';
+      profileTimezoneEl.textContent = '';
+      profileLanguagesEl.textContent = '';
+      profileAvatarEl.textContent = 'NA';
+      profileContentEl.innerHTML = `
+        <div class="prem-card">
+          <p style="color: var(--prem-text-secondary);">This profile is not available. Please browse the directory to view active experts.</p>
+          <a href="../directory/" class="prem-btn prem-btn-outline" style="margin-top: 1rem;">Browse directory</a>
+        </div>
+      `;
+    }
+  </script>
+</body>
+
+</html>

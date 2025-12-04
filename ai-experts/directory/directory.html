@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Experts Directory | iMPLEMENTAi.ae</title>
+  <meta name="description"
+    content="Browse the iMPLEMENTAi.ae AI Experts Hub directory of vetted AI consultants, engineers, and builders.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="../../assets/css/v7.3-premium.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="../../assets/css/v7.3-premium.css"></noscript>
+  <link rel="stylesheet" href="../../assets/css/v7.3-premium.css">
+  <style>
+    .directory-hero {
+      background: linear-gradient(135deg, #0b1a2b 0%, #0c2640 100%);
+      color: #fff;
+      padding: 140px 0 80px;
+    }
+
+    .filter-card {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .filter-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .filter-group label {
+      font-weight: 600;
+      color: var(--prem-text);
+      font-size: 0.95rem;
+    }
+
+    .filter-group input,
+    .filter-group select {
+      padding: 0.65rem 0.75rem;
+      border-radius: 10px;
+      border: 1px solid var(--prem-border);
+      font-family: var(--font-main);
+    }
+
+    .expert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .expert-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      height: 100%;
+    }
+
+    .expert-header {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(0, 102, 204, 0.12);
+      color: var(--prem-text);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .meta {
+      color: var(--prem-text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.3rem 0.75rem;
+      background: rgba(0, 102, 204, 0.1);
+      border-radius: 999px;
+      color: var(--prem-text);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .tag-row,
+    .tool-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      background: var(--prem-bg-alt);
+      border: 1px solid var(--prem-border);
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      color: var(--prem-text);
+    }
+
+    .tool {
+      background: rgba(0, 0, 0, 0.04);
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      color: var(--prem-text);
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 2rem;
+      color: var(--prem-text-secondary);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="prem-nav">
+    <div class="prem-container prem-nav-inner">
+      <a href="../../index.html" class="prem-logo"><img src="../../assets/images/2.png" alt="iMPLEMENTAi.ae"
+          style="height: 45px; width: auto;"></a>
+      <ul class="prem-menu">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../strategy.html">Strategy</a></li>
+        <li><a href="../../departments.html">Solutions</a></li>
+        <li><a href="../../resources.html">Insights</a></li>
+        <li><a href="../../blog.html">Blog</a></li>
+        <li><a href="../../team.html">Team</a></li>
+        <li><a href="../../ai-readiness.html">Check AI Readiness</a></li>
+        <li><a href="../hub.html" style="color: var(--prem-text);">AI Experts Hub</a></li>
+        <li><a href="../../about.html">About</a></li>
+      </ul>
+      <a href="../../contact.html" class="prem-btn">Book Consultation</a>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+    <a href="../../index.html">Home</a>
+    <a href="../../strategy.html">Strategy</a>
+    <a href="../../departments.html">Solutions</a>
+    <a href="../../resources.html">Insights</a>
+    <a href="../../blog.html">Blog</a>
+    <a href="../../team.html">Team</a>
+    <a href="../../ai-readiness.html">Check AI Readiness</a>
+    <a href="../hub.html" style="color: var(--prem-accent-blue); font-weight: 600;">AI Experts Hub</a>
+    <a href="../../about.html">About</a>
+    <a href="../../contact.html" class="prem-btn">Book Consultation</a>
+  </div>
+
+  <script>
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    if (mobileMenuToggle) {
+      mobileMenuToggle.addEventListener('click', function () {
+        this.classList.toggle('active');
+        mobileMenuOverlay.classList.toggle('active');
+        document.body.style.overflow = mobileMenuOverlay.classList.contains('active') ? 'hidden' : '';
+      });
+      mobileMenuOverlay.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function () {
+          mobileMenuToggle.classList.remove('active');
+          mobileMenuOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+  </script>
+
+  <section class="directory-hero">
+    <div class="prem-container">
+      <span class="eyebrow" style="color: rgba(255,255,255,0.8);">AI Experts Directory</span>
+      <h1 style="color: #fff; font-size: 3rem; margin-bottom: 0.5rem;">Browse AI consultants, engineers, and builders</h1>
+      <p style="max-width: 760px; color: rgba(255,255,255,0.85); font-size: 1.05rem;">Discover specialists across AI strategy, automation, LLM engineering, and delivery. Filters are placeholder controls that will wire into the backend directory service.</p>
+      <div style="margin-top: 1.25rem;">
+        <a href="../hub.html" class="prem-btn prem-btn-outline" style="color: #fff; border-color: rgba(255,255,255,0.35); background: rgba(255,255,255,0.08);">Return to Experts Hub</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="prem-section" style="padding-top: 80px;">
+    <div class="prem-container">
+      <div class="prem-card filter-card">
+        <div class="filter-grid">
+          <div class="filter-group">
+            <label>Expertise</label>
+            <select id="filterExpertise" multiple size="5" aria-label="Filter by expertise">
+              <option value="AI Consultant">AI Consultant</option>
+              <option value="Automation Engineer">Automation Engineer</option>
+              <option value="LLM Engineer">LLM Engineer</option>
+              <option value="Prompt Engineer">Prompt Engineer</option>
+              <option value="Data Scientist">Data Scientist</option>
+              <option value="ML Engineer">ML Engineer</option>
+              <option value="MLOps Engineer">MLOps Engineer</option>
+              <option value="AI Product Manager">AI Product Manager</option>
+              <option value="AI Developer, Front end">AI Developer, Front end</option>
+              <option value="AI Developer, Full stack">AI Developer, Full stack</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filterAvailability">Availability type</label>
+            <select id="filterAvailability">
+              <option value="">Any</option>
+              <option value="Full time, remote">Full time, remote</option>
+              <option value="Part time, remote">Part time, remote</option>
+              <option value="Project based or freelance">Project based or freelance</option>
+              <option value="Advisory or fractional">Advisory or fractional</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filterLocation">Location</label>
+            <input type="text" id="filterLocation" placeholder="City, country, or timezone">
+          </div>
+          <div class="filter-group">
+            <label for="filterTools">Tools</label>
+            <input type="text" id="filterTools" placeholder="e.g., OpenAI, LangChain">
+          </div>
+          <div class="filter-group">
+            <label for="filterVetted">Vetted status</label>
+            <select id="filterVetted">
+              <option value="all">All</option>
+              <option value="vetted">Vetted only</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 2rem;">
+        <div id="expertsGrid" class="expert-grid"></div>
+        <div id="emptyState" class="empty-state" style="display: none;">No experts found with the selected filters.</div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const experts = [
+      {
+        id: 'sara-ali',
+        name: 'Sara Al Mansoori',
+        tagline: 'Automation engineer focused on finance ops and service triage',
+        location: 'Dubai, UAE',
+        timezone: 'GMT+4',
+        availability: 'Project based or freelance',
+        expertise: ['Automation Engineer', 'AI Consultant'],
+        tools: ['Make', 'LangChain', 'Python', 'OpenAI'],
+        vetted: true
+      },
+      {
+        id: 'omar-haddad',
+        name: 'Omar Haddad',
+        tagline: 'LLM engineer building RAG assistants and internal copilots',
+        location: 'Amman, Jordan',
+        timezone: 'GMT+3',
+        availability: 'Advisory or fractional',
+        expertise: ['LLM Engineer', 'Prompt Engineer'],
+        tools: ['LangGraph', 'Pinecone', 'Azure OpenAI', 'Anthropic'],
+        vetted: false
+      },
+      {
+        id: 'fatima-khan',
+        name: 'Fatima Khan',
+        tagline: 'Data scientist with demand forecasting and NLP expertise',
+        location: 'Abu Dhabi, UAE',
+        timezone: 'GMT+4',
+        availability: 'Part time, remote',
+        expertise: ['Data Scientist', 'ML Engineer'],
+        tools: ['PyTorch', 'Vertex AI', 'BigQuery', 'Airflow'],
+        vetted: true
+      },
+      {
+        id: 'daniel-choi',
+        name: 'Daniel Choi',
+        tagline: 'Full stack AI developer shipping production-ready front ends',
+        location: 'Singapore',
+        timezone: 'GMT+8',
+        availability: 'Project based or freelance',
+        expertise: ['AI Developer, Full stack', 'AI Developer, Front end'],
+        tools: ['Next.js', 'TypeScript', 'Vercel', 'Supabase'],
+        vetted: false
+      },
+      {
+        id: 'leila-hassan',
+        name: 'Leila Hassan',
+        tagline: 'AI product manager for regulated industries and compliance',
+        location: 'Riyadh, KSA',
+        timezone: 'GMT+3',
+        availability: 'Advisory or fractional',
+        expertise: ['AI Product Manager', 'AI Consultant'],
+        tools: ['Jira', 'Figma', 'PromptOps', 'Datadog'],
+        vetted: false
+      },
+      {
+        id: 'james-ibrahim',
+        name: 'James Ibrahim',
+        tagline: 'MLOps engineer building reliable deployment pipelines',
+        location: 'Dubai, UAE',
+        timezone: 'GMT+4',
+        availability: 'Full time, remote',
+        expertise: ['MLOps Engineer', 'ML Engineer'],
+        tools: ['Kubernetes', 'MLflow', 'Argo', 'Databricks'],
+        vetted: true
+      }
+    ];
+
+    const gridEl = document.getElementById('expertsGrid');
+    const emptyStateEl = document.getElementById('emptyState');
+
+    const filters = {
+      expertise: new Set(),
+      availability: '',
+      location: '',
+      tools: '',
+      vetted: 'all'
+    };
+
+    const renderExperts = (list) => {
+      gridEl.innerHTML = '';
+      if (!list.length) {
+        emptyStateEl.style.display = 'block';
+        return;
+      }
+      emptyStateEl.style.display = 'none';
+
+      list.forEach((expert) => {
+        const card = document.createElement('div');
+        card.className = 'prem-card expert-card scroll-reveal';
+        card.innerHTML = `
+          <div class="expert-header">
+            <div class="avatar">${(expert.name || 'AE').split(' ').map(w => w[0]).slice(0, 2).join('')}</div>
+            <div>
+              <h3 style="margin: 0 0 0.25rem;">${expert.name}</h3>
+              <p class="meta" style="margin: 0 0 0.35rem;">${expert.tagline}</p>
+              <div class="meta">${expert.location} · ${expert.timezone}</div>
+              ${expert.vetted ? '<div style="margin-top: 0.4rem;"><span class="badge">Vetted by iMPLEMENTAi.ae</span></div>' : ''}
+            </div>
+          </div>
+          <div class="tag-row">
+            ${expert.expertise.map(tag => `<span class="tag">${tag}</span>`).join('')}
+          </div>
+          <div class="tool-row">
+            ${expert.tools.map(tool => `<span class="tool">${tool}</span>`).join('')}
+          </div>
+          <div class="meta">Availability: ${expert.availability}</div>
+          <div style="margin-top: auto;">
+            <a href="../profile/profile.html?id=${expert.id}" class="prem-btn prem-btn-outline" style="width: 100%; text-align: center;">View profile</a>
+          </div>
+        `;
+        gridEl.appendChild(card);
+      });
+    };
+
+    const applyFilters = () => {
+      const filtered = experts.filter((expert) => {
+        const expertiseMatch = filters.expertise.size === 0 || expert.expertise.some(tag => filters.expertise.has(tag));
+        const availabilityMatch = !filters.availability || expert.availability === filters.availability;
+        const locationMatch = !filters.location || `${expert.location} ${expert.timezone}`.toLowerCase().includes(filters.location.toLowerCase());
+        const toolsMatch = !filters.tools || expert.tools.join(' ').toLowerCase().includes(filters.tools.toLowerCase());
+        const vettedMatch = filters.vetted === 'all' || (filters.vetted === 'vetted' && expert.vetted);
+        return expertiseMatch && availabilityMatch && locationMatch && toolsMatch && vettedMatch;
+      });
+
+      renderExperts(filtered);
+    };
+
+    const expertiseSelect = document.getElementById('filterExpertise');
+    const availabilitySelect = document.getElementById('filterAvailability');
+    const locationInput = document.getElementById('filterLocation');
+    const toolsInput = document.getElementById('filterTools');
+    const vettedSelect = document.getElementById('filterVetted');
+
+    if (expertiseSelect) {
+      expertiseSelect.addEventListener('change', () => {
+        filters.expertise = new Set(Array.from(expertiseSelect.selectedOptions).map(opt => opt.value));
+        applyFilters();
+      });
+    }
+
+    if (availabilitySelect) {
+      availabilitySelect.addEventListener('change', () => {
+        filters.availability = availabilitySelect.value;
+        applyFilters();
+      });
+    }
+
+    if (locationInput) {
+      locationInput.addEventListener('input', () => {
+        filters.location = locationInput.value;
+        applyFilters();
+      });
+    }
+
+    if (toolsInput) {
+      toolsInput.addEventListener('input', () => {
+        filters.tools = toolsInput.value;
+        applyFilters();
+      });
+    }
+
+    if (vettedSelect) {
+      vettedSelect.addEventListener('change', () => {
+        filters.vetted = vettedSelect.value;
+        applyFilters();
+      });
+    }
+
+    renderExperts(experts);
+  </script>
+</body>
+
+</html>
