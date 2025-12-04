@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import Optional
 
-from pydantic import BaseModel, HttpUrl, Field
+from pydantic import BaseModel, Field, HttpUrl
 
 
 class ExpertBase(BaseModel):
@@ -33,6 +33,8 @@ class ExpertUpdate(BaseModel):
 class ExpertOut(ExpertBase):
     id: int
     created_at: datetime
+    avatar_url: Optional[str] = None
+    profile_page_url: Optional[str] = None
 
     class Config:
         orm_mode = True

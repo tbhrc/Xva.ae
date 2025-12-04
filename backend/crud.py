@@ -1,7 +1,7 @@
 from typing import List, Optional
 
+from sqlalchemy import func, or_
 from sqlalchemy.orm import Session
-from sqlalchemy import or_, func
 
 from . import models, schemas
 

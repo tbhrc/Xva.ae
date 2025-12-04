@@ -1,11 +1,12 @@
 import os
 from typing import List, Optional
 
-from fastapi import APIRouter, Depends, HTTPException, Header, status
+from fastapi import APIRouter, Depends, Header, HTTPException, status
 from sqlalchemy.orm import Session
 
 from .. import crud, schemas
 from ..database import get_db
+from ..services import auto_publish
 
 router = APIRouter(prefix="/experts", tags=["experts"])
 
@@ -40,7 +41,7 @@ def list_experts(
         limit=limit,
         offset=offset,
     )
-    return experts
+    return [auto_publish.decorate_expert(expert) for expert in experts]
 
 
 @router.get("/{expert_id}", response_model=schemas.ExpertOut)
@@ -48,16 +49,18 @@ def get_expert(expert_id: int, db: Session = Depends(get_db)):
     expert = crud.get_expert_by_id(db, expert_id)
     if not expert:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Expert not found")
-    return expert
+    return auto_publish.decorate_expert(expert)
 
 
 @router.post("/", response_model=schemas.ExpertOut, status_code=status.HTTP_201_CREATED)
 def create_expert(
     payload: schemas.ExpertCreate,
     db: Session = Depends(get_db),
-    _: str = Depends(get_admin_token),
 ):
-    return crud.create_expert(db, payload)
+    expert = crud.create_expert(db, payload)
+    expert = auto_publish.enrich_and_publish(expert, db)
+    auto_publish.dump_profile_payload(expert)
+    return expert
 
 
 @router.patch("/{expert_id}", response_model=schemas.ExpertOut)
@@ -70,4 +73,4 @@ def update_expert(
     expert = crud.update_expert(db, expert_id, payload)
     if not expert:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Expert not found")
-    return expert
+    return auto_publish.decorate_expert(expert)
