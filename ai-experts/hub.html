@@ -499,13 +499,17 @@
         e.preventDefault();
         statusBox.style.display = 'none';
 
-        const linkedInValue = (form.linkedin.value || '').trim();
+        const linkedInRaw = (form.linkedin.value || '').trim();
+        const linkedInValue = linkedInRaw.startsWith('http')
+          ? linkedInRaw
+          : `https://${linkedInRaw}`;
         const expertise = Array.from(form.querySelectorAll('input[name="expertise"]:checked')).map(i => i.value);
         const availability = form.availability.value;
         const consentChecked = form.consent.checked;
 
-        if (!linkedInValue.startsWith('https://www.linkedin.com/')) {
-          showStatus('Please provide a valid LinkedIn URL that starts with https://www.linkedin.com/', 'error');
+        const isLinkedIn = /^https?:\\/\\/(www\\.)?linkedin\\.com\\/.*$/i.test(linkedInValue);
+        if (!isLinkedIn) {
+          showStatus('Please provide a LinkedIn URL (e.g., https://www.linkedin.com/in/your-profile).', 'error');
           return;
         }
 
