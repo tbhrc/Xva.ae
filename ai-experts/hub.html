@@ -295,7 +295,7 @@
                   draft.</p>
               </div>
               <div class="quick-apply-row" style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
-                <input type="url" class="input-field" id="linkedin" name="linkedin" required
+                <input type="text" class="input-field" id="linkedin" name="linkedin" required inputmode="url" autocomplete="url"
                   placeholder="https://www.linkedin.com/in/your-profile" aria-label="LinkedIn profile"
                   style="flex: 1 1 260px;">
                 <button type="submit" id="submitBtnTop" class="prem-btn"
@@ -346,8 +346,8 @@
               <span id="phoneHelp" class="helper">We use this only to contact you about potential projects.</span>
             </div>
             <div>
-              <label style="display:block; margin-bottom: 0.35rem; font-weight:600;">Availability type *</label>
-              <select id="availability" name="availability" class="input-field" required>
+              <label style="display:block; margin-bottom: 0.35rem; font-weight:600;">Availability type</label>
+              <select id="availability" name="availability" class="input-field">
                 <option value="">Select availability</option>
                 <option value="Full time, remote">Full time, remote</option>
                 <option value="Part time, remote">Part time, remote</option>
@@ -390,7 +390,7 @@
           </div>
 
           <div style="margin-top: 1rem;">
-            <label style="display:block; margin-bottom: 0.35rem; font-weight:600;">Primary expertise *</label>
+            <label style="display:block; margin-bottom: 0.35rem; font-weight:600;">Primary expertise</label>
             <div class="checkbox-grid">
               <label><input type="checkbox" name="expertise" value="AI Consultant"> AI Consultant</label>
               <label><input type="checkbox" name="expertise" value="Automation Engineer"> Automation Engineer</label>
@@ -438,7 +438,7 @@
 
           <div style="margin-top: 1rem;">
             <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: 600;">
-              <input type="checkbox" id="consent" name="consent" required>
+              <input type="checkbox" id="consent" name="consent">
               I agree that iMPLEMENTAi.ae may store my details for the purpose of matching me to current and future AI
               projects.
             </label>
@@ -504,27 +504,10 @@
           ? linkedInRaw
           : `https://${linkedInRaw}`;
         const expertise = Array.from(form.querySelectorAll('input[name="expertise"]:checked')).map(i => i.value);
-        const availability = form.availability.value;
-        const consentChecked = form.consent.checked;
 
-        const isLinkedIn = /^https?:\\/\\/(www\\.)?linkedin\\.com\\/.*$/i.test(linkedInValue);
+        const isLinkedIn = /^https?:\/\/(www\.)?linkedin\.com\/.*$/i.test(linkedInValue);
         if (!isLinkedIn) {
           showStatus('Please provide a LinkedIn URL (e.g., https://www.linkedin.com/in/your-profile).', 'error');
-          return;
-        }
-
-        if (!expertise.length) {
-          showStatus('Select at least one primary expertise.', 'error');
-          return;
-        }
-
-        if (!availability) {
-          showStatus('Select your availability type.', 'error');
-          return;
-        }
-
-        if (!consentChecked) {
-          showStatus('Consent is required to proceed.', 'error');
           return;
         }
 
@@ -540,7 +523,11 @@
         formData.set('engagement', Array.from(form.querySelectorAll('input[name="engagement"]:checked')).map(i => i.value).join(', '));
 
         try {
-          const response = await fetch('/api/ai-experts/apply', {
+          const apiBase = (location.hostname === 'localhost' || location.hostname === '127.0.0.1')
+            ? 'http://localhost:5000'
+            : '';
+
+          const response = await fetch(`${apiBase}/api/ai-experts/apply`, {
             method: 'POST',
             body: formData
           });

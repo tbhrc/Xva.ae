@@ -65,6 +65,28 @@ def init_database():
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
     ''')
+
+    # AI Expert Applications
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS ai_expert_applications (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            linkedin TEXT NOT NULL,
+            email TEXT,
+            phone TEXT,
+            availability TEXT,
+            currency TEXT,
+            rate REAL,
+            rate_unit TEXT,
+            expertise TEXT,
+            engagement TEXT,
+            tools TEXT,
+            note TEXT,
+            other_expertise TEXT,
+            cv_filename TEXT,
+            raw_form TEXT,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+    ''')
     
     conn.commit()
     conn.close()
@@ -154,6 +176,38 @@ def save_contact_submission(data):
     conn.close()
     
     return submission_id
+
+def save_ai_expert_application(data):
+    """Save AI Expert application"""
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+
+    cursor.execute('''
+        INSERT INTO ai_expert_applications 
+        (linkedin, email, phone, availability, currency, rate, rate_unit, expertise, engagement, tools, note, other_expertise, cv_filename, raw_form)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    ''', (
+        data.get('linkedin'),
+        data.get('email'),
+        data.get('phone'),
+        data.get('availability'),
+        data.get('currency'),
+        data.get('rate'),
+        data.get('rate_unit'),
+        data.get('expertise'),
+        data.get('engagement'),
+        data.get('tools'),
+        data.get('note'),
+        data.get('other_expertise'),
+        data.get('cv_filename'),
+        data.get('raw_form')
+    ))
+
+    conn.commit()
+    application_id = cursor.lastrowid
+    conn.close()
+
+    return application_id
 
 def get_all_leads(table_name='ai_readiness_leads', limit=100):
     """Retrieve leads from specified table"""
