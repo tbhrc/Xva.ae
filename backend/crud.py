@@ -52,7 +52,11 @@ def list_experts(
 
 
 def create_expert(db: Session, expert: schemas.ExpertCreate) -> models.Expert:
-    db_expert = models.Expert(**expert.dict())
+    expert_data = expert.dict()
+    if expert_data.get("linked_in_url"):
+        expert_data["linked_in_url"] = str(expert_data["linked_in_url"])
+        
+    db_expert = models.Expert(**expert_data)
     db.add(db_expert)
     db.commit()
     db.refresh(db_expert)
@@ -65,6 +69,9 @@ def update_expert(db: Session, expert_id: int, expert: schemas.ExpertUpdate) -> 
         return None
 
     update_data = expert.dict(exclude_unset=True)
+    if update_data.get("linked_in_url"):
+        update_data["linked_in_url"] = str(update_data["linked_in_url"])
+
     for key, value in update_data.items():
         setattr(db_expert, key, value)
 
