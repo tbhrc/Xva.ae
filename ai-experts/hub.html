@@ -42,8 +42,14 @@
 
     .form-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 1.25rem;
+      align-items: start;
+    }
+
+    .textarea-row {
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.5rem;
     }
 
     .form-control {
@@ -394,7 +400,7 @@
               </div>
             </div>
 
-            <div class="form-grid" style="margin-top: 1.25rem;">
+            <div class="form-grid textarea-row" style="margin-top: 1.25rem;">
               <div class="form-control">
                 <label for="tools">Key tools and platforms you work with</label>
                 <textarea id="tools" name="tools" placeholder="Examples: OpenAI, Anthropic, Gemini, Make, n8n, LangChain, Vector DBs, etc."></textarea>
