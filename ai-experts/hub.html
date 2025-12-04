@@ -43,7 +43,7 @@
     .form-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1rem;
+      gap: 1.25rem;
     }
 
     .form-control {
@@ -62,12 +62,22 @@
     .form-control select,
     .form-control textarea {
       width: 100%;
-      padding: 0.75rem;
-      border-radius: 10px;
+      padding: 0.85rem;
+      border-radius: 12px;
       border: 1px solid var(--prem-border);
       font-family: var(--font-main);
-      background: #fff;
+      background: #f9fafb;
       color: var(--prem-text);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .form-control input:focus,
+    .form-control select:focus,
+    .form-control textarea:focus {
+      border-color: var(--prem-text);
+      outline: none;
+      background: #fff;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
     }
 
     .form-control textarea {
@@ -125,22 +135,45 @@
       border: 1px solid rgba(0, 102, 204, 0.2);
     }
 
-    .how-grid {
+    .form-top-row {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.25rem;
+      grid-template-columns: 1fr 220px;
+      gap: 1rem;
+      align-items: end;
     }
 
-    .step-badge {
-      width: 38px;
-      height: 38px;
-      border-radius: 999px;
-      background: rgba(0, 102, 204, 0.12);
+    .form-section {
+      margin-top: 1.5rem;
+      border: 1px solid var(--prem-border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      background: var(--prem-bg-alt);
+    }
+
+    .form-section h3 {
+      margin: 0 0 1rem;
+      font-size: 1.1rem;
       color: var(--prem-text);
-      display: grid;
-      place-items: center;
-      font-weight: 700;
-      font-size: 0.95rem;
+    }
+
+    @media (max-width: 600px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .form-actions {
+      margin-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 720px) {
+      .form-top-row {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -240,113 +273,123 @@
       </div>
       <div class="prem-card" style="padding: 2rem;">
         <form id="expertsForm">
-          <div class="form-grid">
-            <div class="form-control">
+          <div class="form-top-row">
+            <div class="form-control" style="margin: 0;">
               <label for="linkedin">LinkedIn profile URL *</label>
               <input type="url" id="linkedin" name="linkedin" required placeholder="https://www.linkedin.com/in/your-profile">
               <span class="helper">Must start with https://www.linkedin.com/</span>
             </div>
-            <div class="form-control">
-              <label for="email">Email address</label>
-              <input type="email" id="email" name="email" placeholder="you@example.com">
+            <div>
+              <button type="submit" id="submitBtnTop" class="prem-btn" style="background: var(--prem-accent-blue); border-color: var(--prem-accent-blue); min-width: 200px; width: 100%;">Submit my expert profile</button>
             </div>
-            <div class="form-control">
-              <label for="phone">Phone or WhatsApp number</label>
-              <input type="text" id="phone" name="phone" placeholder="+971..." aria-describedby="phoneHelp">
-              <span id="phoneHelp" class="helper">We use this only to contact you about potential projects.</span>
-            </div>
-            <div class="form-control">
-              <label for="availability">Availability type *</label>
-              <select id="availability" name="availability" required>
-                <option value="">Select availability</option>
-                <option value="Full time, remote">Full time, remote</option>
-                <option value="Part time, remote">Part time, remote</option>
-                <option value="Project based or freelance">Project based or freelance</option>
-                <option value="Advisory or fractional">Advisory or fractional</option>
-              </select>
-            </div>
-            <div class="form-control">
-              <label for="currency">Preferred currency</label>
-              <select id="currency" name="currency">
-                <option value="">Select currency</option>
-                <option value="AED">AED</option>
-                <option value="USD">USD</option>
-                <option value="EUR">EUR</option>
-                <option value="GBP">GBP</option>
-                <option value="INR">INR</option>
-                <option value="PHP">PHP</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-            <div class="form-control">
-              <label for="rate">Preferred rate</label>
-              <div style="display: grid; grid-template-columns: 1fr 160px; gap: 0.5rem;">
-                <input type="number" id="rate" name="rate" min="0" step="0.01" placeholder="e.g., 150">
-                <select id="rateUnit" name="rateUnit">
-                  <option value="per hour">per hour</option>
-                  <option value="per day">per day</option>
-                  <option value="per week">per week</option>
-                  <option value="per month">per month</option>
-                  <option value="per project">per project</option>
+          </div>
+
+          <div class="form-section">
+            <h3>Optional details</h3>
+
+            <div class="form-grid">
+              <div class="form-control">
+                <label for="email">Email address</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com">
+              </div>
+              <div class="form-control">
+                <label for="phone">Phone or WhatsApp number</label>
+                <input type="text" id="phone" name="phone" placeholder="+971..." aria-describedby="phoneHelp">
+                <span id="phoneHelp" class="helper">We use this only to contact you about potential projects.</span>
+              </div>
+              <div class="form-control">
+                <label for="availability">Availability type *</label>
+                <select id="availability" name="availability" required>
+                  <option value="">Select availability</option>
+                  <option value="Full time, remote">Full time, remote</option>
+                  <option value="Part time, remote">Part time, remote</option>
+                  <option value="Project based or freelance">Project based or freelance</option>
+                  <option value="Advisory or fractional">Advisory or fractional</option>
                 </select>
               </div>
+              <div class="form-control">
+                <label for="currency">Preferred currency</label>
+                <select id="currency" name="currency">
+                  <option value="">Select currency</option>
+                  <option value="AED">AED</option>
+                  <option value="USD">USD</option>
+                  <option value="EUR">EUR</option>
+                  <option value="GBP">GBP</option>
+                  <option value="INR">INR</option>
+                  <option value="PHP">PHP</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div class="form-control">
+                <label for="rate">Preferred rate</label>
+                <div style="display: grid; grid-template-columns: 1fr 160px; gap: 0.5rem;">
+                  <input type="number" id="rate" name="rate" min="0" step="0.01" placeholder="e.g., 150">
+                  <select id="rateUnit" name="rateUnit">
+                    <option value="per hour">per hour</option>
+                    <option value="per day">per day</option>
+                    <option value="per week">per week</option>
+                    <option value="per month">per month</option>
+                    <option value="per project">per project</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-control">
+                <label for="cv">Upload CV or portfolio</label>
+                <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx,.zip">
+                <span class="helper">PDF, DOCX, or ZIP files are accepted.</span>
+              </div>
             </div>
-            <div class="form-control">
-              <label for="cv">Upload CV or portfolio</label>
-              <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx,.zip">
-              <span class="helper">PDF, DOCX, or ZIP files are accepted.</span>
-            </div>
-          </div>
 
-          <div class="form-control" style="margin-top: 1.25rem;">
-            <label>Primary expertise *</label>
-            <div class="checkbox-grid">
-              <label><input type="checkbox" name="expertise" value="AI Consultant"> AI Consultant</label>
-              <label><input type="checkbox" name="expertise" value="Automation Engineer"> Automation Engineer</label>
-              <label><input type="checkbox" name="expertise" value="LLM Engineer"> LLM Engineer</label>
-              <label><input type="checkbox" name="expertise" value="Prompt Engineer"> Prompt Engineer</label>
-              <label><input type="checkbox" name="expertise" value="Data Scientist"> Data Scientist</label>
-              <label><input type="checkbox" name="expertise" value="ML Engineer"> ML Engineer</label>
-              <label><input type="checkbox" name="expertise" value="MLOps Engineer"> MLOps Engineer</label>
-              <label><input type="checkbox" name="expertise" value="AI Product Manager"> AI Product Manager</label>
-              <label><input type="checkbox" name="expertise" value="AI Developer, Front end"> AI Developer, Front end</label>
-              <label><input type="checkbox" name="expertise" value="AI Developer, Full stack"> AI Developer, Full stack</label>
-              <label><input type="checkbox" name="expertise" value="Other"> Other</label>
+            <div class="form-control" style="margin-top: 1.25rem;">
+              <label>Primary expertise *</label>
+              <div class="checkbox-grid">
+                <label><input type="checkbox" name="expertise" value="AI Consultant"> AI Consultant</label>
+                <label><input type="checkbox" name="expertise" value="Automation Engineer"> Automation Engineer</label>
+                <label><input type="checkbox" name="expertise" value="LLM Engineer"> LLM Engineer</label>
+                <label><input type="checkbox" name="expertise" value="Prompt Engineer"> Prompt Engineer</label>
+                <label><input type="checkbox" name="expertise" value="Data Scientist"> Data Scientist</label>
+                <label><input type="checkbox" name="expertise" value="ML Engineer"> ML Engineer</label>
+                <label><input type="checkbox" name="expertise" value="MLOps Engineer"> MLOps Engineer</label>
+                <label><input type="checkbox" name="expertise" value="AI Product Manager"> AI Product Manager</label>
+                <label><input type="checkbox" name="expertise" value="AI Developer, Front end"> AI Developer, Front end</label>
+                <label><input type="checkbox" name="expertise" value="AI Developer, Full stack"> AI Developer, Full stack</label>
+                <label><input type="checkbox" name="expertise" value="Other"> Other</label>
+              </div>
+              <input type="text" id="otherExpertise" name="otherExpertise" placeholder="If other, describe briefly" style="margin-top: 0.6rem; padding: 0.75rem; border-radius: 10px; border: 1px solid var(--prem-border);">
             </div>
-            <input type="text" id="otherExpertise" name="otherExpertise" placeholder="If other, describe briefly" style="margin-top: 0.6rem; padding: 0.75rem; border-radius: 10px; border: 1px solid var(--prem-border);">
-          </div>
 
-          <div class="form-control" style="margin-top: 1.25rem;">
-            <label>Preferred engagement style</label>
-            <div class="checkbox-grid">
-              <label><input type="checkbox" name="engagement" value="Solo contributor"> Solo contributor</label>
-              <label><input type="checkbox" name="engagement" value="Part of a squad or team"> Part of a squad or team</label>
-              <label><input type="checkbox" name="engagement" value="White label under iMPLEMENTAi.ae brand"> White label under iMPLEMENTAi.ae brand</label>
-              <label><input type="checkbox" name="engagement" value="Own brand visible"> Own brand visible</label>
+            <div class="form-control" style="margin-top: 1.25rem;">
+              <label>Preferred engagement style</label>
+              <div class="checkbox-grid">
+                <label><input type="checkbox" name="engagement" value="Solo contributor"> Solo contributor</label>
+                <label><input type="checkbox" name="engagement" value="Part of a squad or team"> Part of a squad or team</label>
+                <label><input type="checkbox" name="engagement" value="White label under iMPLEMENTAi.ae brand"> White label under iMPLEMENTAi.ae brand</label>
+                <label><input type="checkbox" name="engagement" value="Own brand visible"> Own brand visible</label>
+              </div>
             </div>
-          </div>
 
-          <div class="form-grid" style="margin-top: 1.25rem;">
-            <div class="form-control">
-              <label for="tools">Key tools and platforms you work with</label>
-              <textarea id="tools" name="tools" placeholder="Examples: OpenAI, Anthropic, Gemini, Make, n8n, LangChain, Vector DBs, etc."></textarea>
+            <div class="form-grid" style="margin-top: 1.25rem;">
+              <div class="form-control">
+                <label for="tools">Key tools and platforms you work with</label>
+                <textarea id="tools" name="tools" placeholder="Examples: OpenAI, Anthropic, Gemini, Make, n8n, LangChain, Vector DBs, etc."></textarea>
+              </div>
+              <div class="form-control">
+                <label for="note">Short note to us</label>
+                <textarea id="note" name="note" placeholder="Tell us what kind of projects you are most interested in, and where you create the most value."></textarea>
+              </div>
             </div>
-            <div class="form-control">
-              <label for="note">Short note to us</label>
-              <textarea id="note" name="note" placeholder="Tell us what kind of projects you are most interested in, and where you create the most value."></textarea>
+
+            <div class="form-control" style="margin-top: 1rem;">
+              <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: 500;">
+                <input type="checkbox" id="consent" name="consent" required>
+                I agree that iMPLEMENTAi.ae may store my details for the purpose of matching me to current and future AI projects.
+              </label>
             </div>
-          </div>
 
-          <div class="form-control" style="margin-top: 1rem;">
-            <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: 500;">
-              <input type="checkbox" id="consent" name="consent" required>
-              I agree that iMPLEMENTAi.ae may store my details for the purpose of matching me to current and future AI projects.
-            </label>
-          </div>
-
-          <div style="margin-top: 1.5rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
-            <button type="submit" id="submitBtn" class="prem-btn" style="background: var(--prem-accent-blue); border-color: var(--prem-accent-blue); min-width: 220px;">Submit my expert profile</button>
-            <div id="formStatus" class="status" role="status" aria-live="polite"></div>
+            <div class="form-actions">
+              <button type="submit" id="submitBtn" class="prem-btn" style="background: var(--prem-accent-blue); border-color: var(--prem-accent-blue); min-width: 220px;">Submit my expert profile</button>
+              <div id="formStatus" class="status" role="status" aria-live="polite"></div>
+            </div>
           </div>
         </form>
       </div>
@@ -357,6 +400,7 @@
     const form = document.getElementById('expertsForm');
     const statusBox = document.getElementById('formStatus');
     const submitBtn = document.getElementById('submitBtn');
+    const submitBtnTop = document.getElementById('submitBtnTop');
 
     const showStatus = (message, type) => {
       statusBox.textContent = message;
@@ -396,6 +440,10 @@
 
         submitBtn.disabled = true;
         submitBtn.textContent = 'Submitting...';
+        if (submitBtnTop) {
+          submitBtnTop.disabled = true;
+          submitBtnTop.textContent = 'Submitting...';
+        }
 
         const formData = new FormData(form);
         formData.set('expertise', expertise.join(', '));
@@ -418,6 +466,10 @@
         } finally {
           submitBtn.disabled = false;
           submitBtn.textContent = 'Submit my expert profile';
+          if (submitBtnTop) {
+            submitBtnTop.disabled = false;
+            submitBtnTop.textContent = 'Submit my expert profile';
+          }
         }
       });
     }
