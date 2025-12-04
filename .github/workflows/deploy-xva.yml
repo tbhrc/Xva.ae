@@ -1,0 +1,34 @@
+name: Deploy xva.ae to Hostinger via FTP
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy-xva:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        # Builds Tailwind CSS to assets/css/main.css
+        run: npm run build
+
+      - name: Deploy to Hostinger via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftp
+          port: 21
+          # Deploying the root directory as it contains index.html and assets
+          local-dir: ./
+          # Deploying to the public_html folder on the server
+          server-dir: /public_html/
+          dangerous-clean-slate: false
