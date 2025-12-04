@@ -12,8 +12,11 @@ origins = [
     "http://localhost:3000",
     "http://localhost:5173",
     "http://127.0.0.1:3000",
+    "https://tbhrc.github.io",
     "https://implementai.ae",
     "https://www.implementai.ae",
+    "https://xva.ae",
+    "https://www.xva.ae",
 ]
 
 app.add_middleware(
