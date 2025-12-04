@@ -21,7 +21,7 @@
 
 <body>
 
-                <!-- Navigation -->
+                  <!-- Navigation -->
   <nav class="prem-nav">
     <div class="prem-container prem-nav-inner">
       <a href="/index.html" class="prem-logo"><img src="/assets/images/2.png" alt="iMPLEMENTAi.ae" style="height: 45px; width: auto;"></a>
@@ -59,28 +59,26 @@
     <a href="/contact.html" class="prem-btn" style="background: var(--prem-accent-blue); border-color: var(--prem-accent-blue);">Book Consultation</a>
   </div>
 
-    <script>
-        // Mobile menu toggle
-        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+      <script>
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle') || document.getElementById('mobileMenuToggle');
+    const mobileMenuOverlay = document.getElementById('mobile-menu') || document.getElementById('mobileMenuOverlay');
 
-        if (mobileMenuToggle) {
-            mobileMenuToggle.addEventListener('click', function () {
-                this.classList.toggle('active');
-                mobileMenuOverlay.classList.toggle('active');
-                document.body.style.overflow = mobileMenuOverlay.classList.contains('active') ? 'hidden' : '';
-            });
+    if (mobileMenuToggle && mobileMenuOverlay) {
+      mobileMenuToggle.addEventListener('click', function () {
+        this.classList.toggle('active');
+        mobileMenuOverlay.classList.toggle('active');
+        document.body.style.overflow = mobileMenuOverlay.classList.contains('active') ? 'hidden' : '';
+      });
 
-            // Close menu when clicking on a link
-            mobileMenuOverlay.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', function () {
-                    mobileMenuToggle.classList.remove('active');
-                    mobileMenuOverlay.classList.remove('active');
-                    document.body.style.overflow = '';
-                });
-            });
-        }
-    </script>
+      mobileMenuOverlay.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function () {
+          mobileMenuToggle.classList.remove('active');
+          mobileMenuOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+  </script>
 
     <!-- Header -->
     <!-- Header with Video Background -->

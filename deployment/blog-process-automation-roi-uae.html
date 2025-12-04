@@ -115,15 +115,17 @@
     <a href="contact.html" class="prem-btn">Book Consultation</a>
   </div>
 
-  <script>
-    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-    if (mobileMenuToggle) {
+      <script>
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle') || document.getElementById('mobileMenuToggle');
+    const mobileMenuOverlay = document.getElementById('mobile-menu') || document.getElementById('mobileMenuOverlay');
+
+    if (mobileMenuToggle && mobileMenuOverlay) {
       mobileMenuToggle.addEventListener('click', function () {
         this.classList.toggle('active');
         mobileMenuOverlay.classList.toggle('active');
         document.body.style.overflow = mobileMenuOverlay.classList.contains('active') ? 'hidden' : '';
       });
+
       mobileMenuOverlay.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', function () {
           mobileMenuToggle.classList.remove('active');
