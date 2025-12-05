@@ -1,0 +1,48 @@
+name: Deploy to Hostinger FTP
+
+# This workflow deploys the website to Hostinger via FTP on every push to the main branch.
+#
+# REQUIRED SECRETS:
+# The following secrets must be set in the GitHub repository (Settings -> Secrets and variables -> Actions):
+# - FTP_HOST: The hostname of your FTP server.
+# - FTP_USERNAME: The username for your FTP account.
+# - FTP_PASSWORD: The password for your FTP account.
+# - FTP_PATH: The remote directory path on the server (e.g., /public_html/).
+
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  web-deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ secrets.FTP_PATH }}
+          local-dir: "./"
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            **/node_modules/**
