@@ -33,14 +33,13 @@
                 <li><a href="strategy.html">Strategy</a></li>
                 <li><a href="departments.html">Solutions</a></li>
                 <li><a href="resources.html">Insights</a></li>
-                <li><a href="blog.html">Blog</a></li>
+                <li><a href="ai-experts/directory/directory.html">AI Experts Hub</a></li>
                 <li><a href="team.html" style="color: var(--prem-text);">Team</a></li>
-                <li><a href="ai-experts/index.html">AI Experts Hub</a></li>
                 <li><a href="ai-readiness.html">Check AI Readiness</a></li>
                 <li><a href="about.html">About</a></li>
             </ul>
             <a href="contact.html" class="prem-btn">Book Consultation</a>
-            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -49,14 +48,13 @@
     </nav>
 
     <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu-overlay" id="mobile-menu">
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
         <a href="index.html">Home</a>
         <a href="strategy.html">Strategy</a>
         <a href="departments.html">Solutions</a>
         <a href="resources.html">Insights</a>
-        <a href="blog.html">Blog</a>
+        <a href="ai-experts/directory/directory.html">AI Experts Hub</a>
         <a href="team.html">Team</a>
-        <a href="ai-experts/index.html">AI Experts Hub</a>
         <a href="ai-readiness.html">Check AI Readiness</a>
         <a href="about.html">About</a>
         <a href="contact.html" class="prem-btn"
@@ -64,16 +62,18 @@
     </div>
 
     <script>
-        const mobileMenuToggle = document.getElementById('mobile-menu-toggle') || document.getElementById('mobileMenuToggle');
-        const mobileMenuOverlay = document.getElementById('mobile-menu') || document.getElementById('mobileMenuOverlay');
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
 
-        if (mobileMenuToggle && mobileMenuOverlay) {
+        if (mobileMenuToggle) {
             mobileMenuToggle.addEventListener('click', function () {
                 this.classList.toggle('active');
                 mobileMenuOverlay.classList.toggle('active');
                 document.body.style.overflow = mobileMenuOverlay.classList.contains('active') ? 'hidden' : '';
             });
 
+            // Close menu when clicking on a link
             mobileMenuOverlay.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', function () {
                     mobileMenuToggle.classList.remove('active');
@@ -145,7 +145,9 @@
                             style="color: var(--prem-accent-blue); font-size: 0.9rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">
                             Junior AI & Automation Specialist</div>
                         <p style="color: var(--prem-text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">
-                            Motivated Computer Science student specialising in software engineering, AI tools and technical support. Brings over 3 years of hands-on experience in virtual assistance, client operations and digital workflow optimisation.
+                            Motivated Computer Science student specialising in software engineering, AI tools and
+                            technical support. Brings over 3 years of hands-on experience in virtual assistance, client
+                            operations and digital workflow optimisation.
                         </p>
                         <a href="https://www.linkedin.com/in/dann-gabriel-mangahas-a0a856397/" target="_blank"
                             class="prem-btn prem-btn-outline"
@@ -197,8 +199,8 @@
         <div class="prem-container">
             <div class="prem-footer-grid">
                 <div>
-                    <a href="index.html" class="prem-logo" style="margin-bottom: 1.5rem; display: block;"><img
-                            src="assets/images/2.png" alt="iMPLEMENTAi.ae" style="height: 45px; width: auto;"></a>
+                    <a href="index.html" class="prem-logo"
+                        style="margin-bottom: 1.5rem; display: block;">iMPLEMENTAi.ae</a>
                     <p style="color: var(--prem-text-secondary); max-width: 300px;">
                         The premier AI consultancy for the UAE mid-market. Bridging the gap between technology and
                         business value.
@@ -212,16 +214,11 @@
                     <a href="workshops.html">Workshops</a>
                 </div>
                 <div>
-                    <h4>Explore</h4>
-                    <a href="index.html">Home</a>
-                    <a href="strategy.html">Strategy</a>
-                    <a href="departments.html">Solutions</a>
-                    <a href="resources.html">Insights</a>
-                    <a href="blog.html">Blog</a>
-                    <a href="team.html">Team</a>
-                    <a href="ai-experts/index.html">AI Experts Hub</a>
-                    <a href="ai-readiness.html">Check AI Readiness</a>
-                    <a href="about.html">About</a>
+                    <h4>Company</h4>
+                    <a href="about.html">About Us</a>
+                    <a href="team.html">Our Team</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="privacy.html">Privacy Policy</a>
                 </div>
                 <div>
                     <h4>Connect</h4>
