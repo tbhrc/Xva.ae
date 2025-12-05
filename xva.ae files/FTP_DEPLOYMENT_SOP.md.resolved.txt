@@ -1,0 +1,97 @@
+# Standard Operating Procedure (SOP): GitHub Actions FTP Deployment to Hostinger
+
+## 1. Overview
+This document outlines the automated deployment process for the website. Changes pushed to the `main` branch on GitHub are automatically built and deployed to the Hostinger server via FTP.
+
+## 2. Prerequisites
+- **GitHub Repository**: Access to the project repository.
+- **Hostinger Account**: Access to FTP details (Host, Username, Password).
+- **GitHub Actions**: Enabled on the repository.
+
+## 3. Configuration (One-Time Setup)
+
+### 3.1. Get FTP Details from Hostinger
+1.  Log in to your Hostinger Control Panel (hPanel).
+2.  Go to **Files** > **FTP Accounts**.
+3.  Note down the following:
+    -   **FTP Host** (e.g., `ftp.domain.com`)
+    -   **FTP Username** (e.g., `u123456789`)
+    -   **FTP Password** (Use the one you created or reset it if forgotten)
+    -   **Directory**: The path to your website files (usually `/public_html` or `/domains/domain.com/public_html`).
+
+### 3.2. Set GitHub Secrets
+**CRITICAL**: Never hard-code passwords in files. Use GitHub Secrets.
+
+1.  Go to your GitHub Repository.
+2.  Navigate to **Settings** > **Secrets and variables** > **Actions**.
+3.  Click **New repository secret**.
+4.  Add the following 4 secrets:
+
+| Secret Name | Value Example | Note |
+| :--- | :--- | :--- |
+| `FTP_HOST` | `ftp.example.com` | Your Hostinger FTP IP or Hostname |
+| `FTP_USERNAME` | `u123456789` | Your FTP Username |
+| `FTP_PASSWORD` | `YourStrongPassword` | Your FTP Password |
+| `FTP_PATH` | `/public_html/` | **MUST** end with a trailing slash `/` |
+
+## 4. Deployment Process
+
+### 4.1. Triggering a Deployment
+Deployment is automatic. To deploy:
+1.  Make changes to your code locally.
+2.  Commit your changes: `git commit -m "Update homepage"`
+3.  Push to the `main` branch: `git push origin main`
+
+### 4.2. Monitoring Deployment
+1.  Go to the **Actions** tab in your GitHub repository.
+2.  Click on the latest workflow run (named after your commit message).
+3.  Wait for the status to turn **Green** (Success).
+    -   **Yellow**: In progress.
+    -   **Red**: Failed (Click to see logs).
+
+## 5. Troubleshooting
+
+### Common Issues
+
+**1. "server-dir should be a folder (must end with /)"**
+-   **Cause**: The `FTP_PATH` secret is missing the trailing slash.
+-   **Fix**: Update the `FTP_PATH` secret in GitHub Settings to end with `/` (e.g., `/public_html/`), or ensure the workflow file appends it: `${{ secrets.FTP_PATH }}/`.
+
+**2. "Timeout" or Very Slow Deployment**
+-   **Cause**: Uploading too many files or very large files (videos, zips).
+-   **Fix**: Add large files to the `exclude` list in [.github/workflows/deploy.yml](file:///c:/Users/user/Talent%20Bridge%20HR%20Consultancy/Talent%20Bridge%20Dubai%20-%20TBHRC%20-%20IT%20Dept/Web%20Dev/Xva.ae/.github/workflows/deploy.yml).
+    ```yaml
+    exclude:
+      - **/.git*/**
+      - **/node_modules/**
+      - path/to/large/file.zip
+    ```
+
+**3. "Login Failed" or "530 Login incorrect"**
+-   **Cause**: Wrong Username or Password in Secrets.
+-   **Fix**: Double-check credentials in Hostinger and update `FTP_USERNAME` and `FTP_PASSWORD` in GitHub Secrets.
+
+## 6. Workflow File Reference
+The configuration file is located at [.github/workflows/deploy.yml](file:///c:/Users/user/Talent%20Bridge%20HR%20Consultancy/Talent%20Bridge%20Dubai%20-%20TBHRC%20-%20IT%20Dept/Web%20Dev/Xva.ae/.github/workflows/deploy.yml).
+
+```yaml
+name: Deploy to Hostinger FTP
+on:
+  push:
+    branches:
+      - "main"
+jobs:
+  web-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: npm ci
+      - run: npm run build
+      - uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ secrets.FTP_PATH }}/
+          local-dir: "./"
+```
