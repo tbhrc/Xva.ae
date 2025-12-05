@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -15,70 +15,74 @@
 
     <!-- Styles -->
     <link rel="preload" href="assets/css/v7.3-premium.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="assets/css/v7.3-premium.css"></noscript>
+    <noscript>
+        <link rel="stylesheet" href="assets/css/v7.3-premium.css">
+    </noscript>
     <link rel="stylesheet" href="assets/css/v7.3-premium.css">
 </head>
 
 <body>
 
-                  <!-- Navigation -->
-  <nav class="prem-nav">
-    <div class="prem-container prem-nav-inner">
-      <a href="/index.html" class="prem-logo"><img src="/assets/images/2.png" alt="iMPLEMENTAi.ae" style="height: 45px; width: auto;"></a>
-      <ul class="prem-menu">
-        <li><a href="/index.html">Home</a></li>
-        <li><a href="/strategy.html">Strategy</a></li>
-        <li><a href="/departments.html">Solutions</a></li>
-        <li><a href="/resources.html">Insights</a></li>
-        <li><a href="/blog.html">Blog</a></li>
-        <li><a href="/team.html" style="color: var(--prem-text);">Team</a></li>
-        <li><a href="/ai-experts/index.html">AI Experts Hub</a></li>
-        <li><a href="/ai-readiness.html">Check AI Readiness</a></li>
-        <li><a href="/about.html">About</a></li>
-      </ul>
-      <a href="/contact.html" class="prem-btn">Book Consultation</a>
-      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+    <!-- Navigation -->
+    <nav class="prem-nav">
+        <div class="prem-container prem-nav-inner">
+            <a href="index.html" class="prem-logo"><img src="assets/images/2.png" alt="iMPLEMENTAi.ae"
+                    style="height: 45px; width: auto;"></a>
+            <ul class="prem-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="strategy.html">Strategy</a></li>
+                <li><a href="departments.html">Solutions</a></li>
+                <li><a href="resources.html">Insights</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="team.html" style="color: var(--prem-text);">Team</a></li>
+                <li><a href="ai-experts/index.html">AI Experts Hub</a></li>
+                <li><a href="ai-readiness.html">Check AI Readiness</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <a href="contact.html" class="prem-btn">Book Consultation</a>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu">
+        <a href="index.html">Home</a>
+        <a href="strategy.html">Strategy</a>
+        <a href="departments.html">Solutions</a>
+        <a href="resources.html">Insights</a>
+        <a href="blog.html">Blog</a>
+        <a href="team.html">Team</a>
+        <a href="ai-experts/index.html">AI Experts Hub</a>
+        <a href="ai-readiness.html">Check AI Readiness</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="prem-btn"
+            style="background: var(--prem-accent-blue); border-color: var(--prem-accent-blue);">Book Consultation</a>
     </div>
-  </nav>
 
-  <!-- Mobile Menu Overlay -->
-  <div class="mobile-menu-overlay" id="mobile-menu">
-    <a href="/index.html">Home</a>
-    <a href="/strategy.html">Strategy</a>
-    <a href="/departments.html">Solutions</a>
-    <a href="/resources.html">Insights</a>
-    <a href="/blog.html">Blog</a>
-    <a href="/team.html">Team</a>
-    <a href="/ai-experts/index.html">AI Experts Hub</a>
-    <a href="/ai-readiness.html">Check AI Readiness</a>
-    <a href="/about.html">About</a>
-    <a href="/contact.html" class="prem-btn" style="background: var(--prem-accent-blue); border-color: var(--prem-accent-blue);">Book Consultation</a>
-  </div>
+    <script>
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle') || document.getElementById('mobileMenuToggle');
+        const mobileMenuOverlay = document.getElementById('mobile-menu') || document.getElementById('mobileMenuOverlay');
 
-      <script>
-    const mobileMenuToggle = document.getElementById('mobile-menu-toggle') || document.getElementById('mobileMenuToggle');
-    const mobileMenuOverlay = document.getElementById('mobile-menu') || document.getElementById('mobileMenuOverlay');
+        if (mobileMenuToggle && mobileMenuOverlay) {
+            mobileMenuToggle.addEventListener('click', function () {
+                this.classList.toggle('active');
+                mobileMenuOverlay.classList.toggle('active');
+                document.body.style.overflow = mobileMenuOverlay.classList.contains('active') ? 'hidden' : '';
+            });
 
-    if (mobileMenuToggle && mobileMenuOverlay) {
-      mobileMenuToggle.addEventListener('click', function () {
-        this.classList.toggle('active');
-        mobileMenuOverlay.classList.toggle('active');
-        document.body.style.overflow = mobileMenuOverlay.classList.contains('active') ? 'hidden' : '';
-      });
-
-      mobileMenuOverlay.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', function () {
-          mobileMenuToggle.classList.remove('active');
-          mobileMenuOverlay.classList.remove('active');
-          document.body.style.overflow = '';
-        });
-      });
-    }
-  </script>
+            mobileMenuOverlay.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function () {
+                    mobileMenuToggle.classList.remove('active');
+                    mobileMenuOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
+    </script>
 
     <!-- Header -->
     <!-- Header with Video Background -->
@@ -245,46 +249,47 @@
 
     <!-- Footer -->
     <footer class="prem-footer">
-    <div class="prem-container">
-      <div class="prem-footer-grid">
-        <div>
-          <a href="/index.html" class="prem-logo" style="margin-bottom: 1.5rem; display: block;"><img
-              src="/assets/images/2.png" alt="iMPLEMENTAi.ae" style="height: 45px; width: auto;"></a>
-          <p style="color: var(--prem-text-secondary); max-width: 300px;">
-            The premier AI consultancy for the UAE mid-market. Bridging the gap between technology and business value.
-          </p>
+        <div class="prem-container">
+            <div class="prem-footer-grid">
+                <div>
+                    <a href="index.html" class="prem-logo" style="margin-bottom: 1.5rem; display: block;"><img
+                            src="assets/images/2.png" alt="iMPLEMENTAi.ae" style="height: 45px; width: auto;"></a>
+                    <p style="color: var(--prem-text-secondary); max-width: 300px;">
+                        The premier AI consultancy for the UAE mid-market. Bridging the gap between technology and
+                        business value.
+                    </p>
+                </div>
+                <div>
+                    <h4>Services</h4>
+                    <a href="strategy.html">AI Strategy</a>
+                    <a href="automation.html">Automation & Agents</a>
+                    <a href="fractional-caio.html">Fractional CAIO</a>
+                    <a href="workshops.html">Workshops</a>
+                </div>
+                <div>
+                    <h4>Explore</h4>
+                    <a href="index.html">Home</a>
+                    <a href="strategy.html">Strategy</a>
+                    <a href="departments.html">Solutions</a>
+                    <a href="resources.html">Insights</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="team.html">Team</a>
+                    <a href="ai-experts/index.html">AI Experts Hub</a>
+                    <a href="ai-readiness.html">Check AI Readiness</a>
+                    <a href="about.html">About</a>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <a href="https://www.linkedin.com/company/implementai-ae">LinkedIn</a>
+                    <a href="mailto:sales@implementai.ae">Email Us</a>
+                </div>
+            </div>
+            <div
+                style="border-top: 1px solid var(--prem-border); padding-top: 2rem; text-align: center; color: var(--prem-text-secondary); font-size: 0.85rem;">
+                &copy; 2025 iMPLEMENTAi.ae. All rights reserved.
+            </div>
         </div>
-        <div>
-          <h4>Services</h4>
-          <a href="/strategy.html">AI Strategy</a>
-          <a href="/automation.html">Automation & Agents</a>
-          <a href="/fractional-caio.html">Fractional CAIO</a>
-          <a href="/workshops.html">Workshops</a>
-        </div>
-        <div>
-          <h4>Explore</h4>
-          <a href="/index.html">Home</a>
-          <a href="/strategy.html">Strategy</a>
-          <a href="/departments.html">Solutions</a>
-          <a href="/resources.html">Insights</a>
-          <a href="/blog.html">Blog</a>
-          <a href="/team.html">Team</a>
-          <a href="/ai-experts/index.html">AI Experts Hub</a>
-          <a href="/ai-readiness.html">Check AI Readiness</a>
-          <a href="/about.html">About</a>
-        </div>
-        <div>
-          <h4>Connect</h4>
-          <a href="https://www.linkedin.com/company/implementai-ae">LinkedIn</a>
-          <a href="mailto:sales@implementai.ae">Email Us</a>
-        </div>
-      </div>
-      <div
-        style="border-top: 1px solid var(--prem-border); padding-top: 2rem; text-align: center; color: var(--prem-text-secondary); font-size: 0.85rem;">
-        &copy; 2025 iMPLEMENTAi.ae. All rights reserved.
-      </div>
-    </div>
-  </footer>
+    </footer>
 
     <style>
         .prem-team-photo {
