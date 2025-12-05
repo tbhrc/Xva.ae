@@ -5,13 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Automation & AI Agents | iMPLEMENTAi.ae</title>
-  <meta name="description" content="AI automation, assistants, and chatbots with human-in-loop controls, auditability, and 90-day ROI for UAE enterprises.">
+  <meta name="description"
+    content="AI automation, assistants, and chatbots with human-in-loop controls, auditability, and 90-day ROI for UAE enterprises.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="assets/css/v7.3-premium.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="assets/css/v7.3-premium.css"></noscript>
+  <noscript>
     <link rel="stylesheet" href="assets/css/v7.3-premium.css">
+  </noscript>
+  <link rel="stylesheet" href="assets/css/v7.3-premium.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -39,7 +42,7 @@
 
 <body>
 
-              <!-- Navigation -->
+  <!-- Navigation -->
   <nav class="prem-nav">
     <div class="prem-container prem-nav-inner">
       <a href="index.html" class="prem-logo"><img src="assets/images/2.png" alt="iMPLEMENTAi.ae"
@@ -51,11 +54,12 @@
         <li><a href="resources.html">Insights</a></li>
         <li><a href="ai-experts/directory/directory.html">AI Experts Hub</a></li>
         <li><a href="team.html">Team</a></li>
+        <li><a href="ai-experts/index.html">AI Experts Hub</a></li>
         <li><a href="ai-readiness.html">Check AI Readiness</a></li>
         <li><a href="about.html">About</a></li>
       </ul>
       <a href="contact.html" class="prem-btn">Book Consultation</a>
-      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
         <span></span>
         <span></span>
         <span></span>
@@ -64,54 +68,54 @@
   </nav>
 
   <!-- Mobile Menu Overlay -->
-  <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+  <div class="mobile-menu-overlay" id="mobile-menu">
     <a href="index.html">Home</a>
     <a href="strategy.html">Strategy</a>
     <a href="departments.html">Solutions</a>
     <a href="resources.html">Insights</a>
-    <a href="ai-experts/directory/directory.html">AI Experts Hub</a>
+    <a href="blog.html">Blog</a>
     <a href="team.html">Team</a>
+    <a href="ai-experts/index.html">AI Experts Hub</a>
     <a href="ai-readiness.html">Check AI Readiness</a>
     <a href="about.html">About</a>
-    <a href="contact.html" class="prem-btn" style="background: var(--prem-accent-blue); border-color: var(--prem-accent-blue);">Book Consultation</a>
+    <a href="contact.html" class="prem-btn"
+      style="background: var(--prem-accent-blue); border-color: var(--prem-accent-blue);">Book Consultation</a>
   </div>
 
-    <script>
-        // Mobile menu toggle
-        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-        
-        if (mobileMenuToggle) {
-            mobileMenuToggle.addEventListener('click', function() {
-                this.classList.toggle('active');
-                mobileMenuOverlay.classList.toggle('active');
-                document.body.style.overflow = mobileMenuOverlay.classList.contains('active') ? 'hidden' : '';
-            });
+  <script>
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle') || document.getElementById('mobileMenuToggle');
+    const mobileMenuOverlay = document.getElementById('mobile-menu') || document.getElementById('mobileMenuOverlay');
 
-            // Close menu when clicking on a link
-            mobileMenuOverlay.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', function() {
-                    mobileMenuToggle.classList.remove('active');
-                    mobileMenuOverlay.classList.remove('active');
-                    document.body.style.overflow = '';
-                });
-            });
-        }
-    </script>
+    if (mobileMenuToggle && mobileMenuOverlay) {
+      mobileMenuToggle.addEventListener('click', function () {
+        this.classList.toggle('active');
+        mobileMenuOverlay.classList.toggle('active');
+        document.body.style.overflow = mobileMenuOverlay.classList.contains('active') ? 'hidden' : '';
+      });
 
-      <!-- Header with Video Background -->
-    <header class="prem-hero" style="height: 60vh; min-height: 400px;">
-        <video autoplay muted loop playsinline class="prem-hero-video">
-            <source src="assets/videos/Hybrid-Intelligence.mp4" type="video/mp4">
-        </video>
-        <div class="prem-hero-content">
-            <span class="eyebrow" style="color: rgba(255,255,255,0.8);">Intelligent Automation</span>
-            <h1 style="font-size: 3.5rem; margin-bottom: 1rem; color: #FFF;">Automation, Assistants & Chatbots</h1>
-            <p style="max-width: 700px; margin: 0 auto; color: rgba(255,255,255,0.9); font-size: 1.2rem;">
-                Deploy AI automation with human-in-loop controls, auditability, and measurable ROI in 90 days.
-            </p>
-        </div>
-    </header>
+      mobileMenuOverlay.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function () {
+          mobileMenuToggle.classList.remove('active');
+          mobileMenuOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+  </script>
+
+  <!-- Header with Video Background -->
+  <header class="prem-hero" style="height: 60vh; min-height: 400px;">
+    <video autoplay muted loop playsinline class="prem-hero-video">
+      <source src="assets/videos/Hybrid-Intelligence.mp4" type="video/mp4">
+    </video>
+    <div class="prem-hero-content">
+      <span class="eyebrow" style="color: rgba(255,255,255,0.8);">Intelligent Automation</span>
+      <h1 style="font-size: 3.5rem; margin-bottom: 1rem; color: #FFF;">Automation, Assistants & Chatbots</h1>
+      <p style="max-width: 700px; margin: 0 auto; color: rgba(255,255,255,0.9); font-size: 1.2rem;">
+        Deploy AI automation with human-in-loop controls, auditability, and measurable ROI in 90 days.
+      </p>
+    </div>
+  </header>
 
   <section class="prem-section">
     <div class="prem-container">
@@ -124,7 +128,8 @@
             </path>
           </svg>
           <h3>Process Automation</h3>
-          <p>Extraction, classification, reconciliation drafts, and exception handling with human approval on high-risk steps.</p>
+          <p>Extraction, classification, reconciliation drafts, and exception handling with human approval on high-risk
+            steps.</p>
         </div>
         <div class="prem-card scroll-reveal delay-100">
           <svg class="prem-icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -156,7 +161,8 @@
           <h2 class="section-title" style="font-size: 2.3rem;">Assistants vs Chatbots</h2>
           <ul class="feature-list" style="margin-top: 0.5rem;">
             <li class="visible">Chatbots: FAQs with citations, first-touch triage, safe deflection.</li>
-            <li class="visible">Assistants/agents: system-aware workflows (recon, tickets, vendor comms) with approvals.</li>
+            <li class="visible">Assistants/agents: system-aware workflows (recon, tickets, vendor comms) with approvals.
+            </li>
             <li class="visible">Human-in-loop: approve for finance, co-create for high-risk, sample for low-risk.</li>
           </ul>
         </div>
@@ -181,7 +187,8 @@
           <h2 class="section-title" style="font-size: 2.3rem;">From Intake to Operate</h2>
           <ul class="feature-list" style="margin-top: 0.5rem;">
             <li class="visible">Weeks 0-2: select 3–5 workflows; risk tiers; KPIs/payback target.</li>
-            <li class="visible">Weeks 2-6: build patterns (extraction, summarization, classification); QA with dual review.</li>
+            <li class="visible">Weeks 2-6: build patterns (extraction, summarization, classification); QA with dual
+              review.</li>
             <li class="visible">Weeks 6-10: harden—red-team, failover model, runbooks, support training.</li>
             <li class="visible">Weeks 10-12: operate—steering, ROI tracker, incident playbook.</li>
           </ul>
@@ -198,8 +205,10 @@
         </div>
       </div>
       <div style="text-align: center; margin-top: 2rem;">
-        <a href="contact.html" class="prem-btn" style="background: var(--prem-accent-blue); border-color: var(--prem-accent-blue);">Book Consultation</a>
-        <a href="ai-readiness.html" class="prem-btn prem-btn-outline" style="margin-left: 0.5rem;">Check AI Readiness</a>
+        <a href="contact.html" class="prem-btn"
+          style="background: var(--prem-accent-blue); border-color: var(--prem-accent-blue);">Book Consultation</a>
+        <a href="ai-readiness.html" class="prem-btn prem-btn-outline" style="margin-left: 0.5rem;">Check AI
+          Readiness</a>
       </div>
     </div>
   </section>
@@ -219,7 +228,8 @@
     <div class="prem-container">
       <div class="prem-footer-grid">
         <div>
-          <a href="index.html" class="prem-logo" style="margin-bottom: 1.5rem; display: block;"><img src="assets/images/2.png" alt="iMPLEMENTAi.ae" style="height: 45px; width: auto;"></a>
+          <a href="index.html" class="prem-logo" style="margin-bottom: 1.5rem; display: block;"><img
+              src="assets/images/2.png" alt="iMPLEMENTAi.ae" style="height: 45px; width: auto;"></a>
           <p style="color: var(--prem-text-secondary); max-width: 300px;">
             The premier AI consultancy for the UAE mid-market. Bridging the gap between technology and business value.
           </p>
@@ -232,11 +242,16 @@
           <a href="workshops.html">Workshops</a>
         </div>
         <div>
-          <h4>Company</h4>
-          <a href="about.html">About Us</a>
-          <a href="team.html">Our Team</a>
-          <a href="contact.html">Contact</a>
-          <a href="privacy.html">Privacy Policy</a>
+          <h4>Explore</h4>
+          <a href="index.html">Home</a>
+          <a href="strategy.html">Strategy</a>
+          <a href="departments.html">Solutions</a>
+          <a href="resources.html">Insights</a>
+          <a href="blog.html">Blog</a>
+          <a href="team.html">Team</a>
+          <a href="ai-experts/index.html">AI Experts Hub</a>
+          <a href="ai-readiness.html">Check AI Readiness</a>
+          <a href="about.html">About</a>
         </div>
         <div>
           <h4>Connect</h4>

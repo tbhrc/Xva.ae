@@ -2,26 +2,28 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Strategy & Leadership | iMPLEMENTAi.ae</title>
-    <meta name="description"
-        content="Enterprise AI strategy and fractional CAIO leadership for UAE organizations. Build sustainable AI roadmaps with measurable business impact.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Strategy & Leadership | iMPLEMENTAi.ae</title>
+  <meta name="description"
+    content="Enterprise AI strategy and fractional CAIO leadership for UAE organizations. Build sustainable AI roadmaps with measurable business impact.">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <!-- Styles -->
-    <link rel="preload" href="assets/css/v7.3-premium.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="assets/css/v7.3-premium.css"></noscript>
+  <!-- Styles -->
+  <link rel="preload" href="assets/css/v7.3-premium.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
     <link rel="stylesheet" href="assets/css/v7.3-premium.css">
+  </noscript>
+  <link rel="stylesheet" href="assets/css/v7.3-premium.css">
 </head>
 
 <body>
 
-                  <!-- Navigation -->
+  <!-- Navigation -->
   <nav class="prem-nav">
     <div class="prem-container prem-nav-inner">
       <a href="index.html" class="prem-logo"><img src="assets/images/2.png" alt="iMPLEMENTAi.ae"
@@ -33,11 +35,12 @@
         <li><a href="resources.html">Insights</a></li>
         <li><a href="ai-experts/directory/directory.html">AI Experts Hub</a></li>
         <li><a href="team.html">Team</a></li>
+        <li><a href="ai-experts/index.html">AI Experts Hub</a></li>
         <li><a href="ai-readiness.html">Check AI Readiness</a></li>
         <li><a href="about.html">About</a></li>
       </ul>
       <a href="contact.html" class="prem-btn">Book Consultation</a>
-      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
         <span></span>
         <span></span>
         <span></span>
@@ -46,198 +49,204 @@
   </nav>
 
   <!-- Mobile Menu Overlay -->
-  <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+  <div class="mobile-menu-overlay" id="mobile-menu">
     <a href="index.html">Home</a>
     <a href="strategy.html">Strategy</a>
     <a href="departments.html">Solutions</a>
     <a href="resources.html">Insights</a>
-    <a href="ai-experts/directory/directory.html">AI Experts Hub</a>
+    <a href="blog.html">Blog</a>
     <a href="team.html">Team</a>
+    <a href="ai-experts/index.html">AI Experts Hub</a>
     <a href="ai-readiness.html">Check AI Readiness</a>
     <a href="about.html">About</a>
-    <a href="contact.html" class="prem-btn" style="background: var(--prem-accent-blue); border-color: var(--prem-accent-blue);">Book Consultation</a>
+    <a href="contact.html" class="prem-btn"
+      style="background: var(--prem-accent-blue); border-color: var(--prem-accent-blue);">Book Consultation</a>
   </div>
 
-    <script>
-        // Mobile menu toggle
-        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-        
-        if (mobileMenuToggle) {
-            mobileMenuToggle.addEventListener('click', function() {
-                this.classList.toggle('active');
-                mobileMenuOverlay.classList.toggle('active');
-                document.body.style.overflow = mobileMenuOverlay.classList.contains('active') ? 'hidden' : '';
-            });
+  <script>
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle') || document.getElementById('mobileMenuToggle');
+    const mobileMenuOverlay = document.getElementById('mobile-menu') || document.getElementById('mobileMenuOverlay');
 
-            // Close menu when clicking on a link
-            mobileMenuOverlay.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', function() {
-                    mobileMenuToggle.classList.remove('active');
-                    mobileMenuOverlay.classList.remove('active');
-                    document.body.style.overflow = '';
-                });
-            });
-        }
-    </script>
+    if (mobileMenuToggle && mobileMenuOverlay) {
+      mobileMenuToggle.addEventListener('click', function () {
+        this.classList.toggle('active');
+        mobileMenuOverlay.classList.toggle('active');
+        document.body.style.overflow = mobileMenuOverlay.classList.contains('active') ? 'hidden' : '';
+      });
 
-    <!-- Header -->
-        <!-- Header with Video Background -->
-    <header class="prem-hero" style="height: 60vh; min-height: 400px;">
-        <video autoplay muted loop playsinline class="prem-hero-video">
-            <source src="assets/videos/Hybrid-Intelligence.mp4" type="video/mp4">
-        </video>
-        <div class="prem-hero-content">
-            <span class="eyebrow" style="color: rgba(255,255,255,0.8);">Strategic AI</span>
-            <h1 style="font-size: 3.5rem; margin-bottom: 1rem; color: #FFF;">AI Strategy & Leadership</h1>
-            <p style="max-width: 700px; margin: 0 auto; color: rgba(255,255,255,0.9); font-size: 1.2rem;">
-                Transform AI from experimental to operational. We design comprehensive AI strategies and provide fractional CAIO leadership to guide your organization's AI journey.
-            </p>
-        </div>
-    </header>
-
-    <!-- Strategic Roadmapping -->
-    <section class="prem-section">
-        <div class="prem-container">
-            <h2 style="font-size: 2rem; margin-bottom: 2rem; text-align: center;">Strategic AI Roadmapping</h2>
-            <div style="text-align: center; margin-bottom: 3rem;">
-                <img src="assets/images/framework-capability.png" alt="AI Capability Framework" style="max-width: 600px; width: 100%; height: auto; opacity: 0.95;">
-            </div>
-        
-            <div class="prem-grid-3">
-                <div class="prem-card scroll-reveal">
-                    <svg class="prem-icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
-                        </path>
-                    </svg>
-                    <h3>Value Impact Modeling</h3>
-                    <p>Identify high-impact use cases aligned with your strategic objectives. We quantify potential ROI
-                        before you invest.</p>
-                </div>
-                <div class="prem-card scroll-reveal delay-100">
-                    <svg class="prem-icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4">
-                        </path>
-                    </svg>
-                    <h3>Capability Assessment</h3>
-                    <p>Evaluate your current AI readiness across data, technology, people, and governance dimensions.
-                    </p>
-                </div>
-                <div class="prem-card scroll-reveal delay-200">
-                    <svg class="prem-icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                            d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7">
-                        </path>
-                    </svg>
-                    <h3>Phased Implementation</h3>
-                    <p>Develop a pragmatic roadmap with clear milestones, resource requirements, and success metrics.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Fractional CAIO -->
-    <section class="prem-section prem-section-alt">
-        <div class="prem-container">
-            <div style="max-width: 800px; margin: 0 auto; text-align: center; margin-bottom: 3rem;">
-                <h2 style="font-size: 2rem; margin-bottom: 1rem;">Fractional CAIO Leadership</h2>
-                <p style="color: var(--prem-text-secondary);">
-                    Get senior AI leadership without the full-time commitment. Our fractional CAIOs provide strategic
-                    direction, governance oversight, and hands-on guidance.
-                </p>
-            </div>
-
-            <div class="prem-grid-2">
-                <div class="prem-card scroll-reveal">
-                    <h3>Strategic Oversight</h3>
-                    <p>Regular executive sessions to align AI initiatives with business priorities and manage
-                        stakeholder expectations.</p>
-                </div>
-                <div class="prem-card scroll-reveal delay-100">
-                    <h3>Governance & Ethics</h3>
-                    <p>Establish AI governance frameworks, ethical guidelines, and risk management protocols.</p>
-                </div>
-                <div class="prem-card scroll-reveal delay-200">
-                    <h3>Team Development</h3>
-                    <p>Build internal AI capabilities through mentoring, upskilling programs, and organizational design.
-                    </p>
-                </div>
-                <div class="prem-card scroll-reveal delay-300">
-                    <h3>Vendor Management</h3>
-                    <p>Navigate the AI vendor landscape, evaluate solutions, and negotiate partnerships on your behalf.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="prem-section" style="text-align: center;">
-        <div class="prem-container">
-            <h2 style="font-size: 2rem; margin-bottom: 1rem;">Ready to Build Your AI Strategy?</h2>
-            <p style="max-width: 600px; margin: 0 auto 2rem; color: var(--prem-text-secondary);">
-                Schedule a consultation to discuss your AI ambitions and how we can help you achieve them.
-            </p>
-            <a href="contact.html" class="prem-btn" style="font-size: 1rem; padding: 1rem 2rem;">Book a Consultation</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="prem-footer">
-        <div class="prem-container">
-            <div class="prem-footer-grid">
-                <div>
-                    <a href="index.html" class="prem-logo"
-                        style="margin-bottom: 1.5rem; display: block;">iMPLEMENTAi.ae</a>
-                    <p style="color: var(--prem-text-secondary); max-width: 300px;">
-                        The premier AI consultancy for the UAE mid-market. Bridging the gap between technology and
-                        business value.
-                    </p>
-                </div>
-                <div>
-                    <h4>Services</h4>
-                    <a href="strategy.html">AI Strategy</a>
-                    <a href="automation.html">Automation & Agents</a>
-                    <a href="fractional-caio.html">Fractional CAIO</a>
-                    <a href="workshops.html">Workshops</a>
-                </div>
-                <div>
-                    <h4>Company</h4>
-                    <a href="about.html">About Us</a>
-                    <a href="team.html">Our Team</a>
-                    <a href="contact.html">Contact</a>
-                    <a href="privacy.html">Privacy Policy</a>
-                </div>
-                <div>
-                    <h4>Connect</h4>
-                    <a href="https://www.linkedin.com/company/implementai-ae">LinkedIn</a>
-                    <a href="mailto:sales@implementai.ae">Email Us</a>
-                </div>
-            </div>
-            <div
-                style="border-top: 1px solid var(--prem-border); padding-top: 2rem; text-align: center; color: var(--prem-text-secondary); font-size: 0.85rem;">
-                &copy; 2025 iMPLEMENTAi.ae. All rights reserved.
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-            document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+      mobileMenuOverlay.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function () {
+          mobileMenuToggle.classList.remove('active');
+          mobileMenuOverlay.classList.remove('active');
+          document.body.style.overflow = '';
         });
-    </script>
+      });
+    }
+  </script>
+
+  <!-- Header -->
+  <!-- Header with Video Background -->
+  <header class="prem-hero" style="height: 60vh; min-height: 400px;">
+    <video autoplay muted loop playsinline class="prem-hero-video">
+      <source src="assets/videos/Hybrid-Intelligence.mp4" type="video/mp4">
+    </video>
+    <div class="prem-hero-content">
+      <span class="eyebrow" style="color: rgba(255,255,255,0.8);">Strategic AI</span>
+      <h1 style="font-size: 3.5rem; margin-bottom: 1rem; color: #FFF;">AI Strategy & Leadership</h1>
+      <p style="max-width: 700px; margin: 0 auto; color: rgba(255,255,255,0.9); font-size: 1.2rem;">
+        Transform AI from experimental to operational. We design comprehensive AI strategies and provide fractional CAIO
+        leadership to guide your organization's AI journey.
+      </p>
+    </div>
+  </header>
+
+  <!-- Strategic Roadmapping -->
+  <section class="prem-section">
+    <div class="prem-container">
+      <h2 style="font-size: 2rem; margin-bottom: 2rem; text-align: center;">Strategic AI Roadmapping</h2>
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <img src="assets/images/framework-capability.png" alt="AI Capability Framework"
+          style="max-width: 600px; width: 100%; height: auto; opacity: 0.95;">
+      </div>
+
+      <div class="prem-grid-3">
+        <div class="prem-card scroll-reveal">
+          <svg class="prem-icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+              d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
+            </path>
+          </svg>
+          <h3>Value Impact Modeling</h3>
+          <p>Identify high-impact use cases aligned with your strategic objectives. We quantify potential ROI
+            before you invest.</p>
+        </div>
+        <div class="prem-card scroll-reveal delay-100">
+          <svg class="prem-icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+              d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4">
+            </path>
+          </svg>
+          <h3>Capability Assessment</h3>
+          <p>Evaluate your current AI readiness across data, technology, people, and governance dimensions.
+          </p>
+        </div>
+        <div class="prem-card scroll-reveal delay-200">
+          <svg class="prem-icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+              d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7">
+            </path>
+          </svg>
+          <h3>Phased Implementation</h3>
+          <p>Develop a pragmatic roadmap with clear milestones, resource requirements, and success metrics.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fractional CAIO -->
+  <section class="prem-section prem-section-alt">
+    <div class="prem-container">
+      <div style="max-width: 800px; margin: 0 auto; text-align: center; margin-bottom: 3rem;">
+        <h2 style="font-size: 2rem; margin-bottom: 1rem;">Fractional CAIO Leadership</h2>
+        <p style="color: var(--prem-text-secondary);">
+          Get senior AI leadership without the full-time commitment. Our fractional CAIOs provide strategic
+          direction, governance oversight, and hands-on guidance.
+        </p>
+      </div>
+
+      <div class="prem-grid-2">
+        <div class="prem-card scroll-reveal">
+          <h3>Strategic Oversight</h3>
+          <p>Regular executive sessions to align AI initiatives with business priorities and manage
+            stakeholder expectations.</p>
+        </div>
+        <div class="prem-card scroll-reveal delay-100">
+          <h3>Governance & Ethics</h3>
+          <p>Establish AI governance frameworks, ethical guidelines, and risk management protocols.</p>
+        </div>
+        <div class="prem-card scroll-reveal delay-200">
+          <h3>Team Development</h3>
+          <p>Build internal AI capabilities through mentoring, upskilling programs, and organizational design.
+          </p>
+        </div>
+        <div class="prem-card scroll-reveal delay-300">
+          <h3>Vendor Management</h3>
+          <p>Navigate the AI vendor landscape, evaluate solutions, and negotiate partnerships on your behalf.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="prem-section" style="text-align: center;">
+    <div class="prem-container">
+      <h2 style="font-size: 2rem; margin-bottom: 1rem;">Ready to Build Your AI Strategy?</h2>
+      <p style="max-width: 600px; margin: 0 auto 2rem; color: var(--prem-text-secondary);">
+        Schedule a consultation to discuss your AI ambitions and how we can help you achieve them.
+      </p>
+      <a href="contact.html" class="prem-btn" style="font-size: 1rem; padding: 1rem 2rem;">Book a Consultation</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="prem-footer">
+    <div class="prem-container">
+      <div class="prem-footer-grid">
+        <div>
+          <a href="index.html" class="prem-logo" style="margin-bottom: 1.5rem; display: block;"><img
+              src="assets/images/2.png" alt="iMPLEMENTAi.ae" style="height: 45px; width: auto;"></a>
+          <p style="color: var(--prem-text-secondary); max-width: 300px;">
+            The premier AI consultancy for the UAE mid-market. Bridging the gap between technology and business value.
+          </p>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <a href="strategy.html">AI Strategy</a>
+          <a href="automation.html">Automation & Agents</a>
+          <a href="fractional-caio.html">Fractional CAIO</a>
+          <a href="workshops.html">Workshops</a>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <a href="index.html">Home</a>
+          <a href="strategy.html">Strategy</a>
+          <a href="departments.html">Solutions</a>
+          <a href="resources.html">Insights</a>
+          <a href="blog.html">Blog</a>
+          <a href="team.html">Team</a>
+          <a href="ai-experts/index.html">AI Experts Hub</a>
+          <a href="ai-readiness.html">Check AI Readiness</a>
+          <a href="about.html">About</a>
+        </div>
+        <div>
+          <h4>Connect</h4>
+          <a href="https://www.linkedin.com/company/implementai-ae">LinkedIn</a>
+          <a href="mailto:sales@implementai.ae">Email Us</a>
+        </div>
+      </div>
+      <div
+        style="border-top: 1px solid var(--prem-border); padding-top: 2rem; text-align: center; color: var(--prem-text-secondary); font-size: 0.85rem;">
+        &copy; 2025 iMPLEMENTAi.ae. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+      document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+    });
+  </script>
 
 </body>
 

@@ -2,6 +2,10 @@
 iMPLEMENTAi.ae Multi Page Website (v3)
 =====================================
 
+Versioning
+- Stable baseline locked at **v7.22** (do not modify without a new version bump).
+- Current development train: **v7.23**, with a short release note in the tag description.
+
 New in this version
 - Animated hero graphic with SVG line and metric bars.
 - Engagement timeline from discovery to fractional CAIO.
@@ -35,5 +39,10 @@ Tailwind CSS is loaded from CDN in each HTML file.
 Custom helpers and animation styles are defined in assets/css/styles.css.
 Client-side behaviour (scroll bar, animations, readiness logic) is in assets/js/main.js.
 
-##Version Control
-all new developments must be updated in the @v6-Improvements
+## Backend setup
+- Install Python dependencies before running any backend scripts or tests:
+  - `pip install -r requirements.txt` (requires SQLAlchemy and FastAPI to be present).
+- If outbound package installs are blocked, download the SQLAlchemy wheel from an allowed network and install it locally with `pip install SQLAlchemy-<version>-py3-none-any.whl`.
+
+## Version Control
+All new developments must be updated against the correct release stream (e.g., tag for v7.23) so changes remain traceable back to the v7.22 stable baseline.

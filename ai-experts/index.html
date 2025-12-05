@@ -1,12 +1,388 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>Redirecting to AI Experts Directory</title>
-  <meta http-equiv="refresh" content="0;url=./directory/directory.html">
-  <script>window.location.href = './directory/directory.html' + window.location.search + window.location.hash;</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Experts Hub | iMPLEMENTAi.ae</title>
+  <meta name="description"
+    content="Browse vetted AI experts and consultants available through the iMPLEMENTAi.ae Experts Hub.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../assets/css/v7.3-premium.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <p>Redirecting to <a href="./directory/directory.html">AI Experts Directory</a>...</p>
+  <!-- Navigation -->
+  <nav class="prem-nav">
+    <div class="prem-container prem-nav-inner">
+      <a href="../index.html" class="prem-logo"><img src="../assets/images/2.png" alt="iMPLEMENTAi.ae"
+          style="height: 45px; width: auto;"></a>
+      <ul class="prem-menu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../strategy.html">Strategy</a></li>
+        <li><a href="../departments.html">Solutions</a></li>
+        <li><a href="../resources.html">Insights</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../team.html">Team</a></li>
+        <li><a href="index.html" style="color: var(--prem-text);">AI Experts Hub</a></li>
+        <li><a href="../ai-readiness.html">Check AI Readiness</a></li>
+        <li><a href="../about.html">About</a></li>
+      </ul>
+      <a href="../contact.html" class="prem-btn">Book Consultation</a>
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobile-menu">
+    <a href="../index.html">Home</a>
+    <a href="../strategy.html">Strategy</a>
+    <a href="../departments.html">Solutions</a>
+    <a href="../resources.html">Insights</a>
+    <a href="../blog.html">Blog</a>
+    <a href="../team.html">Team</a>
+    <a href="index.html">AI Experts Hub</a>
+    <a href="../ai-readiness.html">Check AI Readiness</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html" class="prem-btn"
+      style="background: var(--prem-accent-blue); border-color: var(--prem-accent-blue);">Book Consultation</a>
+  </div>
+
+  <section class="prem-hero"
+    style="padding: 6rem 1rem 3rem; background: linear-gradient(135deg, #0f172a, #1f2a44); color: white; text-align: center;">
+    <div class="prem-container" style="max-width: 1000px;">
+      <div class="prem-eyebrow" style="color: #9cc5ff;">AI Experts Hub</div>
+      <h1 style="font-size: 2.5rem; margin: 1rem 0 0.75rem;">Browse AI consultants, engineers, and builders</h1>
+      <p style="color: rgba(255, 255, 255, 0.8); font-size: 1.05rem; line-height: 1.7;">
+        Discover vetted AI strategists, engineers, and operators ready to help you deploy and scale real-world AI
+        outcomes across the UAE and beyond.
+      </p>
+      <div style="margin-top: 1.5rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="apply.html" class="prem-btn"
+          style="background: var(--prem-accent-blue); border-color: var(--prem-accent-blue);">Join the Experts Hub</a>
+        <a href="../contact.html" class="prem-btn prem-btn-outline"
+          style="color: white; border-color: rgba(255, 255, 255, 0.2);">Book a call about an expert brief</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="prem-section" style="padding-top: 3rem;">
+    <div class="prem-container" style="max-width: 1200px;">
+      <div class="prem-card" style="padding: 1.5rem; margin-bottom: 1.5rem;">
+        <div class="prem-grid-2" style="gap: 1rem; align-items: center;">
+          <div style="display: flex; gap: 0.75rem; align-items: center;">
+            <input id="searchInput" type="text" placeholder="Search experts" aria-label="Search experts"
+              style="flex: 1; padding: 0.85rem 1rem; border: 1px solid var(--prem-border); border-radius: 12px; width: 100%;">
+          </div>
+          <div style="text-align: right; color: var(--prem-text-secondary); font-size: 0.95rem;">
+            Real experts, vetted by iMPLEMENTAi.ae.
+          </div>
+        </div>
+        <div class="prem-grid-5" style="gap: 0.75rem; margin-top: 1rem;">
+          <div>
+            <label class="filter-label" for="expertiseFilter">Expertise</label>
+            <select id="expertiseFilter" class="filter-select">
+              <option value="">Any</option>
+              <option>AI Strategy</option>
+              <option>Data Science</option>
+              <option>Machine Learning Engineering</option>
+              <option>GenAI & Agents</option>
+              <option>Automation</option>
+            </select>
+          </div>
+          <div>
+            <label class="filter-label" for="availabilityFilter">Availability type</label>
+            <select id="availabilityFilter" class="filter-select">
+              <option value="">Any</option>
+              <option>Full-time</option>
+              <option>Fractional</option>
+              <option>Advisory</option>
+              <option>Project-based</option>
+            </select>
+          </div>
+          <div>
+            <label class="filter-label" for="locationFilter">Location</label>
+            <select id="locationFilter" class="filter-select">
+              <option value="">Anywhere</option>
+              <option>Dubai</option>
+              <option>Abu Dhabi</option>
+              <option>Remote-first</option>
+              <option>Saudi Arabia</option>
+            </select>
+          </div>
+          <div>
+            <label class="filter-label" for="toolsFilter">Tools</label>
+            <select id="toolsFilter" class="filter-select">
+              <option value="">All</option>
+              <option>OpenAI</option>
+              <option>Azure AI</option>
+              <option>Vertex AI</option>
+              <option>LangChain</option>
+              <option>Anthropic</option>
+            </select>
+          </div>
+          <div>
+            <label class="filter-label" for="vettedFilter">Vetted status</label>
+            <select id="vettedFilter" class="filter-select">
+              <option value="approved">Approved</option>
+              <option value="pending">Pending</option>
+              <option value="rejected">Rejected</option>
+              <option value="">All</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div id="expertsLoading" class="loading" role="status" aria-live="polite" style="display: none;">Loading
+        experts...</div>
+      <div id="expertsMessage" class="message" role="status" aria-live="polite"></div>
+
+      <div id="expertsGrid" class="prem-grid-3" style="gap: 1.5rem;"></div>
+    </div>
+    </div>
+    </div>
+    <div
+      style="border-top: 1px solid var(--prem-border); padding-top: 2rem; text-align: center; color: var(--prem-text-secondary); font-size: 0.85rem;">
+      &copy; 2025 iMPLEMENTAi.ae. All rights reserved.
+    </div>
+    </div>
+    </footer>
+
+    <style>
+      .filter-label {
+        display: block;
+        font-size: 0.9rem;
+        color: var(--prem-text-secondary);
+        margin-bottom: 0.35rem;
+      }
+
+      .filter-select {
+        width: 100%;
+        padding: 0.75rem 0.85rem;
+        border-radius: 12px;
+        border: 1px solid var(--prem-border);
+        background: white;
+        color: var(--prem-text);
+      }
+
+      .loading {
+        background: #e8f0ff;
+        color: #1d4ed8;
+        padding: 0.75rem 1rem;
+        border-radius: 12px;
+        margin-bottom: 1rem;
+        font-weight: 600;
+        display: inline-block;
+      }
+
+      .message {
+        margin-bottom: 1rem;
+        color: var(--prem-text-secondary);
+      }
+
+      .expert-card {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        height: 100%;
+      }
+
+      .expert-title {
+        color: var(--prem-text-secondary);
+        font-size: 0.95rem;
+        letter-spacing: 0.3px;
+      }
+
+      .expert-summary {
+        color: var(--prem-text-secondary);
+        line-height: 1.6;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        min-height: 70px;
+      }
+
+      .chip-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .chip {
+        background: var(--prem-surface-alt);
+        color: var(--prem-text);
+        padding: 0.35rem 0.6rem;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        border: 1px solid var(--prem-border);
+      }
+
+      @media (max-width: 900px) {
+        .prem-grid-5 {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 640px) {
+        .prem-grid-5 {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+
+    <script>
+      const navToggle = document.getElementById('mobile-menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (navToggle && mobileMenu) {
+        navToggle.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+
+      /** @typedef {{id:number,name:string,title:string,summary:string,linked_in_url:string,location:string,expertise:string,tools:string,vetted_status:string,created_at:string}} Expert */
+      const searchInput = document.getElementById('searchInput');
+      const expertiseFilter = document.getElementById('expertiseFilter');
+      const availabilityFilter = document.getElementById('availabilityFilter');
+      const locationFilter = document.getElementById('locationFilter');
+      const toolsFilter = document.getElementById('toolsFilter');
+      const vettedFilter = document.getElementById('vettedFilter');
+      const expertsGrid = document.getElementById('expertsGrid');
+      const messageEl = document.getElementById('expertsMessage');
+      const loadingEl = document.getElementById('expertsLoading');
+
+      let experts = [];
+      let query = '';
+      let filters = {
+        expertise: '',
+        availability: '',
+        location: '',
+        tools: '',
+        vetted_status: 'approved'
+      };
+      let debounceTimer = null;
+      let isLoading = false;
+      let errorMessage = null;
+
+      function setLoading(state) {
+        isLoading = state;
+        loadingEl.style.display = state ? 'inline-block' : 'none';
+      }
+
+      function renderExperts() {
+        expertsGrid.innerHTML = '';
+        messageEl.textContent = '';
+
+        if (errorMessage) {
+          messageEl.textContent = errorMessage;
+          return;
+        }
+
+        if (isLoading) return;
+
+        if (!experts.length) {
+          messageEl.textContent = 'No experts found. Try another search term.';
+          return;
+        }
+
+        experts.forEach((expert) => {
+          const card = document.createElement('div');
+          card.className = 'prem-card expert-card scroll-reveal';
+          card.innerHTML = `
+          <div style="display: flex; justify-content: space-between; gap: 0.75rem;">
+            <div>
+              <h3 style="margin-bottom: 0.35rem;">${expert.name}</h3>
+              <div class="expert-title">${expert.title || 'AI Expert'}</div>
+            </div>
+            <span class="chip" aria-label="${expert.vetted_status || 'status'}">${(expert.vetted_status || 'status').toUpperCase()}</span>
+          </div>
+          <p class="expert-summary">${expert.summary || 'Seasoned AI practitioner.'}</p>
+          <div class="chip-row">
+            ${expert.location ? `<span class="chip">${expert.location}</span>` : ''}
+            ${expert.expertise ? `<span class="chip">${expert.expertise}</span>` : ''}
+            ${expert.tools ? `<span class="chip">${expert.tools}</span>` : ''}
+          </div>
+          <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center; gap: 0.75rem;">
+            <small style="color: var(--prem-text-secondary);">Added ${new Date(expert.created_at).toLocaleDateString()}</small>
+            <a class="prem-btn prem-btn-outline" href="${expert.linked_in_url || '#'}" target="_blank" rel="noopener">View on LinkedIn</a>
+          </div>
+        `;
+          expertsGrid.appendChild(card);
+        });
+      }
+
+      function buildRequestUrl() {
+        const params = new URLSearchParams();
+        if (query.trim()) params.append('q', query.trim());
+        if (filters.expertise) params.append('expertise', filters.expertise);
+        if (filters.location) params.append('location', filters.location);
+        if (filters.tools) params.append('tools', filters.tools);
+        if (filters.vetted_status) params.append('vetted_status', filters.vetted_status);
+        params.append('limit', '100');
+        params.append('offset', '0');
+        const queryString = params.toString();
+        return queryString ? `/api/experts?${queryString}` : '/api/experts';
+      }
+
+      async function fetchExperts() {
+        setLoading(true);
+        errorMessage = null;
+        renderExperts();
+        try {
+          const response = await fetch(buildRequestUrl());
+          if (!response.ok) {
+            throw new Error('Failed to load experts. Please try again.');
+          }
+          /** @type {Expert[]} */
+          const data = await response.json();
+          experts = Array.isArray(data) ? data : [];
+        } catch (error) {
+          console.error(error);
+          errorMessage = error.message || 'Unable to load experts right now.';
+          experts = [];
+        } finally {
+          setLoading(false);
+          renderExperts();
+        }
+      }
+
+      function handleQueryChange(value) {
+        query = value;
+        if (debounceTimer) clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => {
+          fetchExperts();
+        }, 300);
+      }
+
+      searchInput.addEventListener('input', (e) => handleQueryChange(e.target.value));
+      expertiseFilter.addEventListener('change', (e) => {
+        filters.expertise = e.target.value;
+        fetchExperts();
+      });
+      availabilityFilter.addEventListener('change', (e) => {
+        filters.availability = e.target.value;
+      });
+      locationFilter.addEventListener('change', (e) => {
+        filters.location = e.target.value;
+        fetchExperts();
+      });
+      toolsFilter.addEventListener('change', (e) => {
+        filters.tools = e.target.value;
+        fetchExperts();
+      });
+      vettedFilter.addEventListener('change', (e) => {
+        filters.vetted_status = e.target.value;
+        fetchExperts();
+      });
+
+      fetchExperts();
+    </script>
 </body>
+
 </html>

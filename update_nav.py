@@ -1,48 +1,22 @@
 import os
 import re
 
-# The correct navigation HTML template
-NAV_TEMPLATE = """  <!-- Navigation -->
-  <nav class="prem-nav">
-    <div class="prem-container prem-nav-inner">
-      <a href="index.html" class="prem-logo"><img src="assets/images/2.png" alt="iMPLEMENTAi.ae"
-          style="height: 45px; width: auto;"></a>
-      <ul class="prem-menu">
-        <li><a href="index.html"{home_style}>Home</a></li>
-        <li><a href="strategy.html"{strategy_style}>Strategy</a></li>
-        <li><a href="departments.html"{solutions_style}>Solutions</a></li>
-        <li><a href="resources.html"{insights_style}>Insights</a></li>
-        <li><a href="ai-experts/directory/directory.html"{ai_hub_style}>AI Experts Hub</a></li>
-        <li><a href="team.html"{team_style}>Team</a></li>
-        <li><a href="ai-readiness.html"{readiness_style}>Check AI Readiness</a></li>
-        <li><a href="about.html"{about_style}>About</a></li>
-      </ul>
-      <a href="contact.html" class="prem-btn">Book Consultation</a>
-      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </nav>
+ROOT_PREFIX = '/'
 
-  <!-- Mobile Menu Overlay -->
-  <div class="mobile-menu-overlay" id="mobileMenuOverlay">
-    <a href="index.html">Home</a>
-    <a href="strategy.html">Strategy</a>
-    <a href="departments.html">Solutions</a>
-    <a href="resources.html">Insights</a>
-    <a href="ai-experts/directory/directory.html">AI Experts Hub</a>
-    <a href="team.html">Team</a>
-    <a href="ai-readiness.html">Check AI Readiness</a>
-    <a href="about.html">About</a>
-    <a href="contact.html" class="prem-btn" style="background: var(--prem-accent-blue); border-color: var(--prem-accent-blue);">Book Consultation</a>
-  </div>"""
+NAV_ITEMS = [
+    {"label": "Home", "href": f"{ROOT_PREFIX}index.html", "key": "home_style"},
+    {"label": "Strategy", "href": f"{ROOT_PREFIX}strategy.html", "key": "strategy_style"},
+    {"label": "Solutions", "href": f"{ROOT_PREFIX}departments.html", "key": "solutions_style"},
+    {"label": "Insights", "href": f"{ROOT_PREFIX}resources.html", "key": "insights_style"},
+    {"label": "Blog", "href": f"{ROOT_PREFIX}blog.html", "key": "blog_style"},
+    {"label": "Team", "href": f"{ROOT_PREFIX}team.html", "key": "team_style"},
+    {"label": "AI Experts Hub", "href": f"{ROOT_PREFIX}ai-experts/index.html", "key": "experts_style"},
+    {"label": "Check AI Readiness", "href": f"{ROOT_PREFIX}ai-readiness.html", "key": "readiness_style"},
+    {"label": "About", "href": f"{ROOT_PREFIX}about.html", "key": "about_style"},
+]
 
-# Active style string
 ACTIVE_STYLE = ' style="color: var(--prem-text);"'
 
-# Mapping of filename to the active style placeholder key
 FILE_MAPPING = {
     'index.html': 'home_style',
     'strategy.html': 'strategy_style',
@@ -52,7 +26,7 @@ FILE_MAPPING = {
     'solutions-ops.html': 'solutions_style',
     'solutions-sales.html': 'solutions_style',
     'resources.html': 'insights_style',
-    'ai-experts/hub.html': 'ai_hub_style',
+    'blog.html': 'blog_style',
     'team.html': 'team_style',
     'ai-readiness.html': 'readiness_style',
     'about.html': 'about_style',
@@ -61,87 +35,119 @@ FILE_MAPPING = {
     'fractional-caio.html': 'strategy_style',
     'workshops.html': 'strategy_style',
     'privacy.html': '',
-    'terms.html': ''
+    'terms.html': '',
+    'ai-experts/index.html': 'experts_style',
+    'ai-experts/apply.html': 'experts_style',
 }
 
-# Updated Regex to be more flexible
-# Matches optional "<!-- Navigation -->", then "<nav class="prem-nav">", content, "<!-- Mobile Menu Overlay -->", content, "</div>", then optional whitespace and "<script>"
-REGEX_PATTERN = r'(?:<!-- Navigation -->\s*)?(<nav class="prem-nav">.*?<!-- Mobile Menu Overlay -->.*?</div>)(\s*<script>)'
+NAV_PATTERN = re.compile(r'(?:<!-- Navigation -->\s*)?<nav class="prem-nav">.*?<!-- Mobile Menu Overlay -->.*?</div>', re.DOTALL)
+FOOTER_PATTERN = re.compile(r'<footer class="prem-footer">.*?</footer>', re.DOTALL)
 
-def update_file(filename):
-    if not os.path.exists(filename):
-        print(f"Skipping {filename} (not found)")
-        return
 
-    with open(filename, 'r', encoding='utf-8') as f:
+def build_nav_html(active_key: str) -> str:
+    nav_links = []
+    overlay_links = []
+    for item in NAV_ITEMS:
+        style = ACTIVE_STYLE if active_key == item.get("key") else ''
+        nav_links.append(f'        <li><a href="{item["href"]}"{style}>{item["label"]}</a></li>')
+        overlay_links.append(f'    <a href="{item["href"]}">{item["label"]}</a>')
+
+    nav_block = "\n".join(nav_links)
+    overlay_block = "\n".join(overlay_links)
+
+    return f"""  <!-- Navigation -->
+  <nav class=\"prem-nav\">
+    <div class=\"prem-container prem-nav-inner\">
+      <a href=\"{ROOT_PREFIX}index.html\" class=\"prem-logo\"><img src=\"{ROOT_PREFIX}assets/images/2.png\" alt=\"iMPLEMENTAi.ae\" style=\"height: 45px; width: auto;\"></a>
+      <ul class=\"prem-menu\">
+{nav_block}
+      </ul>
+      <a href=\"{ROOT_PREFIX}contact.html\" class=\"prem-btn\">Book Consultation</a>
+      <button class=\"mobile-menu-toggle\" id=\"mobile-menu-toggle\" aria-label=\"Toggle menu\">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div class=\"mobile-menu-overlay\" id=\"mobile-menu\">
+{overlay_block}
+    <a href=\"{ROOT_PREFIX}contact.html\" class=\"prem-btn\" style=\"background: var(--prem-accent-blue); border-color: var(--prem-accent-blue);\">Book Consultation</a>
+  </div>"""
+
+
+def build_footer_html() -> str:
+    explore_links = "\n          ".join([f'<a href="{item["href"]}">{item["label"]}</a>' for item in NAV_ITEMS])
+    return f"""<footer class=\"prem-footer\">
+    <div class=\"prem-container\">
+      <div class=\"prem-footer-grid\">
+        <div>
+          <a href=\"{ROOT_PREFIX}index.html\" class=\"prem-logo\" style=\"margin-bottom: 1.5rem; display: block;\"><img
+              src=\"{ROOT_PREFIX}assets/images/2.png\" alt=\"iMPLEMENTAi.ae\" style=\"height: 45px; width: auto;\"></a>
+          <p style=\"color: var(--prem-text-secondary); max-width: 300px;\">
+            The premier AI consultancy for the UAE mid-market. Bridging the gap between technology and business value.
+          </p>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <a href=\"{ROOT_PREFIX}strategy.html\">AI Strategy</a>
+          <a href=\"{ROOT_PREFIX}automation.html\">Automation & Agents</a>
+          <a href=\"{ROOT_PREFIX}fractional-caio.html\">Fractional CAIO</a>
+          <a href=\"{ROOT_PREFIX}workshops.html\">Workshops</a>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          {explore_links}
+        </div>
+        <div>
+          <h4>Connect</h4>
+          <a href=\"https://www.linkedin.com/company/implementai-ae\">LinkedIn</a>
+          <a href=\"mailto:sales@implementai.ae\">Email Us</a>
+        </div>
+      </div>
+      <div
+        style=\"border-top: 1px solid var(--prem-border); padding-top: 2rem; text-align: center; color: var(--prem-text-secondary); font-size: 0.85rem;\">
+        &copy; 2025 iMPLEMENTAi.ae. All rights reserved.
+      </div>
+    </div>
+  </footer>"""
+
+
+def determine_active_style(filepath: str) -> str:
+    normalized = filepath.lstrip('./')
+    if normalized in FILE_MAPPING:
+        return FILE_MAPPING[normalized]
+    basename = os.path.basename(normalized)
+    return FILE_MAPPING.get(basename, '')
+
+
+def update_file(filepath: str, footer_html: str) -> None:
+    with open(filepath, 'r', encoding='utf-8') as f:
         content = f.read()
 
-    # Determine active style
-    active_key = FILE_MAPPING.get(filename, '')
-    
-    # Prepare the new nav HTML
-    format_args = {
-        'home_style': '',
-        'strategy_style': '',
-        'solutions_style': '',
-        'insights_style': '',
-        'ai_hub_style': '',
-        'team_style': '',
-        'readiness_style': '',
-        'about_style': ''
-    }
-    
-    if active_key in format_args:
-        format_args[active_key] = ACTIVE_STYLE
-        
-    new_nav = NAV_TEMPLATE.format(**format_args)
-    
-    # Perform replacement
-    # We use re.DOTALL to match across lines
-    # We replace the captured group 1 (the old nav block) with the new nav block
-    # We keep group 2 (the script tag)
-    # The optional comment at the start is consumed by the match but not in group 1 or 2, so it gets replaced by the new nav which includes the comment.
-    
-    # Note: The regex matches the whole block including the optional comment.
-    # So we replace the whole match with new_nav + group 2.
-    
-    # Wait, re.sub replaces the *whole match*.
-    # My regex is: (optional comment)(nav...div)(script)
-    # So group 1 is nav...div
-    # Group 2 is script
-    # The optional comment is part of the match (group 0) but not group 1.
-    
-    # So if I replace with new_nav + r'\2', I am replacing the whole match (comment + nav + script) with (new_nav + script).
-    # This is correct.
-    
-    new_content = re.sub(REGEX_PATTERN, f'{new_nav}\\2', content, flags=re.DOTALL)
-    
+    active_key = determine_active_style(filepath)
+    nav_html = build_nav_html(active_key)
+
+    new_content = NAV_PATTERN.sub(nav_html, content)
+    new_content = FOOTER_PATTERN.sub(footer_html, new_content)
+
     if new_content != content:
-        with open(filename, 'w', encoding='utf-8') as f:
+        with open(filepath, 'w', encoding='utf-8') as f:
             f.write(new_content)
-        print(f"Updated {filename}")
-    else:
-        print(f"No changes needed for {filename} (or pattern not found)")
+        print(f"Updated {filepath}")
 
-# List of files to update
-files_to_update = [
-    'about.html',
-    'strategy.html',
-    'departments.html',
-    'team.html',
-    'ai-readiness.html',
-    'contact.html',
-    'resources.html',
-    'privacy.html',
-    'terms.html',
-    'automation.html',
-    'fractional-caio.html',
-    'workshops.html',
-    'solutions-hr.html',
-    'solutions-finance.html',
-    'solutions-ops.html',
-    'solutions-sales.html'
-]
 
-for filename in files_to_update:
-    update_file(filename)
+def main():
+    footer_html = build_footer_html()
+    for root, dirs, files in os.walk('.'):
+        dirs[:] = [d for d in dirs if d not in {'node_modules', '__pycache__', '.git', '.vscode', 'transcription and image files'}]
+        for file in files:
+            if file.endswith('.html'):
+                filepath = os.path.join(root, file)
+                update_file(filepath, footer_html)
+
+
+if __name__ == '__main__':
+    main()
